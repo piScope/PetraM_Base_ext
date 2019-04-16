@@ -1,0 +1,97 @@
+#
+#  PyMFEM extension sample
+#
+
+This example is written for parallel (MPI) version of PyMFEM.
+You need to have python2.7 with mpi4py. 
+
+#
+# How to build this sample
+#
+
+1) prepare Makefile
+
+edit Makefile. You need to set compiler (mpicxx), location of
+include/lib of various libraries.
+
+2) build
+
+make extension   # build/install the sample external library
+make cxx         # generate a wrapper code to wrap the sample library
+make so          # compile a wrapper code
+make install     # install
+
+
+Alternatively, you can pass these parameters from arguments as follows 
+
+ make <build command>  PREFIX=~/sandbox \
+                       MFEM_LNK_DIR=~/sandbox/mfem-git/par/lib \
+        	       MFEM_INC_DIR=~/sandbox/mfem-git/par/include \
+	               CC=mpicc CXX=mpicxx \
+                       HYPRE_INC_DIR=~/sandbox/include      \
+                       METIS_INC_DIR=~/sandbox/include
+		       
+where <build command> is extension, cxx, so, and install		       
+
+#
+# How to use this sample
+#
+1) Build Files
+
+This build process of sample extension is done by following files.
+
+Makefile                  # Entry point of build process. Enviromental variables are set here
+setup.py                  # python script to build python extension wrapper and install it
+ext/CMakeLists.txt        # CMake file to build a sample library
+mfem_ext_sample/Makefile  # called from top-level Makefile
+
+
+#
+# test result
+#
+Python 2.7.15 (default, May  2 2018, 00:53:27) 
+Type "copyright", "credits" or "license" for more information.
+
+IPython 5.4.0 -- An enhanced Interactive Python.
+?         -> Introduction and overview of IPython's features.
+%quickref -> Quick reference.
+help      -> Python's own help system.
+object?   -> Details about 'object', use 'object??' for extra details.
+
+In [1]: import mfem_ext_sample.sample_a
+
+In [2]: dir(mfem_ext_sample.sample_a)
+Out[2]: 
+['__builtin__',
+ '__builtins__',
+ '__doc__',
+ '__file__',
+ '__name__',
+ '__package__',
+ '_newclass',
+ '_object',
+ '_sample_a',
+ '_swig_getattr',
+ '_swig_property',
+ '_swig_repr',
+ '_swig_setattr',
+ '_swig_setattr_nondynamic',
+ 'sample_PyMFEM_ext',
+ 'sample_PyMFEM_ext_swigregister']
+
+In [3]: refiner = mfem_ext_sample.sample_a.sample_PyMFEM_ext()
+Conctructor called
+
+In [4]: refiner.get_refine()
+Out[4]: 1
+
+In [5]: import mfem.par
+In [8]: mesh = mfem.par.Mesh('test.msh')
+
+In [9]: mesh.GetNV()
+Out[9]: 14
+
+In [10]: refiner.call_refine(mesh)
+
+In [11]: mesh.GetNV()
+Out[11]: 63
