@@ -10,10 +10,12 @@ defaut: so
 all: so
 
 cxx: $(ALLCXX)
-so: 
-	$(PYTHON) setup.py build_ext --inplace
+so:
+	CC=${MPICC} CFLAGS=${CXXFLAGS} $(PYTHON) setup.py build_ext --inplace
+
 %_wrap.cxx: %.i
-	$(SWIG) $(SWIGFLAG) -I$(MFEM_INC_DIR) -I$(MFEM_INC_DIR)/mfem -I$(MPI4PYINCDIR)  $<
+	echo "Processing" $<
+	$(SWIG) $(SWIGFLAG) -I$(PYMFEM_SRC)/mfem/par -I$(MFEM_PAR_INC)/mfem -I$(MPI4PYINCDIR)  $<
 
 clean:
 	rm -f *.cxx

@@ -8,8 +8,8 @@
  * interface file instead.
  * ----------------------------------------------------------------------------- */
 
-#ifndef SWIG_sample_a_WRAP_H_
-#define SWIG_sample_a_WRAP_H_
+#ifndef SWIG_fancy_coefficient_WRAP_H_
+#define SWIG_fancy_coefficient_WRAP_H_
 
 #include <map>
 #include <string>
