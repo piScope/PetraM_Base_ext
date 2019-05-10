@@ -1,3 +1,4 @@
+
 """
 setup.py file for SWIG example
 """
@@ -43,7 +44,7 @@ mfem_incdir = os.getenv("MFEM_PAR_INC")
 mfem_incdir2 = os.path.join(os.getenv("MFEM_PAR_INC"), "mfem")
 hypre_incdir = os.getenv("HYPRE_INC_DIR")
 metis_incdir = os.getenv("METIS_INC_DIR")
-pymfem_incdir = os.path.join(os.getenv("PYMFEM_SRC"), 'mfem', 'par')
+pymfem_incdir = os.path.join(os.getenv("PYMFEM_SRC"), 'mfem', '_par')
 
 include_dirs = [ext_incdir, prefix_incdir,  hypre_incdir, metis_incdir,
                 mfem_incdir, mfem_incdir2,

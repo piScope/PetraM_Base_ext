@@ -102,26 +102,26 @@ except __builtin__.Exception:
     weakref_proxy = lambda x: x
 
 
-import mfem.ser.coefficient
-import mfem.ser.array
-import mfem.ser.ostream_typemap
-import mfem.ser.matrix
-import mfem.ser.vector
-import mfem.ser.operators
-import mfem.ser.intrules
-import mfem.ser.sparsemat
-import mfem.ser.densemat
-import mfem.ser.eltrans
-import mfem.ser.fe
-class Scalar_PiecewiseLinear_MaterialProperty(mfem.ser.coefficient.Coefficient):
+import mfem._ser.coefficient
+import mfem._ser.array
+import mfem._ser.ostream_typemap
+import mfem._ser.matrix
+import mfem._ser.vector
+import mfem._ser.operators
+import mfem._ser.intrules
+import mfem._ser.sparsemat
+import mfem._ser.densemat
+import mfem._ser.eltrans
+import mfem._ser.fe
+class Scalar_PiecewiseLinear_MaterialProperty(mfem._ser.coefficient.Coefficient):
     """Proxy of C++ PetraM_Base_extra::Scalar_PiecewiseLinear_MaterialProperty class."""
 
     __swig_setmethods__ = {}
-    for _s in [mfem.ser.coefficient.Coefficient]:
+    for _s in [mfem._ser.coefficient.Coefficient]:
         __swig_setmethods__.update(getattr(_s, '__swig_setmethods__', {}))
     __setattr__ = lambda self, name, value: _swig_setattr(self, Scalar_PiecewiseLinear_MaterialProperty, name, value)
     __swig_getmethods__ = {}
-    for _s in [mfem.ser.coefficient.Coefficient]:
+    for _s in [mfem._ser.coefficient.Coefficient]:
         __swig_getmethods__.update(getattr(_s, '__swig_getmethods__', {}))
     __getattr__ = lambda self, name: _swig_getattr(self, Scalar_PiecewiseLinear_MaterialProperty, name)
     __repr__ = _swig_repr
@@ -153,15 +153,15 @@ class Scalar_PiecewiseLinear_MaterialProperty(mfem.ser.coefficient.Coefficient):
 Scalar_PiecewiseLinear_MaterialProperty_swigregister = _fancy_coefficient.Scalar_PiecewiseLinear_MaterialProperty_swigregister
 Scalar_PiecewiseLinear_MaterialProperty_swigregister(Scalar_PiecewiseLinear_MaterialProperty)
 
-class Scalar_Poly1D_MaterialProperty(mfem.ser.coefficient.Coefficient):
+class Scalar_Poly1D_MaterialProperty(mfem._ser.coefficient.Coefficient):
     """Proxy of C++ PetraM_Base_extra::Scalar_Poly1D_MaterialProperty class."""
 
     __swig_setmethods__ = {}
-    for _s in [mfem.ser.coefficient.Coefficient]:
+    for _s in [mfem._ser.coefficient.Coefficient]:
         __swig_setmethods__.update(getattr(_s, '__swig_setmethods__', {}))
     __setattr__ = lambda self, name, value: _swig_setattr(self, Scalar_Poly1D_MaterialProperty, name, value)
     __swig_getmethods__ = {}
-    for _s in [mfem.ser.coefficient.Coefficient]:
+    for _s in [mfem._ser.coefficient.Coefficient]:
         __swig_getmethods__.update(getattr(_s, '__swig_getmethods__', {}))
     __getattr__ = lambda self, name: _swig_getattr(self, Scalar_Poly1D_MaterialProperty, name)
     __repr__ = _swig_repr
@@ -193,15 +193,15 @@ class Scalar_Poly1D_MaterialProperty(mfem.ser.coefficient.Coefficient):
 Scalar_Poly1D_MaterialProperty_swigregister = _fancy_coefficient.Scalar_Poly1D_MaterialProperty_swigregister
 Scalar_Poly1D_MaterialProperty_swigregister(Scalar_Poly1D_MaterialProperty)
 
-class Uniaxial_constant_MaterialProperty(mfem.ser.coefficient.MatrixCoefficient):
+class Uniaxial_constant_MaterialProperty(mfem._ser.coefficient.MatrixCoefficient):
     """Proxy of C++ PetraM_Base_extra::Uniaxial_constant_MaterialProperty class."""
 
     __swig_setmethods__ = {}
-    for _s in [mfem.ser.coefficient.MatrixCoefficient]:
+    for _s in [mfem._ser.coefficient.MatrixCoefficient]:
         __swig_setmethods__.update(getattr(_s, '__swig_setmethods__', {}))
     __setattr__ = lambda self, name, value: _swig_setattr(self, Uniaxial_constant_MaterialProperty, name, value)
     __swig_getmethods__ = {}
-    for _s in [mfem.ser.coefficient.MatrixCoefficient]:
+    for _s in [mfem._ser.coefficient.MatrixCoefficient]:
         __swig_getmethods__.update(getattr(_s, '__swig_getmethods__', {}))
     __getattr__ = lambda self, name: _swig_getattr(self, Uniaxial_constant_MaterialProperty, name)
     __repr__ = _swig_repr

@@ -41,7 +41,7 @@ mpi4pyincdir = mpi4py.get_include()
 prefix_incdir = os.path.join(os.getenv("PREFIX"), "include")
 mfem_incdir = os.getenv("MFEM_SERINC")
 mfem_incdir2 = os.path.join(os.getenv("MFEM_SER_INC"), "mfem")
-pymfem_incdir = os.path.join(os.getenv("PYMFEM_SRC"), 'mfem', 'ser')
+pymfem_incdir = os.path.join(os.getenv("PYMFEM_SRC"), 'mfem', '_ser')
 
 include_dirs = [ext_incdir, prefix_incdir,  
                 mfem_incdir, mfem_incdir2,

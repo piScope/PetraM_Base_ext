@@ -14,7 +14,7 @@ so:
 	CFLAGS=${CXXFLAGS} $(PYTHON) setup.py build_ext --inplace
 
 %_wrap.cxx: %.i
-	$(SWIG) $(SWIGFLAG) -I$(PYMFEM_SRC)/mfem/ser  -I$(MFEM_SER_INC)/mfem  $<
+	$(SWIG) $(SWIGFLAG) -I$(PYMFEM_SRC)/mfem/_ser  -I$(MFEM_SER_INC)/mfem  $<
 
 clean:
 	rm -f *.cxx
