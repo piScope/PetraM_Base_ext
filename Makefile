@@ -63,6 +63,8 @@ build_ext:
                                       -DMFEM_LNK_DIR=${MFEM_BASE}/ser/lib       \
                                       -DCMAKE_C_COMPILER=${CC}                  \
                                       -DCMAKE_CXX_COMPILER=${CXX}               \
+                                      -DCMAKE_INSTALL_RPATH=${MFEM_BASE}/ser/lib \
+                                      -DCMAKE_VERBOSE_MAKEFIEL=1                \
                                       -DPETRAM_PREFIX=${PREFIX};                \
         $(MAKE) VERBOSE=1             
 	cd ext/cmbuild_par; $(CMAKE) .. -DCMAKE_INSTALL_NAME_DIR=${MFEM_BASE}/par/lib \
@@ -74,9 +76,11 @@ build_ext:
                                       -DHYPRE_INC_DIR=${HYPRE_INC_DIR}          \
                                       -DCMAKE_C_COMPILER=${MPICC}               \
                                       -DCMAKE_CXX_COMPILER=${MPICXX}            \
+                                      -DCMAKE_VERBOSE_MAKEFIEL=1                \
+                                      -DCMAKE_INSTALL_RPATH=${MFEM_BASE}/par/lib \
                                       -DPETRAM_PREFIX=${PREFIX};                \
         $(MAKE) VERBOSE=1
-
+#                                      -DCMAKE_INSTALL_RPATH_USE_LINK_PATH=
 install_ext:
 	cd ext/cmbuild_ser;$(MAKE) install
 	cd ext/cmbuild_par;$(MAKE) install

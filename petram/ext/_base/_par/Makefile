@@ -1,7 +1,7 @@
 IFILE = $(wildcard *.i)
 ALLCXX = $(IFILE:.i=_wrap.cxx)
 SWIGFLAG = -Wall -c++ -python
-
+LDFLAGS = -Wl,-rpath,${MFEM_BASE}/par/lib
 # uncomment if you want to do always make clean + make all
 #.PHONY: all clean
 .PHONEY:clean cxx allso install
@@ -11,7 +11,7 @@ all: so
 
 cxx: $(ALLCXX)
 so:
-	CC=${MPICC} CFLAGS=${CXXFLAGS} $(PYTHON) setup.py build_ext --inplace
+	CC=${MPICC} CFLAGS=${CXXFLAGS} LDFLAGS=${LDFLAGS} $(PYTHON) setup.py build_ext --inplace
 
 %_wrap.cxx: %.i
 	echo "Processing" $<
