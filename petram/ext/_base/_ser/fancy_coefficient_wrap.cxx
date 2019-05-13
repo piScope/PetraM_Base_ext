@@ -3451,9 +3451,9 @@ namespace Swig {
 
 /* -------- TYPES TABLE (BEGIN) -------- */
 
-#define SWIGTYPE_p_PetraM_Base_extra__Scalar_PiecewiseLinear_MaterialProperty swig_types[0]
-#define SWIGTYPE_p_PetraM_Base_extra__Scalar_Poly1D_MaterialProperty swig_types[1]
-#define SWIGTYPE_p_PetraM_Base_extra__Uniaxial_constant_MaterialProperty swig_types[2]
+#define SWIGTYPE_p_PetraM_Base_extra__PiecewiseLinearMaterialProperty swig_types[0]
+#define SWIGTYPE_p_PetraM_Base_extra__Poly1DMaterialProperty swig_types[1]
+#define SWIGTYPE_p_PetraM_Base_extra__UniaxialConstantMaterialProperty swig_types[2]
 #define SWIGTYPE_p_char swig_types[3]
 #define SWIGTYPE_p_doublep swig_types[4]
 #define SWIGTYPE_p_hex_t swig_types[5]
@@ -3603,6 +3603,52 @@ namespace swig {
   #define SWIG_From_double   PyFloat_FromDouble 
 
 
+SWIGINTERN int
+SWIG_AsVal_double (PyObject *obj, double *val)
+{
+  int res = SWIG_TypeError;
+  if (PyFloat_Check(obj)) {
+    if (val) *val = PyFloat_AsDouble(obj);
+    return SWIG_OK;
+#if PY_VERSION_HEX < 0x03000000
+  } else if (PyInt_Check(obj)) {
+    if (val) *val = (double) PyInt_AsLong(obj);
+    return SWIG_OK;
+#endif
+  } else if (PyLong_Check(obj)) {
+    double v = PyLong_AsDouble(obj);
+    if (!PyErr_Occurred()) {
+      if (val) *val = v;
+      return SWIG_OK;
+    } else {
+      PyErr_Clear();
+    }
+  }
+#ifdef SWIG_PYTHON_CAST_MODE
+  {
+    int dispatch = 0;
+    double d = PyFloat_AsDouble(obj);
+    if (!PyErr_Occurred()) {
+      if (val) *val = d;
+      return SWIG_AddCast(SWIG_OK);
+    } else {
+      PyErr_Clear();
+    }
+    if (!dispatch) {
+      long v = PyLong_AsLong(obj);
+      if (!PyErr_Occurred()) {
+	if (val) *val = v;
+	return SWIG_AddCast(SWIG_AddCast(SWIG_OK));
+      } else {
+	PyErr_Clear();
+      }
+    }
+  }
+#endif
+  return res;
+}
+
+
 
 /* ---------------------------------------------------
  * C++ director class methods
@@ -3613,11 +3659,11 @@ namespace swig {
 #ifdef __cplusplus
 extern "C" {
 #endif
-SWIGINTERN PyObject *_wrap_new_Scalar_PiecewiseLinear_MaterialProperty(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_new_PiecewiseLinearMaterialProperty__SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  mfem::GridFunction *arg1 = (mfem::GridFunction *) 0 ;
-  mfem::Vector *arg2 = (mfem::Vector *) 0 ;
-  mfem::Vector *arg3 = (mfem::Vector *) 0 ;
+  mfem::Coefficient *arg1 = (mfem::Coefficient *) 0 ;
+  mfem::Vector *arg2 = 0 ;
+  mfem::Vector *arg3 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   void *argp2 = 0 ;
@@ -3627,27 +3673,33 @@ SWIGINTERN PyObject *_wrap_new_Scalar_PiecewiseLinear_MaterialProperty(PyObject 
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   PyObject * obj2 = 0 ;
-  PetraM_Base_extra::Scalar_PiecewiseLinear_MaterialProperty *result = 0 ;
+  PetraM_Base_extra::PiecewiseLinearMaterialProperty *result = 0 ;
   
-  if (!PyArg_ParseTuple(args,(char *)"OOO:new_Scalar_PiecewiseLinear_MaterialProperty",&obj0,&obj1,&obj2)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_mfem__GridFunction, 0 |  0 );
+  if (!PyArg_ParseTuple(args,(char *)"OOO:new_PiecewiseLinearMaterialProperty",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_mfem__Coefficient, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_Scalar_PiecewiseLinear_MaterialProperty" "', argument " "1"" of type '" "mfem::GridFunction *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_PiecewiseLinearMaterialProperty" "', argument " "1"" of type '" "mfem::Coefficient *""'"); 
   }
-  arg1 = reinterpret_cast< mfem::GridFunction * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_mfem__Vector, 0 |  0 );
+  arg1 = reinterpret_cast< mfem::Coefficient * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_mfem__Vector,  0  | 0);
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "new_Scalar_PiecewiseLinear_MaterialProperty" "', argument " "2"" of type '" "mfem::Vector *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "new_PiecewiseLinearMaterialProperty" "', argument " "2"" of type '" "mfem::Vector const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_PiecewiseLinearMaterialProperty" "', argument " "2"" of type '" "mfem::Vector const &""'"); 
   }
   arg2 = reinterpret_cast< mfem::Vector * >(argp2);
-  res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_mfem__Vector, 0 |  0 );
+  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_mfem__Vector,  0  | 0);
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "new_Scalar_PiecewiseLinear_MaterialProperty" "', argument " "3"" of type '" "mfem::Vector *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "new_PiecewiseLinearMaterialProperty" "', argument " "3"" of type '" "mfem::Vector const &""'"); 
+  }
+  if (!argp3) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_PiecewiseLinearMaterialProperty" "', argument " "3"" of type '" "mfem::Vector const &""'"); 
   }
   arg3 = reinterpret_cast< mfem::Vector * >(argp3);
   {
     try {
-      result = (PetraM_Base_extra::Scalar_PiecewiseLinear_MaterialProperty *)new PetraM_Base_extra::Scalar_PiecewiseLinear_MaterialProperty(arg1,arg2,arg3);
+      result = (PetraM_Base_extra::PiecewiseLinearMaterialProperty *)new PetraM_Base_extra::PiecewiseLinearMaterialProperty(arg1,(mfem::Vector const &)*arg2,(mfem::Vector const &)*arg3);
     }
 #ifdef  MFEM_USE_EXCEPTIONS
     catch (mfem::ErrorException &_e) {
@@ -3664,38 +3716,62 @@ SWIGINTERN PyObject *_wrap_new_Scalar_PiecewiseLinear_MaterialProperty(PyObject 
       SWIG_exception(SWIG_RuntimeError, "unknown exception");
     }	 
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_PetraM_Base_extra__Scalar_PiecewiseLinear_MaterialProperty, SWIG_POINTER_NEW |  0 );
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_PetraM_Base_extra__PiecewiseLinearMaterialProperty, SWIG_POINTER_NEW |  0 );
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_Scalar_PiecewiseLinear_MaterialProperty_SetGridFunction(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_new_PiecewiseLinearMaterialProperty__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  PetraM_Base_extra::Scalar_PiecewiseLinear_MaterialProperty *arg1 = (PetraM_Base_extra::Scalar_PiecewiseLinear_MaterialProperty *) 0 ;
-  mfem::GridFunction *arg2 = (mfem::GridFunction *) 0 ;
+  mfem::GridFunction *arg1 = (mfem::GridFunction *) 0 ;
+  mfem::Vector *arg2 = 0 ;
+  mfem::Vector *arg3 = 0 ;
+  int arg4 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   void *argp2 = 0 ;
   int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  PetraM_Base_extra::PiecewiseLinearMaterialProperty *result = 0 ;
   
-  if (!PyArg_ParseTuple(args,(char *)"OO:Scalar_PiecewiseLinear_MaterialProperty_SetGridFunction",&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_PetraM_Base_extra__Scalar_PiecewiseLinear_MaterialProperty, 0 |  0 );
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:new_PiecewiseLinearMaterialProperty",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_mfem__GridFunction, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Scalar_PiecewiseLinear_MaterialProperty_SetGridFunction" "', argument " "1"" of type '" "PetraM_Base_extra::Scalar_PiecewiseLinear_MaterialProperty *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_PiecewiseLinearMaterialProperty" "', argument " "1"" of type '" "mfem::GridFunction *""'"); 
   }
-  arg1 = reinterpret_cast< PetraM_Base_extra::Scalar_PiecewiseLinear_MaterialProperty * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_mfem__GridFunction, 0 |  0 );
+  arg1 = reinterpret_cast< mfem::GridFunction * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_mfem__Vector,  0  | 0);
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Scalar_PiecewiseLinear_MaterialProperty_SetGridFunction" "', argument " "2"" of type '" "mfem::GridFunction *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "new_PiecewiseLinearMaterialProperty" "', argument " "2"" of type '" "mfem::Vector const &""'"); 
   }
-  arg2 = reinterpret_cast< mfem::GridFunction * >(argp2);
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_PiecewiseLinearMaterialProperty" "', argument " "2"" of type '" "mfem::Vector const &""'"); 
+  }
+  arg2 = reinterpret_cast< mfem::Vector * >(argp2);
+  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_mfem__Vector,  0  | 0);
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "new_PiecewiseLinearMaterialProperty" "', argument " "3"" of type '" "mfem::Vector const &""'"); 
+  }
+  if (!argp3) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_PiecewiseLinearMaterialProperty" "', argument " "3"" of type '" "mfem::Vector const &""'"); 
+  }
+  arg3 = reinterpret_cast< mfem::Vector * >(argp3);
+  {
+    if ((PyArray_PyIntAsInt(obj3) == -1) && PyErr_Occurred()) {
+      SWIG_exception_fail(SWIG_TypeError, "Input must be integer");
+    };  
+    arg4 = PyArray_PyIntAsInt(obj3);
+  }
   {
     try {
-      (arg1)->SetGridFunction(arg2);
+      result = (PetraM_Base_extra::PiecewiseLinearMaterialProperty *)new PetraM_Base_extra::PiecewiseLinearMaterialProperty(arg1,(mfem::Vector const &)*arg2,(mfem::Vector const &)*arg3,arg4);
     }
 #ifdef  MFEM_USE_EXCEPTIONS
     catch (mfem::ErrorException &_e) {
@@ -3712,30 +3788,54 @@ SWIGINTERN PyObject *_wrap_Scalar_PiecewiseLinear_MaterialProperty_SetGridFuncti
       SWIG_exception(SWIG_RuntimeError, "unknown exception");
     }	 
   }
-  resultobj = SWIG_Py_Void();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_PetraM_Base_extra__PiecewiseLinearMaterialProperty, SWIG_POINTER_NEW |  0 );
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_Scalar_PiecewiseLinear_MaterialProperty_GetGridFunction(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_new_PiecewiseLinearMaterialProperty__SWIG_2(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  PetraM_Base_extra::Scalar_PiecewiseLinear_MaterialProperty *arg1 = (PetraM_Base_extra::Scalar_PiecewiseLinear_MaterialProperty *) 0 ;
+  mfem::GridFunction *arg1 = (mfem::GridFunction *) 0 ;
+  mfem::Vector *arg2 = 0 ;
+  mfem::Vector *arg3 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
   PyObject * obj0 = 0 ;
-  mfem::GridFunction *result = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PetraM_Base_extra::PiecewiseLinearMaterialProperty *result = 0 ;
   
-  if (!PyArg_ParseTuple(args,(char *)"O:Scalar_PiecewiseLinear_MaterialProperty_GetGridFunction",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_PetraM_Base_extra__Scalar_PiecewiseLinear_MaterialProperty, 0 |  0 );
+  if (!PyArg_ParseTuple(args,(char *)"OOO:new_PiecewiseLinearMaterialProperty",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_mfem__GridFunction, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Scalar_PiecewiseLinear_MaterialProperty_GetGridFunction" "', argument " "1"" of type '" "PetraM_Base_extra::Scalar_PiecewiseLinear_MaterialProperty const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_PiecewiseLinearMaterialProperty" "', argument " "1"" of type '" "mfem::GridFunction *""'"); 
   }
-  arg1 = reinterpret_cast< PetraM_Base_extra::Scalar_PiecewiseLinear_MaterialProperty * >(argp1);
+  arg1 = reinterpret_cast< mfem::GridFunction * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_mfem__Vector,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "new_PiecewiseLinearMaterialProperty" "', argument " "2"" of type '" "mfem::Vector const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_PiecewiseLinearMaterialProperty" "', argument " "2"" of type '" "mfem::Vector const &""'"); 
+  }
+  arg2 = reinterpret_cast< mfem::Vector * >(argp2);
+  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_mfem__Vector,  0  | 0);
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "new_PiecewiseLinearMaterialProperty" "', argument " "3"" of type '" "mfem::Vector const &""'"); 
+  }
+  if (!argp3) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_PiecewiseLinearMaterialProperty" "', argument " "3"" of type '" "mfem::Vector const &""'"); 
+  }
+  arg3 = reinterpret_cast< mfem::Vector * >(argp3);
   {
     try {
-      result = (mfem::GridFunction *)((PetraM_Base_extra::Scalar_PiecewiseLinear_MaterialProperty const *)arg1)->GetGridFunction();
+      result = (PetraM_Base_extra::PiecewiseLinearMaterialProperty *)new PetraM_Base_extra::PiecewiseLinearMaterialProperty(arg1,(mfem::Vector const &)*arg2,(mfem::Vector const &)*arg3);
     }
 #ifdef  MFEM_USE_EXCEPTIONS
     catch (mfem::ErrorException &_e) {
@@ -3752,16 +3852,99 @@ SWIGINTERN PyObject *_wrap_Scalar_PiecewiseLinear_MaterialProperty_GetGridFuncti
       SWIG_exception(SWIG_RuntimeError, "unknown exception");
     }	 
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_mfem__GridFunction, 0 |  0 );
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_PetraM_Base_extra__PiecewiseLinearMaterialProperty, SWIG_POINTER_NEW |  0 );
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_Scalar_PiecewiseLinear_MaterialProperty_Eval(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_new_PiecewiseLinearMaterialProperty(PyObject *self, PyObject *args) {
+  Py_ssize_t argc;
+  PyObject *argv[5] = {
+    0
+  };
+  Py_ssize_t ii;
+  
+  if (!PyTuple_Check(args)) SWIG_fail;
+  argc = args ? PyObject_Length(args) : 0;
+  for (ii = 0; (ii < 4) && (ii < argc); ii++) {
+    argv[ii] = PyTuple_GET_ITEM(args,ii);
+  }
+  if (argc == 3) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_mfem__Coefficient, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      int res = SWIG_ConvertPtr(argv[1], 0, SWIGTYPE_p_mfem__Vector, 0);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        int res = SWIG_ConvertPtr(argv[2], 0, SWIGTYPE_p_mfem__Vector, 0);
+        _v = SWIG_CheckState(res);
+        if (_v) {
+          return _wrap_new_PiecewiseLinearMaterialProperty__SWIG_0(self, args);
+        }
+      }
+    }
+  }
+  if (argc == 3) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_mfem__GridFunction, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      int res = SWIG_ConvertPtr(argv[1], 0, SWIGTYPE_p_mfem__Vector, 0);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        int res = SWIG_ConvertPtr(argv[2], 0, SWIGTYPE_p_mfem__Vector, 0);
+        _v = SWIG_CheckState(res);
+        if (_v) {
+          return _wrap_new_PiecewiseLinearMaterialProperty__SWIG_2(self, args);
+        }
+      }
+    }
+  }
+  if (argc == 4) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_mfem__GridFunction, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      int res = SWIG_ConvertPtr(argv[1], 0, SWIGTYPE_p_mfem__Vector, 0);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        int res = SWIG_ConvertPtr(argv[2], 0, SWIGTYPE_p_mfem__Vector, 0);
+        _v = SWIG_CheckState(res);
+        if (_v) {
+          {
+            if ((PyArray_PyIntAsInt(argv[3]) == -1) && PyErr_Occurred()) {
+              _v = 0;
+            } else {
+              _v = 1;    
+            }
+          }
+          if (_v) {
+            return _wrap_new_PiecewiseLinearMaterialProperty__SWIG_1(self, args);
+          }
+        }
+      }
+    }
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"Wrong number or type of arguments for overloaded function 'new_PiecewiseLinearMaterialProperty'.\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    PetraM_Base_extra::PiecewiseLinearMaterialProperty::PiecewiseLinearMaterialProperty(mfem::Coefficient *,mfem::Vector const &,mfem::Vector const &)\n"
+    "    PetraM_Base_extra::PiecewiseLinearMaterialProperty::PiecewiseLinearMaterialProperty(mfem::GridFunction *,mfem::Vector const &,mfem::Vector const &,int)\n"
+    "    PetraM_Base_extra::PiecewiseLinearMaterialProperty::PiecewiseLinearMaterialProperty(mfem::GridFunction *,mfem::Vector const &,mfem::Vector const &)\n");
+  return 0;
+}
+
+
+SWIGINTERN PyObject *_wrap_PiecewiseLinearMaterialProperty_Eval(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  PetraM_Base_extra::Scalar_PiecewiseLinear_MaterialProperty *arg1 = (PetraM_Base_extra::Scalar_PiecewiseLinear_MaterialProperty *) 0 ;
+  PetraM_Base_extra::PiecewiseLinearMaterialProperty *arg1 = (PetraM_Base_extra::PiecewiseLinearMaterialProperty *) 0 ;
   mfem::ElementTransformation *arg2 = 0 ;
   mfem::IntegrationPoint *arg3 = 0 ;
   void *argp1 = 0 ;
@@ -3775,26 +3958,26 @@ SWIGINTERN PyObject *_wrap_Scalar_PiecewiseLinear_MaterialProperty_Eval(PyObject
   PyObject * obj2 = 0 ;
   double result;
   
-  if (!PyArg_ParseTuple(args,(char *)"OOO:Scalar_PiecewiseLinear_MaterialProperty_Eval",&obj0,&obj1,&obj2)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_PetraM_Base_extra__Scalar_PiecewiseLinear_MaterialProperty, 0 |  0 );
+  if (!PyArg_ParseTuple(args,(char *)"OOO:PiecewiseLinearMaterialProperty_Eval",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_PetraM_Base_extra__PiecewiseLinearMaterialProperty, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Scalar_PiecewiseLinear_MaterialProperty_Eval" "', argument " "1"" of type '" "PetraM_Base_extra::Scalar_PiecewiseLinear_MaterialProperty *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PiecewiseLinearMaterialProperty_Eval" "', argument " "1"" of type '" "PetraM_Base_extra::PiecewiseLinearMaterialProperty *""'"); 
   }
-  arg1 = reinterpret_cast< PetraM_Base_extra::Scalar_PiecewiseLinear_MaterialProperty * >(argp1);
+  arg1 = reinterpret_cast< PetraM_Base_extra::PiecewiseLinearMaterialProperty * >(argp1);
   res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_mfem__ElementTransformation,  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Scalar_PiecewiseLinear_MaterialProperty_Eval" "', argument " "2"" of type '" "mfem::ElementTransformation &""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "PiecewiseLinearMaterialProperty_Eval" "', argument " "2"" of type '" "mfem::ElementTransformation &""'"); 
   }
   if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Scalar_PiecewiseLinear_MaterialProperty_Eval" "', argument " "2"" of type '" "mfem::ElementTransformation &""'"); 
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "PiecewiseLinearMaterialProperty_Eval" "', argument " "2"" of type '" "mfem::ElementTransformation &""'"); 
   }
   arg2 = reinterpret_cast< mfem::ElementTransformation * >(argp2);
   res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_mfem__IntegrationPoint,  0  | 0);
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "Scalar_PiecewiseLinear_MaterialProperty_Eval" "', argument " "3"" of type '" "mfem::IntegrationPoint const &""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "PiecewiseLinearMaterialProperty_Eval" "', argument " "3"" of type '" "mfem::IntegrationPoint const &""'"); 
   }
   if (!argp3) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Scalar_PiecewiseLinear_MaterialProperty_Eval" "', argument " "3"" of type '" "mfem::IntegrationPoint const &""'"); 
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "PiecewiseLinearMaterialProperty_Eval" "', argument " "3"" of type '" "mfem::IntegrationPoint const &""'"); 
   }
   arg3 = reinterpret_cast< mfem::IntegrationPoint * >(argp3);
   {
@@ -3823,19 +4006,19 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_delete_Scalar_PiecewiseLinear_MaterialProperty(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_delete_PiecewiseLinearMaterialProperty(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  PetraM_Base_extra::Scalar_PiecewiseLinear_MaterialProperty *arg1 = (PetraM_Base_extra::Scalar_PiecewiseLinear_MaterialProperty *) 0 ;
+  PetraM_Base_extra::PiecewiseLinearMaterialProperty *arg1 = (PetraM_Base_extra::PiecewiseLinearMaterialProperty *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject * obj0 = 0 ;
   
-  if (!PyArg_ParseTuple(args,(char *)"O:delete_Scalar_PiecewiseLinear_MaterialProperty",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_PetraM_Base_extra__Scalar_PiecewiseLinear_MaterialProperty, SWIG_POINTER_DISOWN |  0 );
+  if (!PyArg_ParseTuple(args,(char *)"O:delete_PiecewiseLinearMaterialProperty",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_PetraM_Base_extra__PiecewiseLinearMaterialProperty, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_Scalar_PiecewiseLinear_MaterialProperty" "', argument " "1"" of type '" "PetraM_Base_extra::Scalar_PiecewiseLinear_MaterialProperty *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_PiecewiseLinearMaterialProperty" "', argument " "1"" of type '" "PetraM_Base_extra::PiecewiseLinearMaterialProperty *""'"); 
   }
-  arg1 = reinterpret_cast< PetraM_Base_extra::Scalar_PiecewiseLinear_MaterialProperty * >(argp1);
+  arg1 = reinterpret_cast< PetraM_Base_extra::PiecewiseLinearMaterialProperty * >(argp1);
   {
     try {
       delete arg1;
@@ -3862,39 +4045,173 @@ fail:
 }
 
 
-SWIGINTERN PyObject *Scalar_PiecewiseLinear_MaterialProperty_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *PiecewiseLinearMaterialProperty_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *obj;
   if (!PyArg_ParseTuple(args,(char *)"O:swigregister", &obj)) return NULL;
-  SWIG_TypeNewClientData(SWIGTYPE_p_PetraM_Base_extra__Scalar_PiecewiseLinear_MaterialProperty, SWIG_NewClientData(obj));
+  SWIG_TypeNewClientData(SWIGTYPE_p_PetraM_Base_extra__PiecewiseLinearMaterialProperty, SWIG_NewClientData(obj));
   return SWIG_Py_Void();
 }
 
-SWIGINTERN PyObject *_wrap_new_Scalar_Poly1D_MaterialProperty(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_new_Poly1DMaterialProperty__SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  mfem::GridFunction *arg1 = (mfem::GridFunction *) 0 ;
-  mfem::Vector *arg2 = (mfem::Vector *) 0 ;
+  mfem::Coefficient *arg1 = (mfem::Coefficient *) 0 ;
+  mfem::Vector *arg2 = 0 ;
+  double arg3 ;
+  double arg4 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  double val3 ;
+  int ecode3 = 0 ;
+  double val4 ;
+  int ecode4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  PetraM_Base_extra::Poly1DMaterialProperty *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:new_Poly1DMaterialProperty",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_mfem__Coefficient, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_Poly1DMaterialProperty" "', argument " "1"" of type '" "mfem::Coefficient *""'"); 
+  }
+  arg1 = reinterpret_cast< mfem::Coefficient * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_mfem__Vector,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "new_Poly1DMaterialProperty" "', argument " "2"" of type '" "mfem::Vector const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_Poly1DMaterialProperty" "', argument " "2"" of type '" "mfem::Vector const &""'"); 
+  }
+  arg2 = reinterpret_cast< mfem::Vector * >(argp2);
+  ecode3 = SWIG_AsVal_double(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "new_Poly1DMaterialProperty" "', argument " "3"" of type '" "double""'");
+  } 
+  arg3 = static_cast< double >(val3);
+  ecode4 = SWIG_AsVal_double(obj3, &val4);
+  if (!SWIG_IsOK(ecode4)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "new_Poly1DMaterialProperty" "', argument " "4"" of type '" "double""'");
+  } 
+  arg4 = static_cast< double >(val4);
+  {
+    try {
+      result = (PetraM_Base_extra::Poly1DMaterialProperty *)new PetraM_Base_extra::Poly1DMaterialProperty(arg1,(mfem::Vector const &)*arg2,arg3,arg4);
+    }
+#ifdef  MFEM_USE_EXCEPTIONS
+    catch (mfem::ErrorException &_e) {
+      std::string s("PyMFEM error (mfem::ErrorException): "), s2(_e.what());
+      s = s + s2;    
+      SWIG_exception(SWIG_RuntimeError, s.c_str());
+    }
+#endif
+    
+    catch (Swig::DirectorException &e){
+      SWIG_fail;
+    }    
+    catch (...) {
+      SWIG_exception(SWIG_RuntimeError, "unknown exception");
+    }	 
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_PetraM_Base_extra__Poly1DMaterialProperty, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_Poly1DMaterialProperty__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  mfem::Coefficient *arg1 = (mfem::Coefficient *) 0 ;
+  mfem::Vector *arg2 = 0 ;
+  double arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  double val3 ;
+  int ecode3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PetraM_Base_extra::Poly1DMaterialProperty *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:new_Poly1DMaterialProperty",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_mfem__Coefficient, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_Poly1DMaterialProperty" "', argument " "1"" of type '" "mfem::Coefficient *""'"); 
+  }
+  arg1 = reinterpret_cast< mfem::Coefficient * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_mfem__Vector,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "new_Poly1DMaterialProperty" "', argument " "2"" of type '" "mfem::Vector const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_Poly1DMaterialProperty" "', argument " "2"" of type '" "mfem::Vector const &""'"); 
+  }
+  arg2 = reinterpret_cast< mfem::Vector * >(argp2);
+  ecode3 = SWIG_AsVal_double(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "new_Poly1DMaterialProperty" "', argument " "3"" of type '" "double""'");
+  } 
+  arg3 = static_cast< double >(val3);
+  {
+    try {
+      result = (PetraM_Base_extra::Poly1DMaterialProperty *)new PetraM_Base_extra::Poly1DMaterialProperty(arg1,(mfem::Vector const &)*arg2,arg3);
+    }
+#ifdef  MFEM_USE_EXCEPTIONS
+    catch (mfem::ErrorException &_e) {
+      std::string s("PyMFEM error (mfem::ErrorException): "), s2(_e.what());
+      s = s + s2;    
+      SWIG_exception(SWIG_RuntimeError, s.c_str());
+    }
+#endif
+    
+    catch (Swig::DirectorException &e){
+      SWIG_fail;
+    }    
+    catch (...) {
+      SWIG_exception(SWIG_RuntimeError, "unknown exception");
+    }	 
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_PetraM_Base_extra__Poly1DMaterialProperty, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_Poly1DMaterialProperty__SWIG_2(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  mfem::Coefficient *arg1 = (mfem::Coefficient *) 0 ;
+  mfem::Vector *arg2 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   void *argp2 = 0 ;
   int res2 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
-  PetraM_Base_extra::Scalar_Poly1D_MaterialProperty *result = 0 ;
+  PetraM_Base_extra::Poly1DMaterialProperty *result = 0 ;
   
-  if (!PyArg_ParseTuple(args,(char *)"OO:new_Scalar_Poly1D_MaterialProperty",&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_mfem__GridFunction, 0 |  0 );
+  if (!PyArg_ParseTuple(args,(char *)"OO:new_Poly1DMaterialProperty",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_mfem__Coefficient, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_Scalar_Poly1D_MaterialProperty" "', argument " "1"" of type '" "mfem::GridFunction *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_Poly1DMaterialProperty" "', argument " "1"" of type '" "mfem::Coefficient *""'"); 
   }
-  arg1 = reinterpret_cast< mfem::GridFunction * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_mfem__Vector, 0 |  0 );
+  arg1 = reinterpret_cast< mfem::Coefficient * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_mfem__Vector,  0  | 0);
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "new_Scalar_Poly1D_MaterialProperty" "', argument " "2"" of type '" "mfem::Vector *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "new_Poly1DMaterialProperty" "', argument " "2"" of type '" "mfem::Vector const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_Poly1DMaterialProperty" "', argument " "2"" of type '" "mfem::Vector const &""'"); 
   }
   arg2 = reinterpret_cast< mfem::Vector * >(argp2);
   {
     try {
-      result = (PetraM_Base_extra::Scalar_Poly1D_MaterialProperty *)new PetraM_Base_extra::Scalar_Poly1D_MaterialProperty(arg1,arg2);
+      result = (PetraM_Base_extra::Poly1DMaterialProperty *)new PetraM_Base_extra::Poly1DMaterialProperty(arg1,(mfem::Vector const &)*arg2);
     }
 #ifdef  MFEM_USE_EXCEPTIONS
     catch (mfem::ErrorException &_e) {
@@ -3911,38 +4228,197 @@ SWIGINTERN PyObject *_wrap_new_Scalar_Poly1D_MaterialProperty(PyObject *SWIGUNUS
       SWIG_exception(SWIG_RuntimeError, "unknown exception");
     }	 
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_PetraM_Base_extra__Scalar_Poly1D_MaterialProperty, SWIG_POINTER_NEW |  0 );
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_PetraM_Base_extra__Poly1DMaterialProperty, SWIG_POINTER_NEW |  0 );
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_Scalar_Poly1D_MaterialProperty_SetGridFunction(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_new_Poly1DMaterialProperty__SWIG_3(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  PetraM_Base_extra::Scalar_Poly1D_MaterialProperty *arg1 = (PetraM_Base_extra::Scalar_Poly1D_MaterialProperty *) 0 ;
-  mfem::GridFunction *arg2 = (mfem::GridFunction *) 0 ;
+  mfem::GridFunction *arg1 = (mfem::GridFunction *) 0 ;
+  mfem::Vector *arg2 = 0 ;
+  int arg3 ;
+  double arg4 ;
+  double arg5 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  double val4 ;
+  int ecode4 = 0 ;
+  double val5 ;
+  int ecode5 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  PyObject * obj4 = 0 ;
+  PetraM_Base_extra::Poly1DMaterialProperty *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOOO:new_Poly1DMaterialProperty",&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_mfem__GridFunction, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_Poly1DMaterialProperty" "', argument " "1"" of type '" "mfem::GridFunction *""'"); 
+  }
+  arg1 = reinterpret_cast< mfem::GridFunction * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_mfem__Vector,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "new_Poly1DMaterialProperty" "', argument " "2"" of type '" "mfem::Vector const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_Poly1DMaterialProperty" "', argument " "2"" of type '" "mfem::Vector const &""'"); 
+  }
+  arg2 = reinterpret_cast< mfem::Vector * >(argp2);
+  {
+    if ((PyArray_PyIntAsInt(obj2) == -1) && PyErr_Occurred()) {
+      SWIG_exception_fail(SWIG_TypeError, "Input must be integer");
+    };  
+    arg3 = PyArray_PyIntAsInt(obj2);
+  }
+  ecode4 = SWIG_AsVal_double(obj3, &val4);
+  if (!SWIG_IsOK(ecode4)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "new_Poly1DMaterialProperty" "', argument " "4"" of type '" "double""'");
+  } 
+  arg4 = static_cast< double >(val4);
+  ecode5 = SWIG_AsVal_double(obj4, &val5);
+  if (!SWIG_IsOK(ecode5)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "new_Poly1DMaterialProperty" "', argument " "5"" of type '" "double""'");
+  } 
+  arg5 = static_cast< double >(val5);
+  {
+    try {
+      result = (PetraM_Base_extra::Poly1DMaterialProperty *)new PetraM_Base_extra::Poly1DMaterialProperty(arg1,(mfem::Vector const &)*arg2,arg3,arg4,arg5);
+    }
+#ifdef  MFEM_USE_EXCEPTIONS
+    catch (mfem::ErrorException &_e) {
+      std::string s("PyMFEM error (mfem::ErrorException): "), s2(_e.what());
+      s = s + s2;    
+      SWIG_exception(SWIG_RuntimeError, s.c_str());
+    }
+#endif
+    
+    catch (Swig::DirectorException &e){
+      SWIG_fail;
+    }    
+    catch (...) {
+      SWIG_exception(SWIG_RuntimeError, "unknown exception");
+    }	 
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_PetraM_Base_extra__Poly1DMaterialProperty, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_Poly1DMaterialProperty__SWIG_4(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  mfem::GridFunction *arg1 = (mfem::GridFunction *) 0 ;
+  mfem::Vector *arg2 = 0 ;
+  int arg3 ;
+  double arg4 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  double val4 ;
+  int ecode4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  PetraM_Base_extra::Poly1DMaterialProperty *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:new_Poly1DMaterialProperty",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_mfem__GridFunction, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_Poly1DMaterialProperty" "', argument " "1"" of type '" "mfem::GridFunction *""'"); 
+  }
+  arg1 = reinterpret_cast< mfem::GridFunction * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_mfem__Vector,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "new_Poly1DMaterialProperty" "', argument " "2"" of type '" "mfem::Vector const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_Poly1DMaterialProperty" "', argument " "2"" of type '" "mfem::Vector const &""'"); 
+  }
+  arg2 = reinterpret_cast< mfem::Vector * >(argp2);
+  {
+    if ((PyArray_PyIntAsInt(obj2) == -1) && PyErr_Occurred()) {
+      SWIG_exception_fail(SWIG_TypeError, "Input must be integer");
+    };  
+    arg3 = PyArray_PyIntAsInt(obj2);
+  }
+  ecode4 = SWIG_AsVal_double(obj3, &val4);
+  if (!SWIG_IsOK(ecode4)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "new_Poly1DMaterialProperty" "', argument " "4"" of type '" "double""'");
+  } 
+  arg4 = static_cast< double >(val4);
+  {
+    try {
+      result = (PetraM_Base_extra::Poly1DMaterialProperty *)new PetraM_Base_extra::Poly1DMaterialProperty(arg1,(mfem::Vector const &)*arg2,arg3,arg4);
+    }
+#ifdef  MFEM_USE_EXCEPTIONS
+    catch (mfem::ErrorException &_e) {
+      std::string s("PyMFEM error (mfem::ErrorException): "), s2(_e.what());
+      s = s + s2;    
+      SWIG_exception(SWIG_RuntimeError, s.c_str());
+    }
+#endif
+    
+    catch (Swig::DirectorException &e){
+      SWIG_fail;
+    }    
+    catch (...) {
+      SWIG_exception(SWIG_RuntimeError, "unknown exception");
+    }	 
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_PetraM_Base_extra__Poly1DMaterialProperty, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_Poly1DMaterialProperty__SWIG_5(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  mfem::GridFunction *arg1 = (mfem::GridFunction *) 0 ;
+  mfem::Vector *arg2 = 0 ;
+  int arg3 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   void *argp2 = 0 ;
   int res2 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PetraM_Base_extra::Poly1DMaterialProperty *result = 0 ;
   
-  if (!PyArg_ParseTuple(args,(char *)"OO:Scalar_Poly1D_MaterialProperty_SetGridFunction",&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_PetraM_Base_extra__Scalar_Poly1D_MaterialProperty, 0 |  0 );
+  if (!PyArg_ParseTuple(args,(char *)"OOO:new_Poly1DMaterialProperty",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_mfem__GridFunction, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Scalar_Poly1D_MaterialProperty_SetGridFunction" "', argument " "1"" of type '" "PetraM_Base_extra::Scalar_Poly1D_MaterialProperty *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_Poly1DMaterialProperty" "', argument " "1"" of type '" "mfem::GridFunction *""'"); 
   }
-  arg1 = reinterpret_cast< PetraM_Base_extra::Scalar_Poly1D_MaterialProperty * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_mfem__GridFunction, 0 |  0 );
+  arg1 = reinterpret_cast< mfem::GridFunction * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_mfem__Vector,  0  | 0);
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Scalar_Poly1D_MaterialProperty_SetGridFunction" "', argument " "2"" of type '" "mfem::GridFunction *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "new_Poly1DMaterialProperty" "', argument " "2"" of type '" "mfem::Vector const &""'"); 
   }
-  arg2 = reinterpret_cast< mfem::GridFunction * >(argp2);
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_Poly1DMaterialProperty" "', argument " "2"" of type '" "mfem::Vector const &""'"); 
+  }
+  arg2 = reinterpret_cast< mfem::Vector * >(argp2);
+  {
+    if ((PyArray_PyIntAsInt(obj2) == -1) && PyErr_Occurred()) {
+      SWIG_exception_fail(SWIG_TypeError, "Input must be integer");
+    };  
+    arg3 = PyArray_PyIntAsInt(obj2);
+  }
   {
     try {
-      (arg1)->SetGridFunction(arg2);
+      result = (PetraM_Base_extra::Poly1DMaterialProperty *)new PetraM_Base_extra::Poly1DMaterialProperty(arg1,(mfem::Vector const &)*arg2,arg3);
     }
 #ifdef  MFEM_USE_EXCEPTIONS
     catch (mfem::ErrorException &_e) {
@@ -3959,30 +4435,42 @@ SWIGINTERN PyObject *_wrap_Scalar_Poly1D_MaterialProperty_SetGridFunction(PyObje
       SWIG_exception(SWIG_RuntimeError, "unknown exception");
     }	 
   }
-  resultobj = SWIG_Py_Void();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_PetraM_Base_extra__Poly1DMaterialProperty, SWIG_POINTER_NEW |  0 );
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_Scalar_Poly1D_MaterialProperty_GetGridFunction(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_new_Poly1DMaterialProperty__SWIG_6(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  PetraM_Base_extra::Scalar_Poly1D_MaterialProperty *arg1 = (PetraM_Base_extra::Scalar_Poly1D_MaterialProperty *) 0 ;
+  mfem::GridFunction *arg1 = (mfem::GridFunction *) 0 ;
+  mfem::Vector *arg2 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
   PyObject * obj0 = 0 ;
-  mfem::GridFunction *result = 0 ;
+  PyObject * obj1 = 0 ;
+  PetraM_Base_extra::Poly1DMaterialProperty *result = 0 ;
   
-  if (!PyArg_ParseTuple(args,(char *)"O:Scalar_Poly1D_MaterialProperty_GetGridFunction",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_PetraM_Base_extra__Scalar_Poly1D_MaterialProperty, 0 |  0 );
+  if (!PyArg_ParseTuple(args,(char *)"OO:new_Poly1DMaterialProperty",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_mfem__GridFunction, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Scalar_Poly1D_MaterialProperty_GetGridFunction" "', argument " "1"" of type '" "PetraM_Base_extra::Scalar_Poly1D_MaterialProperty const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_Poly1DMaterialProperty" "', argument " "1"" of type '" "mfem::GridFunction *""'"); 
   }
-  arg1 = reinterpret_cast< PetraM_Base_extra::Scalar_Poly1D_MaterialProperty * >(argp1);
+  arg1 = reinterpret_cast< mfem::GridFunction * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_mfem__Vector,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "new_Poly1DMaterialProperty" "', argument " "2"" of type '" "mfem::Vector const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_Poly1DMaterialProperty" "', argument " "2"" of type '" "mfem::Vector const &""'"); 
+  }
+  arg2 = reinterpret_cast< mfem::Vector * >(argp2);
   {
     try {
-      result = (mfem::GridFunction *)((PetraM_Base_extra::Scalar_Poly1D_MaterialProperty const *)arg1)->GetGridFunction();
+      result = (PetraM_Base_extra::Poly1DMaterialProperty *)new PetraM_Base_extra::Poly1DMaterialProperty(arg1,(mfem::Vector const &)*arg2);
     }
 #ifdef  MFEM_USE_EXCEPTIONS
     catch (mfem::ErrorException &_e) {
@@ -3999,16 +4487,215 @@ SWIGINTERN PyObject *_wrap_Scalar_Poly1D_MaterialProperty_GetGridFunction(PyObje
       SWIG_exception(SWIG_RuntimeError, "unknown exception");
     }	 
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_mfem__GridFunction, 0 |  0 );
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_PetraM_Base_extra__Poly1DMaterialProperty, SWIG_POINTER_NEW |  0 );
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_Scalar_Poly1D_MaterialProperty_Eval(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_new_Poly1DMaterialProperty(PyObject *self, PyObject *args) {
+  Py_ssize_t argc;
+  PyObject *argv[6] = {
+    0
+  };
+  Py_ssize_t ii;
+  
+  if (!PyTuple_Check(args)) SWIG_fail;
+  argc = args ? PyObject_Length(args) : 0;
+  for (ii = 0; (ii < 5) && (ii < argc); ii++) {
+    argv[ii] = PyTuple_GET_ITEM(args,ii);
+  }
+  if (argc == 2) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_mfem__Coefficient, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      int res = SWIG_ConvertPtr(argv[1], 0, SWIGTYPE_p_mfem__Vector, 0);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        return _wrap_new_Poly1DMaterialProperty__SWIG_2(self, args);
+      }
+    }
+  }
+  if (argc == 2) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_mfem__GridFunction, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      int res = SWIG_ConvertPtr(argv[1], 0, SWIGTYPE_p_mfem__Vector, 0);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        return _wrap_new_Poly1DMaterialProperty__SWIG_6(self, args);
+      }
+    }
+  }
+  if (argc == 3) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_mfem__GridFunction, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      int res = SWIG_ConvertPtr(argv[1], 0, SWIGTYPE_p_mfem__Vector, 0);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        {
+          if ((PyArray_PyIntAsInt(argv[2]) == -1) && PyErr_Occurred()) {
+            _v = 0;
+          } else {
+            _v = 1;    
+          }
+        }
+        if (_v) {
+          return _wrap_new_Poly1DMaterialProperty__SWIG_5(self, args);
+        }
+      }
+    }
+  }
+  if (argc == 3) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_mfem__Coefficient, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      int res = SWIG_ConvertPtr(argv[1], 0, SWIGTYPE_p_mfem__Vector, 0);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        {
+          if (PyFloat_Check(argv[2])){
+            _v = 1;
+          } else {
+            _v = 0;
+          }
+        }
+        if (_v) {
+          return _wrap_new_Poly1DMaterialProperty__SWIG_1(self, args);
+        }
+      }
+    }
+  }
+  if (argc == 4) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_mfem__Coefficient, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      int res = SWIG_ConvertPtr(argv[1], 0, SWIGTYPE_p_mfem__Vector, 0);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        {
+          if (PyFloat_Check(argv[2])){
+            _v = 1;
+          } else {
+            _v = 0;
+          }
+        }
+        if (_v) {
+          {
+            if (PyFloat_Check(argv[3])){
+              _v = 1;
+            } else {
+              _v = 0;
+            }
+          }
+          if (_v) {
+            return _wrap_new_Poly1DMaterialProperty__SWIG_0(self, args);
+          }
+        }
+      }
+    }
+  }
+  if (argc == 4) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_mfem__GridFunction, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      int res = SWIG_ConvertPtr(argv[1], 0, SWIGTYPE_p_mfem__Vector, 0);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        {
+          if ((PyArray_PyIntAsInt(argv[2]) == -1) && PyErr_Occurred()) {
+            _v = 0;
+          } else {
+            _v = 1;    
+          }
+        }
+        if (_v) {
+          {
+            if (PyFloat_Check(argv[3])){
+              _v = 1;
+            } else {
+              _v = 0;
+            }
+          }
+          if (_v) {
+            return _wrap_new_Poly1DMaterialProperty__SWIG_4(self, args);
+          }
+        }
+      }
+    }
+  }
+  if (argc == 5) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_mfem__GridFunction, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      int res = SWIG_ConvertPtr(argv[1], 0, SWIGTYPE_p_mfem__Vector, 0);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        {
+          if ((PyArray_PyIntAsInt(argv[2]) == -1) && PyErr_Occurred()) {
+            _v = 0;
+          } else {
+            _v = 1;    
+          }
+        }
+        if (_v) {
+          {
+            if (PyFloat_Check(argv[3])){
+              _v = 1;
+            } else {
+              _v = 0;
+            }
+          }
+          if (_v) {
+            {
+              if (PyFloat_Check(argv[4])){
+                _v = 1;
+              } else {
+                _v = 0;
+              }
+            }
+            if (_v) {
+              return _wrap_new_Poly1DMaterialProperty__SWIG_3(self, args);
+            }
+          }
+        }
+      }
+    }
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"Wrong number or type of arguments for overloaded function 'new_Poly1DMaterialProperty'.\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    PetraM_Base_extra::Poly1DMaterialProperty::Poly1DMaterialProperty(mfem::Coefficient *,mfem::Vector const &,double,double)\n"
+    "    PetraM_Base_extra::Poly1DMaterialProperty::Poly1DMaterialProperty(mfem::Coefficient *,mfem::Vector const &,double)\n"
+    "    PetraM_Base_extra::Poly1DMaterialProperty::Poly1DMaterialProperty(mfem::Coefficient *,mfem::Vector const &)\n"
+    "    PetraM_Base_extra::Poly1DMaterialProperty::Poly1DMaterialProperty(mfem::GridFunction *,mfem::Vector const &,int,double,double)\n"
+    "    PetraM_Base_extra::Poly1DMaterialProperty::Poly1DMaterialProperty(mfem::GridFunction *,mfem::Vector const &,int,double)\n"
+    "    PetraM_Base_extra::Poly1DMaterialProperty::Poly1DMaterialProperty(mfem::GridFunction *,mfem::Vector const &,int)\n"
+    "    PetraM_Base_extra::Poly1DMaterialProperty::Poly1DMaterialProperty(mfem::GridFunction *,mfem::Vector const &)\n");
+  return 0;
+}
+
+
+SWIGINTERN PyObject *_wrap_Poly1DMaterialProperty_Eval(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  PetraM_Base_extra::Scalar_Poly1D_MaterialProperty *arg1 = (PetraM_Base_extra::Scalar_Poly1D_MaterialProperty *) 0 ;
+  PetraM_Base_extra::Poly1DMaterialProperty *arg1 = (PetraM_Base_extra::Poly1DMaterialProperty *) 0 ;
   mfem::ElementTransformation *arg2 = 0 ;
   mfem::IntegrationPoint *arg3 = 0 ;
   void *argp1 = 0 ;
@@ -4022,26 +4709,26 @@ SWIGINTERN PyObject *_wrap_Scalar_Poly1D_MaterialProperty_Eval(PyObject *SWIGUNU
   PyObject * obj2 = 0 ;
   double result;
   
-  if (!PyArg_ParseTuple(args,(char *)"OOO:Scalar_Poly1D_MaterialProperty_Eval",&obj0,&obj1,&obj2)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_PetraM_Base_extra__Scalar_Poly1D_MaterialProperty, 0 |  0 );
+  if (!PyArg_ParseTuple(args,(char *)"OOO:Poly1DMaterialProperty_Eval",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_PetraM_Base_extra__Poly1DMaterialProperty, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Scalar_Poly1D_MaterialProperty_Eval" "', argument " "1"" of type '" "PetraM_Base_extra::Scalar_Poly1D_MaterialProperty *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Poly1DMaterialProperty_Eval" "', argument " "1"" of type '" "PetraM_Base_extra::Poly1DMaterialProperty *""'"); 
   }
-  arg1 = reinterpret_cast< PetraM_Base_extra::Scalar_Poly1D_MaterialProperty * >(argp1);
+  arg1 = reinterpret_cast< PetraM_Base_extra::Poly1DMaterialProperty * >(argp1);
   res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_mfem__ElementTransformation,  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Scalar_Poly1D_MaterialProperty_Eval" "', argument " "2"" of type '" "mfem::ElementTransformation &""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Poly1DMaterialProperty_Eval" "', argument " "2"" of type '" "mfem::ElementTransformation &""'"); 
   }
   if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Scalar_Poly1D_MaterialProperty_Eval" "', argument " "2"" of type '" "mfem::ElementTransformation &""'"); 
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Poly1DMaterialProperty_Eval" "', argument " "2"" of type '" "mfem::ElementTransformation &""'"); 
   }
   arg2 = reinterpret_cast< mfem::ElementTransformation * >(argp2);
   res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_mfem__IntegrationPoint,  0  | 0);
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "Scalar_Poly1D_MaterialProperty_Eval" "', argument " "3"" of type '" "mfem::IntegrationPoint const &""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "Poly1DMaterialProperty_Eval" "', argument " "3"" of type '" "mfem::IntegrationPoint const &""'"); 
   }
   if (!argp3) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Scalar_Poly1D_MaterialProperty_Eval" "', argument " "3"" of type '" "mfem::IntegrationPoint const &""'"); 
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Poly1DMaterialProperty_Eval" "', argument " "3"" of type '" "mfem::IntegrationPoint const &""'"); 
   }
   arg3 = reinterpret_cast< mfem::IntegrationPoint * >(argp3);
   {
@@ -4070,19 +4757,19 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_delete_Scalar_Poly1D_MaterialProperty(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_delete_Poly1DMaterialProperty(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  PetraM_Base_extra::Scalar_Poly1D_MaterialProperty *arg1 = (PetraM_Base_extra::Scalar_Poly1D_MaterialProperty *) 0 ;
+  PetraM_Base_extra::Poly1DMaterialProperty *arg1 = (PetraM_Base_extra::Poly1DMaterialProperty *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject * obj0 = 0 ;
   
-  if (!PyArg_ParseTuple(args,(char *)"O:delete_Scalar_Poly1D_MaterialProperty",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_PetraM_Base_extra__Scalar_Poly1D_MaterialProperty, SWIG_POINTER_DISOWN |  0 );
+  if (!PyArg_ParseTuple(args,(char *)"O:delete_Poly1DMaterialProperty",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_PetraM_Base_extra__Poly1DMaterialProperty, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_Scalar_Poly1D_MaterialProperty" "', argument " "1"" of type '" "PetraM_Base_extra::Scalar_Poly1D_MaterialProperty *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_Poly1DMaterialProperty" "', argument " "1"" of type '" "PetraM_Base_extra::Poly1DMaterialProperty *""'"); 
   }
-  arg1 = reinterpret_cast< PetraM_Base_extra::Scalar_Poly1D_MaterialProperty * >(argp1);
+  arg1 = reinterpret_cast< PetraM_Base_extra::Poly1DMaterialProperty * >(argp1);
   {
     try {
       delete arg1;
@@ -4109,14 +4796,126 @@ fail:
 }
 
 
-SWIGINTERN PyObject *Scalar_Poly1D_MaterialProperty_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *Poly1DMaterialProperty_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *obj;
   if (!PyArg_ParseTuple(args,(char *)"O:swigregister", &obj)) return NULL;
-  SWIG_TypeNewClientData(SWIGTYPE_p_PetraM_Base_extra__Scalar_Poly1D_MaterialProperty, SWIG_NewClientData(obj));
+  SWIG_TypeNewClientData(SWIGTYPE_p_PetraM_Base_extra__Poly1DMaterialProperty, SWIG_NewClientData(obj));
   return SWIG_Py_Void();
 }
 
-SWIGINTERN PyObject *_wrap_new_Uniaxial_constant_MaterialProperty(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_new_UniaxialConstantMaterialProperty__SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  mfem::Coefficient *arg1 = (mfem::Coefficient *) 0 ;
+  mfem::DenseMatrix *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PetraM_Base_extra::UniaxialConstantMaterialProperty *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:new_UniaxialConstantMaterialProperty",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_mfem__Coefficient, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_UniaxialConstantMaterialProperty" "', argument " "1"" of type '" "mfem::Coefficient *""'"); 
+  }
+  arg1 = reinterpret_cast< mfem::Coefficient * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_mfem__DenseMatrix,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "new_UniaxialConstantMaterialProperty" "', argument " "2"" of type '" "mfem::DenseMatrix const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_UniaxialConstantMaterialProperty" "', argument " "2"" of type '" "mfem::DenseMatrix const &""'"); 
+  }
+  arg2 = reinterpret_cast< mfem::DenseMatrix * >(argp2);
+  {
+    try {
+      result = (PetraM_Base_extra::UniaxialConstantMaterialProperty *)new PetraM_Base_extra::UniaxialConstantMaterialProperty(arg1,(mfem::DenseMatrix const &)*arg2);
+    }
+#ifdef  MFEM_USE_EXCEPTIONS
+    catch (mfem::ErrorException &_e) {
+      std::string s("PyMFEM error (mfem::ErrorException): "), s2(_e.what());
+      s = s + s2;    
+      SWIG_exception(SWIG_RuntimeError, s.c_str());
+    }
+#endif
+    
+    catch (Swig::DirectorException &e){
+      SWIG_fail;
+    }    
+    catch (...) {
+      SWIG_exception(SWIG_RuntimeError, "unknown exception");
+    }	 
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_PetraM_Base_extra__UniaxialConstantMaterialProperty, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_UniaxialConstantMaterialProperty__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  mfem::GridFunction *arg1 = (mfem::GridFunction *) 0 ;
+  mfem::DenseMatrix *arg2 = 0 ;
+  int arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PetraM_Base_extra::UniaxialConstantMaterialProperty *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:new_UniaxialConstantMaterialProperty",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_mfem__GridFunction, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_UniaxialConstantMaterialProperty" "', argument " "1"" of type '" "mfem::GridFunction *""'"); 
+  }
+  arg1 = reinterpret_cast< mfem::GridFunction * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_mfem__DenseMatrix,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "new_UniaxialConstantMaterialProperty" "', argument " "2"" of type '" "mfem::DenseMatrix const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_UniaxialConstantMaterialProperty" "', argument " "2"" of type '" "mfem::DenseMatrix const &""'"); 
+  }
+  arg2 = reinterpret_cast< mfem::DenseMatrix * >(argp2);
+  {
+    if ((PyArray_PyIntAsInt(obj2) == -1) && PyErr_Occurred()) {
+      SWIG_exception_fail(SWIG_TypeError, "Input must be integer");
+    };  
+    arg3 = PyArray_PyIntAsInt(obj2);
+  }
+  {
+    try {
+      result = (PetraM_Base_extra::UniaxialConstantMaterialProperty *)new PetraM_Base_extra::UniaxialConstantMaterialProperty(arg1,(mfem::DenseMatrix const &)*arg2,arg3);
+    }
+#ifdef  MFEM_USE_EXCEPTIONS
+    catch (mfem::ErrorException &_e) {
+      std::string s("PyMFEM error (mfem::ErrorException): "), s2(_e.what());
+      s = s + s2;    
+      SWIG_exception(SWIG_RuntimeError, s.c_str());
+    }
+#endif
+    
+    catch (Swig::DirectorException &e){
+      SWIG_fail;
+    }    
+    catch (...) {
+      SWIG_exception(SWIG_RuntimeError, "unknown exception");
+    }	 
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_PetraM_Base_extra__UniaxialConstantMaterialProperty, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_UniaxialConstantMaterialProperty__SWIG_2(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   mfem::GridFunction *arg1 = (mfem::GridFunction *) 0 ;
   mfem::DenseMatrix *arg2 = 0 ;
@@ -4126,25 +4925,25 @@ SWIGINTERN PyObject *_wrap_new_Uniaxial_constant_MaterialProperty(PyObject *SWIG
   int res2 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
-  PetraM_Base_extra::Uniaxial_constant_MaterialProperty *result = 0 ;
+  PetraM_Base_extra::UniaxialConstantMaterialProperty *result = 0 ;
   
-  if (!PyArg_ParseTuple(args,(char *)"OO:new_Uniaxial_constant_MaterialProperty",&obj0,&obj1)) SWIG_fail;
+  if (!PyArg_ParseTuple(args,(char *)"OO:new_UniaxialConstantMaterialProperty",&obj0,&obj1)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_mfem__GridFunction, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_Uniaxial_constant_MaterialProperty" "', argument " "1"" of type '" "mfem::GridFunction *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_UniaxialConstantMaterialProperty" "', argument " "1"" of type '" "mfem::GridFunction *""'"); 
   }
   arg1 = reinterpret_cast< mfem::GridFunction * >(argp1);
   res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_mfem__DenseMatrix,  0  | 0);
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "new_Uniaxial_constant_MaterialProperty" "', argument " "2"" of type '" "mfem::DenseMatrix const &""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "new_UniaxialConstantMaterialProperty" "', argument " "2"" of type '" "mfem::DenseMatrix const &""'"); 
   }
   if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_Uniaxial_constant_MaterialProperty" "', argument " "2"" of type '" "mfem::DenseMatrix const &""'"); 
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_UniaxialConstantMaterialProperty" "', argument " "2"" of type '" "mfem::DenseMatrix const &""'"); 
   }
   arg2 = reinterpret_cast< mfem::DenseMatrix * >(argp2);
   {
     try {
-      result = (PetraM_Base_extra::Uniaxial_constant_MaterialProperty *)new PetraM_Base_extra::Uniaxial_constant_MaterialProperty(arg1,(mfem::DenseMatrix const &)*arg2);
+      result = (PetraM_Base_extra::UniaxialConstantMaterialProperty *)new PetraM_Base_extra::UniaxialConstantMaterialProperty(arg1,(mfem::DenseMatrix const &)*arg2);
     }
 #ifdef  MFEM_USE_EXCEPTIONS
     catch (mfem::ErrorException &_e) {
@@ -4161,104 +4960,87 @@ SWIGINTERN PyObject *_wrap_new_Uniaxial_constant_MaterialProperty(PyObject *SWIG
       SWIG_exception(SWIG_RuntimeError, "unknown exception");
     }	 
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_PetraM_Base_extra__Uniaxial_constant_MaterialProperty, SWIG_POINTER_NEW |  0 );
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_PetraM_Base_extra__UniaxialConstantMaterialProperty, SWIG_POINTER_NEW |  0 );
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_Uniaxial_constant_MaterialProperty_SetGridFunction(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  PetraM_Base_extra::Uniaxial_constant_MaterialProperty *arg1 = (PetraM_Base_extra::Uniaxial_constant_MaterialProperty *) 0 ;
-  mfem::GridFunction *arg2 = (mfem::GridFunction *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
+SWIGINTERN PyObject *_wrap_new_UniaxialConstantMaterialProperty(PyObject *self, PyObject *args) {
+  Py_ssize_t argc;
+  PyObject *argv[4] = {
+    0
+  };
+  Py_ssize_t ii;
   
-  if (!PyArg_ParseTuple(args,(char *)"OO:Uniaxial_constant_MaterialProperty_SetGridFunction",&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_PetraM_Base_extra__Uniaxial_constant_MaterialProperty, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Uniaxial_constant_MaterialProperty_SetGridFunction" "', argument " "1"" of type '" "PetraM_Base_extra::Uniaxial_constant_MaterialProperty *""'"); 
+  if (!PyTuple_Check(args)) SWIG_fail;
+  argc = args ? PyObject_Length(args) : 0;
+  for (ii = 0; (ii < 3) && (ii < argc); ii++) {
+    argv[ii] = PyTuple_GET_ITEM(args,ii);
   }
-  arg1 = reinterpret_cast< PetraM_Base_extra::Uniaxial_constant_MaterialProperty * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_mfem__GridFunction, 0 |  0 );
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Uniaxial_constant_MaterialProperty_SetGridFunction" "', argument " "2"" of type '" "mfem::GridFunction *""'"); 
-  }
-  arg2 = reinterpret_cast< mfem::GridFunction * >(argp2);
-  {
-    try {
-      (arg1)->SetGridFunction(arg2);
+  if (argc == 2) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_mfem__Coefficient, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      int res = SWIG_ConvertPtr(argv[1], 0, SWIGTYPE_p_mfem__DenseMatrix, 0);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        return _wrap_new_UniaxialConstantMaterialProperty__SWIG_0(self, args);
+      }
     }
-#ifdef  MFEM_USE_EXCEPTIONS
-    catch (mfem::ErrorException &_e) {
-      std::string s("PyMFEM error (mfem::ErrorException): "), s2(_e.what());
-      s = s + s2;    
-      SWIG_exception(SWIG_RuntimeError, s.c_str());
-    }
-#endif
-    
-    catch (Swig::DirectorException &e){
-      SWIG_fail;
-    }    
-    catch (...) {
-      SWIG_exception(SWIG_RuntimeError, "unknown exception");
-    }	 
   }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Uniaxial_constant_MaterialProperty_GetGridFunction(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  PetraM_Base_extra::Uniaxial_constant_MaterialProperty *arg1 = (PetraM_Base_extra::Uniaxial_constant_MaterialProperty *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  mfem::GridFunction *result = 0 ;
+  if (argc == 2) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_mfem__GridFunction, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      int res = SWIG_ConvertPtr(argv[1], 0, SWIGTYPE_p_mfem__DenseMatrix, 0);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        return _wrap_new_UniaxialConstantMaterialProperty__SWIG_2(self, args);
+      }
+    }
+  }
+  if (argc == 3) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_mfem__GridFunction, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      int res = SWIG_ConvertPtr(argv[1], 0, SWIGTYPE_p_mfem__DenseMatrix, 0);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        {
+          if ((PyArray_PyIntAsInt(argv[2]) == -1) && PyErr_Occurred()) {
+            _v = 0;
+          } else {
+            _v = 1;    
+          }
+        }
+        if (_v) {
+          return _wrap_new_UniaxialConstantMaterialProperty__SWIG_1(self, args);
+        }
+      }
+    }
+  }
   
-  if (!PyArg_ParseTuple(args,(char *)"O:Uniaxial_constant_MaterialProperty_GetGridFunction",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_PetraM_Base_extra__Uniaxial_constant_MaterialProperty, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Uniaxial_constant_MaterialProperty_GetGridFunction" "', argument " "1"" of type '" "PetraM_Base_extra::Uniaxial_constant_MaterialProperty const *""'"); 
-  }
-  arg1 = reinterpret_cast< PetraM_Base_extra::Uniaxial_constant_MaterialProperty * >(argp1);
-  {
-    try {
-      result = (mfem::GridFunction *)((PetraM_Base_extra::Uniaxial_constant_MaterialProperty const *)arg1)->GetGridFunction();
-    }
-#ifdef  MFEM_USE_EXCEPTIONS
-    catch (mfem::ErrorException &_e) {
-      std::string s("PyMFEM error (mfem::ErrorException): "), s2(_e.what());
-      s = s + s2;    
-      SWIG_exception(SWIG_RuntimeError, s.c_str());
-    }
-#endif
-    
-    catch (Swig::DirectorException &e){
-      SWIG_fail;
-    }    
-    catch (...) {
-      SWIG_exception(SWIG_RuntimeError, "unknown exception");
-    }	 
-  }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_mfem__GridFunction, 0 |  0 );
-  return resultobj;
 fail:
-  return NULL;
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"Wrong number or type of arguments for overloaded function 'new_UniaxialConstantMaterialProperty'.\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    PetraM_Base_extra::UniaxialConstantMaterialProperty::UniaxialConstantMaterialProperty(mfem::Coefficient *,mfem::DenseMatrix const &)\n"
+    "    PetraM_Base_extra::UniaxialConstantMaterialProperty::UniaxialConstantMaterialProperty(mfem::GridFunction *,mfem::DenseMatrix const &,int)\n"
+    "    PetraM_Base_extra::UniaxialConstantMaterialProperty::UniaxialConstantMaterialProperty(mfem::GridFunction *,mfem::DenseMatrix const &)\n");
+  return 0;
 }
 
 
-SWIGINTERN PyObject *_wrap_Uniaxial_constant_MaterialProperty_Eval(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_UniaxialConstantMaterialProperty_Eval(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  PetraM_Base_extra::Uniaxial_constant_MaterialProperty *arg1 = (PetraM_Base_extra::Uniaxial_constant_MaterialProperty *) 0 ;
+  PetraM_Base_extra::UniaxialConstantMaterialProperty *arg1 = (PetraM_Base_extra::UniaxialConstantMaterialProperty *) 0 ;
   mfem::DenseMatrix *arg2 = 0 ;
   mfem::ElementTransformation *arg3 = 0 ;
   mfem::IntegrationPoint *arg4 = 0 ;
@@ -4275,34 +5057,34 @@ SWIGINTERN PyObject *_wrap_Uniaxial_constant_MaterialProperty_Eval(PyObject *SWI
   PyObject * obj2 = 0 ;
   PyObject * obj3 = 0 ;
   
-  if (!PyArg_ParseTuple(args,(char *)"OOOO:Uniaxial_constant_MaterialProperty_Eval",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_PetraM_Base_extra__Uniaxial_constant_MaterialProperty, 0 |  0 );
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:UniaxialConstantMaterialProperty_Eval",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_PetraM_Base_extra__UniaxialConstantMaterialProperty, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Uniaxial_constant_MaterialProperty_Eval" "', argument " "1"" of type '" "PetraM_Base_extra::Uniaxial_constant_MaterialProperty *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "UniaxialConstantMaterialProperty_Eval" "', argument " "1"" of type '" "PetraM_Base_extra::UniaxialConstantMaterialProperty *""'"); 
   }
-  arg1 = reinterpret_cast< PetraM_Base_extra::Uniaxial_constant_MaterialProperty * >(argp1);
+  arg1 = reinterpret_cast< PetraM_Base_extra::UniaxialConstantMaterialProperty * >(argp1);
   res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_mfem__DenseMatrix,  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Uniaxial_constant_MaterialProperty_Eval" "', argument " "2"" of type '" "mfem::DenseMatrix &""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "UniaxialConstantMaterialProperty_Eval" "', argument " "2"" of type '" "mfem::DenseMatrix &""'"); 
   }
   if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Uniaxial_constant_MaterialProperty_Eval" "', argument " "2"" of type '" "mfem::DenseMatrix &""'"); 
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "UniaxialConstantMaterialProperty_Eval" "', argument " "2"" of type '" "mfem::DenseMatrix &""'"); 
   }
   arg2 = reinterpret_cast< mfem::DenseMatrix * >(argp2);
   res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_mfem__ElementTransformation,  0 );
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "Uniaxial_constant_MaterialProperty_Eval" "', argument " "3"" of type '" "mfem::ElementTransformation &""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "UniaxialConstantMaterialProperty_Eval" "', argument " "3"" of type '" "mfem::ElementTransformation &""'"); 
   }
   if (!argp3) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Uniaxial_constant_MaterialProperty_Eval" "', argument " "3"" of type '" "mfem::ElementTransformation &""'"); 
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "UniaxialConstantMaterialProperty_Eval" "', argument " "3"" of type '" "mfem::ElementTransformation &""'"); 
   }
   arg3 = reinterpret_cast< mfem::ElementTransformation * >(argp3);
   res4 = SWIG_ConvertPtr(obj3, &argp4, SWIGTYPE_p_mfem__IntegrationPoint,  0  | 0);
   if (!SWIG_IsOK(res4)) {
-    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "Uniaxial_constant_MaterialProperty_Eval" "', argument " "4"" of type '" "mfem::IntegrationPoint const &""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "UniaxialConstantMaterialProperty_Eval" "', argument " "4"" of type '" "mfem::IntegrationPoint const &""'"); 
   }
   if (!argp4) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Uniaxial_constant_MaterialProperty_Eval" "', argument " "4"" of type '" "mfem::IntegrationPoint const &""'"); 
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "UniaxialConstantMaterialProperty_Eval" "', argument " "4"" of type '" "mfem::IntegrationPoint const &""'"); 
   }
   arg4 = reinterpret_cast< mfem::IntegrationPoint * >(argp4);
   {
@@ -4331,19 +5113,19 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_delete_Uniaxial_constant_MaterialProperty(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_delete_UniaxialConstantMaterialProperty(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  PetraM_Base_extra::Uniaxial_constant_MaterialProperty *arg1 = (PetraM_Base_extra::Uniaxial_constant_MaterialProperty *) 0 ;
+  PetraM_Base_extra::UniaxialConstantMaterialProperty *arg1 = (PetraM_Base_extra::UniaxialConstantMaterialProperty *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject * obj0 = 0 ;
   
-  if (!PyArg_ParseTuple(args,(char *)"O:delete_Uniaxial_constant_MaterialProperty",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_PetraM_Base_extra__Uniaxial_constant_MaterialProperty, SWIG_POINTER_DISOWN |  0 );
+  if (!PyArg_ParseTuple(args,(char *)"O:delete_UniaxialConstantMaterialProperty",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_PetraM_Base_extra__UniaxialConstantMaterialProperty, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_Uniaxial_constant_MaterialProperty" "', argument " "1"" of type '" "PetraM_Base_extra::Uniaxial_constant_MaterialProperty *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_UniaxialConstantMaterialProperty" "', argument " "1"" of type '" "PetraM_Base_extra::UniaxialConstantMaterialProperty *""'"); 
   }
-  arg1 = reinterpret_cast< PetraM_Base_extra::Uniaxial_constant_MaterialProperty * >(argp1);
+  arg1 = reinterpret_cast< PetraM_Base_extra::UniaxialConstantMaterialProperty * >(argp1);
   {
     try {
       delete arg1;
@@ -4370,33 +5152,43 @@ fail:
 }
 
 
-SWIGINTERN PyObject *Uniaxial_constant_MaterialProperty_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *UniaxialConstantMaterialProperty_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *obj;
   if (!PyArg_ParseTuple(args,(char *)"O:swigregister", &obj)) return NULL;
-  SWIG_TypeNewClientData(SWIGTYPE_p_PetraM_Base_extra__Uniaxial_constant_MaterialProperty, SWIG_NewClientData(obj));
+  SWIG_TypeNewClientData(SWIGTYPE_p_PetraM_Base_extra__UniaxialConstantMaterialProperty, SWIG_NewClientData(obj));
   return SWIG_Py_Void();
 }
 
 static PyMethodDef SwigMethods[] = {
 	 { (char *)"SWIG_PyInstanceMethod_New", (PyCFunction)SWIG_PyInstanceMethod_New, METH_O, NULL},
-	 { (char *)"new_Scalar_PiecewiseLinear_MaterialProperty", _wrap_new_Scalar_PiecewiseLinear_MaterialProperty, METH_VARARGS, (char *)"new_Scalar_PiecewiseLinear_MaterialProperty(GridFunction _gf, Vector _x, Vector _y) -> Scalar_PiecewiseLinear_MaterialProperty"},
-	 { (char *)"Scalar_PiecewiseLinear_MaterialProperty_SetGridFunction", _wrap_Scalar_PiecewiseLinear_MaterialProperty_SetGridFunction, METH_VARARGS, (char *)"Scalar_PiecewiseLinear_MaterialProperty_SetGridFunction(Scalar_PiecewiseLinear_MaterialProperty self, GridFunction gf)"},
-	 { (char *)"Scalar_PiecewiseLinear_MaterialProperty_GetGridFunction", _wrap_Scalar_PiecewiseLinear_MaterialProperty_GetGridFunction, METH_VARARGS, (char *)"Scalar_PiecewiseLinear_MaterialProperty_GetGridFunction(Scalar_PiecewiseLinear_MaterialProperty self) -> GridFunction"},
-	 { (char *)"Scalar_PiecewiseLinear_MaterialProperty_Eval", _wrap_Scalar_PiecewiseLinear_MaterialProperty_Eval, METH_VARARGS, (char *)"Scalar_PiecewiseLinear_MaterialProperty_Eval(Scalar_PiecewiseLinear_MaterialProperty self, ElementTransformation T, IntegrationPoint ip) -> double"},
-	 { (char *)"delete_Scalar_PiecewiseLinear_MaterialProperty", _wrap_delete_Scalar_PiecewiseLinear_MaterialProperty, METH_VARARGS, (char *)"delete_Scalar_PiecewiseLinear_MaterialProperty(Scalar_PiecewiseLinear_MaterialProperty self)"},
-	 { (char *)"Scalar_PiecewiseLinear_MaterialProperty_swigregister", Scalar_PiecewiseLinear_MaterialProperty_swigregister, METH_VARARGS, NULL},
-	 { (char *)"new_Scalar_Poly1D_MaterialProperty", _wrap_new_Scalar_Poly1D_MaterialProperty, METH_VARARGS, (char *)"new_Scalar_Poly1D_MaterialProperty(GridFunction _gf, Vector _coeff) -> Scalar_Poly1D_MaterialProperty"},
-	 { (char *)"Scalar_Poly1D_MaterialProperty_SetGridFunction", _wrap_Scalar_Poly1D_MaterialProperty_SetGridFunction, METH_VARARGS, (char *)"Scalar_Poly1D_MaterialProperty_SetGridFunction(Scalar_Poly1D_MaterialProperty self, GridFunction gf)"},
-	 { (char *)"Scalar_Poly1D_MaterialProperty_GetGridFunction", _wrap_Scalar_Poly1D_MaterialProperty_GetGridFunction, METH_VARARGS, (char *)"Scalar_Poly1D_MaterialProperty_GetGridFunction(Scalar_Poly1D_MaterialProperty self) -> GridFunction"},
-	 { (char *)"Scalar_Poly1D_MaterialProperty_Eval", _wrap_Scalar_Poly1D_MaterialProperty_Eval, METH_VARARGS, (char *)"Scalar_Poly1D_MaterialProperty_Eval(Scalar_Poly1D_MaterialProperty self, ElementTransformation T, IntegrationPoint ip) -> double"},
-	 { (char *)"delete_Scalar_Poly1D_MaterialProperty", _wrap_delete_Scalar_Poly1D_MaterialProperty, METH_VARARGS, (char *)"delete_Scalar_Poly1D_MaterialProperty(Scalar_Poly1D_MaterialProperty self)"},
-	 { (char *)"Scalar_Poly1D_MaterialProperty_swigregister", Scalar_Poly1D_MaterialProperty_swigregister, METH_VARARGS, NULL},
-	 { (char *)"new_Uniaxial_constant_MaterialProperty", _wrap_new_Uniaxial_constant_MaterialProperty, METH_VARARGS, (char *)"new_Uniaxial_constant_MaterialProperty(GridFunction _gf, DenseMatrix m) -> Uniaxial_constant_MaterialProperty"},
-	 { (char *)"Uniaxial_constant_MaterialProperty_SetGridFunction", _wrap_Uniaxial_constant_MaterialProperty_SetGridFunction, METH_VARARGS, (char *)"Uniaxial_constant_MaterialProperty_SetGridFunction(Uniaxial_constant_MaterialProperty self, GridFunction gf)"},
-	 { (char *)"Uniaxial_constant_MaterialProperty_GetGridFunction", _wrap_Uniaxial_constant_MaterialProperty_GetGridFunction, METH_VARARGS, (char *)"Uniaxial_constant_MaterialProperty_GetGridFunction(Uniaxial_constant_MaterialProperty self) -> GridFunction"},
-	 { (char *)"Uniaxial_constant_MaterialProperty_Eval", _wrap_Uniaxial_constant_MaterialProperty_Eval, METH_VARARGS, (char *)"Uniaxial_constant_MaterialProperty_Eval(Uniaxial_constant_MaterialProperty self, DenseMatrix K, ElementTransformation T, IntegrationPoint ip)"},
-	 { (char *)"delete_Uniaxial_constant_MaterialProperty", _wrap_delete_Uniaxial_constant_MaterialProperty, METH_VARARGS, (char *)"delete_Uniaxial_constant_MaterialProperty(Uniaxial_constant_MaterialProperty self)"},
-	 { (char *)"Uniaxial_constant_MaterialProperty_swigregister", Uniaxial_constant_MaterialProperty_swigregister, METH_VARARGS, NULL},
+	 { (char *)"new_PiecewiseLinearMaterialProperty", _wrap_new_PiecewiseLinearMaterialProperty, METH_VARARGS, (char *)"\n"
+		"PiecewiseLinearMaterialProperty(Coefficient _cf, Vector x, Vector y)\n"
+		"PiecewiseLinearMaterialProperty(GridFunction _gf, Vector x, Vector y, int comp=1)\n"
+		"new_PiecewiseLinearMaterialProperty(GridFunction _gf, Vector x, Vector y) -> PiecewiseLinearMaterialProperty\n"
+		""},
+	 { (char *)"PiecewiseLinearMaterialProperty_Eval", _wrap_PiecewiseLinearMaterialProperty_Eval, METH_VARARGS, (char *)"PiecewiseLinearMaterialProperty_Eval(PiecewiseLinearMaterialProperty self, ElementTransformation T, IntegrationPoint ip) -> double"},
+	 { (char *)"delete_PiecewiseLinearMaterialProperty", _wrap_delete_PiecewiseLinearMaterialProperty, METH_VARARGS, (char *)"delete_PiecewiseLinearMaterialProperty(PiecewiseLinearMaterialProperty self)"},
+	 { (char *)"PiecewiseLinearMaterialProperty_swigregister", PiecewiseLinearMaterialProperty_swigregister, METH_VARARGS, NULL},
+	 { (char *)"new_Poly1DMaterialProperty", _wrap_new_Poly1DMaterialProperty, METH_VARARGS, (char *)"\n"
+		"Poly1DMaterialProperty(Coefficient _cf, Vector coeff, double _max_range, double _min_range)\n"
+		"Poly1DMaterialProperty(Coefficient _cf, Vector coeff, double _max_range)\n"
+		"Poly1DMaterialProperty(Coefficient _cf, Vector coeff)\n"
+		"Poly1DMaterialProperty(GridFunction _gf, Vector coeff, int comp=1, double _max_range, double _min_range)\n"
+		"Poly1DMaterialProperty(GridFunction _gf, Vector coeff, int comp=1, double _max_range)\n"
+		"Poly1DMaterialProperty(GridFunction _gf, Vector coeff, int comp=1)\n"
+		"new_Poly1DMaterialProperty(GridFunction _gf, Vector coeff) -> Poly1DMaterialProperty\n"
+		""},
+	 { (char *)"Poly1DMaterialProperty_Eval", _wrap_Poly1DMaterialProperty_Eval, METH_VARARGS, (char *)"Poly1DMaterialProperty_Eval(Poly1DMaterialProperty self, ElementTransformation T, IntegrationPoint ip) -> double"},
+	 { (char *)"delete_Poly1DMaterialProperty", _wrap_delete_Poly1DMaterialProperty, METH_VARARGS, (char *)"delete_Poly1DMaterialProperty(Poly1DMaterialProperty self)"},
+	 { (char *)"Poly1DMaterialProperty_swigregister", Poly1DMaterialProperty_swigregister, METH_VARARGS, NULL},
+	 { (char *)"new_UniaxialConstantMaterialProperty", _wrap_new_UniaxialConstantMaterialProperty, METH_VARARGS, (char *)"\n"
+		"UniaxialConstantMaterialProperty(Coefficient _cf, DenseMatrix m)\n"
+		"UniaxialConstantMaterialProperty(GridFunction _gf, DenseMatrix m, int comp=1)\n"
+		"new_UniaxialConstantMaterialProperty(GridFunction _gf, DenseMatrix m) -> UniaxialConstantMaterialProperty\n"
+		""},
+	 { (char *)"UniaxialConstantMaterialProperty_Eval", _wrap_UniaxialConstantMaterialProperty_Eval, METH_VARARGS, (char *)"UniaxialConstantMaterialProperty_Eval(UniaxialConstantMaterialProperty self, DenseMatrix K, ElementTransformation T, IntegrationPoint ip)"},
+	 { (char *)"delete_UniaxialConstantMaterialProperty", _wrap_delete_UniaxialConstantMaterialProperty, METH_VARARGS, (char *)"delete_UniaxialConstantMaterialProperty(UniaxialConstantMaterialProperty self)"},
+	 { (char *)"UniaxialConstantMaterialProperty_swigregister", UniaxialConstantMaterialProperty_swigregister, METH_VARARGS, NULL},
 	 { NULL, NULL, 0, NULL }
 };
 
@@ -4415,6 +5207,9 @@ static void *_p_mfem__LinearFormTo_p_mfem__Vector(void *x, int *SWIGUNUSEDPARM(n
 static void *_p_mfem__IsoparametricTransformationTo_p_mfem__ElementTransformation(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((mfem::ElementTransformation *)  ((mfem::IsoparametricTransformation *) x));
 }
+static void *_p_PetraM_Base_extra__UniaxialConstantMaterialPropertyTo_p_mfem__MatrixCoefficient(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((mfem::MatrixCoefficient *)  ((PetraM_Base_extra::UniaxialConstantMaterialProperty *) x));
+}
 static void *_p_mfem__MatrixConstantCoefficientTo_p_mfem__MatrixCoefficient(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((mfem::MatrixCoefficient *)  ((mfem::MatrixConstantCoefficient *) x));
 }
@@ -4430,11 +5225,11 @@ static void *_p_mfem__MatrixRestrictedCoefficientTo_p_mfem__MatrixCoefficient(vo
 static void *_p_mfem__MatrixPyCoefficientBaseTo_p_mfem__MatrixCoefficient(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((mfem::MatrixCoefficient *) (mfem::MatrixFunctionCoefficient *) ((mfem::MatrixPyCoefficientBase *) x));
 }
-static void *_p_PetraM_Base_extra__Uniaxial_constant_MaterialPropertyTo_p_mfem__MatrixCoefficient(void *x, int *SWIGUNUSEDPARM(newmemory)) {
-    return (void *)((mfem::MatrixCoefficient *)  ((PetraM_Base_extra::Uniaxial_constant_MaterialProperty *) x));
+static void *_p_PetraM_Base_extra__PiecewiseLinearMaterialPropertyTo_p_mfem__Coefficient(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((mfem::Coefficient *)  ((PetraM_Base_extra::PiecewiseLinearMaterialProperty *) x));
 }
-static void *_p_PetraM_Base_extra__Scalar_Poly1D_MaterialPropertyTo_p_mfem__Coefficient(void *x, int *SWIGUNUSEDPARM(newmemory)) {
-    return (void *)((mfem::Coefficient *)  ((PetraM_Base_extra::Scalar_Poly1D_MaterialProperty *) x));
+static void *_p_PetraM_Base_extra__Poly1DMaterialPropertyTo_p_mfem__Coefficient(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((mfem::Coefficient *)  ((PetraM_Base_extra::Poly1DMaterialProperty *) x));
 }
 static void *_p_mfem__ConstantCoefficientTo_p_mfem__Coefficient(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((mfem::Coefficient *)  ((mfem::ConstantCoefficient *) x));
@@ -4463,12 +5258,9 @@ static void *_p_mfem__PyCoefficientBaseTo_p_mfem__Coefficient(void *x, int *SWIG
 static void *_p_mfem__ExtrudeCoefficientTo_p_mfem__Coefficient(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((mfem::Coefficient *)  ((mfem::ExtrudeCoefficient *) x));
 }
-static void *_p_PetraM_Base_extra__Scalar_PiecewiseLinear_MaterialPropertyTo_p_mfem__Coefficient(void *x, int *SWIGUNUSEDPARM(newmemory)) {
-    return (void *)((mfem::Coefficient *)  ((PetraM_Base_extra::Scalar_PiecewiseLinear_MaterialProperty *) x));
-}
-static swig_type_info _swigt__p_PetraM_Base_extra__Scalar_PiecewiseLinear_MaterialProperty = {"_p_PetraM_Base_extra__Scalar_PiecewiseLinear_MaterialProperty", "PetraM_Base_extra::Scalar_PiecewiseLinear_MaterialProperty *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_PetraM_Base_extra__Scalar_Poly1D_MaterialProperty = {"_p_PetraM_Base_extra__Scalar_Poly1D_MaterialProperty", "PetraM_Base_extra::Scalar_Poly1D_MaterialProperty *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_PetraM_Base_extra__Uniaxial_constant_MaterialProperty = {"_p_PetraM_Base_extra__Uniaxial_constant_MaterialProperty", "PetraM_Base_extra::Uniaxial_constant_MaterialProperty *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_PetraM_Base_extra__PiecewiseLinearMaterialProperty = {"_p_PetraM_Base_extra__PiecewiseLinearMaterialProperty", "PetraM_Base_extra::PiecewiseLinearMaterialProperty *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_PetraM_Base_extra__Poly1DMaterialProperty = {"_p_PetraM_Base_extra__Poly1DMaterialProperty", "PetraM_Base_extra::Poly1DMaterialProperty *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_PetraM_Base_extra__UniaxialConstantMaterialProperty = {"_p_PetraM_Base_extra__UniaxialConstantMaterialProperty", "PetraM_Base_extra::UniaxialConstantMaterialProperty *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_char = {"_p_char", "char *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_doublep = {"_p_doublep", "doublep *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_hex_t = {"_p_hex_t", "hex_t *", 0, 0, (void*)0, 0};
@@ -4505,9 +5297,9 @@ static swig_type_info _swigt__p_tet_t = {"_p_tet_t", "tet_t *", 0, 0, (void*)0, 
 static swig_type_info _swigt__p_tri_t = {"_p_tri_t", "tri_t *", 0, 0, (void*)0, 0};
 
 static swig_type_info *swig_type_initial[] = {
-  &_swigt__p_PetraM_Base_extra__Scalar_PiecewiseLinear_MaterialProperty,
-  &_swigt__p_PetraM_Base_extra__Scalar_Poly1D_MaterialProperty,
-  &_swigt__p_PetraM_Base_extra__Uniaxial_constant_MaterialProperty,
+  &_swigt__p_PetraM_Base_extra__PiecewiseLinearMaterialProperty,
+  &_swigt__p_PetraM_Base_extra__Poly1DMaterialProperty,
+  &_swigt__p_PetraM_Base_extra__UniaxialConstantMaterialProperty,
   &_swigt__p_char,
   &_swigt__p_doublep,
   &_swigt__p_hex_t,
@@ -4544,9 +5336,9 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_tri_t,
 };
 
-static swig_cast_info _swigc__p_PetraM_Base_extra__Scalar_PiecewiseLinear_MaterialProperty[] = {  {&_swigt__p_PetraM_Base_extra__Scalar_PiecewiseLinear_MaterialProperty, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_PetraM_Base_extra__Scalar_Poly1D_MaterialProperty[] = {  {&_swigt__p_PetraM_Base_extra__Scalar_Poly1D_MaterialProperty, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_PetraM_Base_extra__Uniaxial_constant_MaterialProperty[] = {  {&_swigt__p_PetraM_Base_extra__Uniaxial_constant_MaterialProperty, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_PetraM_Base_extra__PiecewiseLinearMaterialProperty[] = {  {&_swigt__p_PetraM_Base_extra__PiecewiseLinearMaterialProperty, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_PetraM_Base_extra__Poly1DMaterialProperty[] = {  {&_swigt__p_PetraM_Base_extra__Poly1DMaterialProperty, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_PetraM_Base_extra__UniaxialConstantMaterialProperty[] = {  {&_swigt__p_PetraM_Base_extra__UniaxialConstantMaterialProperty, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_char[] = {  {&_swigt__p_char, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_doublep[] = {  {&_swigt__p_doublep, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_hex_t[] = {  {&_swigt__p_hex_t, 0, 0, 0},{0, 0, 0, 0}};
@@ -4560,7 +5352,7 @@ static swig_cast_info _swigc__p_mfem__DeltaCoefficient[] = {{&_swigt__p_mfem__De
 static swig_cast_info _swigc__p_mfem__RestrictedCoefficient[] = {{&_swigt__p_mfem__RestrictedCoefficient, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_mfem__PyCoefficientBase[] = {{&_swigt__p_mfem__PyCoefficientBase, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_mfem__ExtrudeCoefficient[] = {{&_swigt__p_mfem__ExtrudeCoefficient, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_mfem__Coefficient[] = {  {&_swigt__p_mfem__Coefficient, 0, 0, 0},  {&_swigt__p_PetraM_Base_extra__Scalar_Poly1D_MaterialProperty, _p_PetraM_Base_extra__Scalar_Poly1D_MaterialPropertyTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_mfem__ConstantCoefficient, _p_mfem__ConstantCoefficientTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_mfem__PWConstCoefficient, _p_mfem__PWConstCoefficientTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_mfem__FunctionCoefficient, _p_mfem__FunctionCoefficientTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_mfem__GridFunctionCoefficient, _p_mfem__GridFunctionCoefficientTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_mfem__TransformedCoefficient, _p_mfem__TransformedCoefficientTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_mfem__DeltaCoefficient, _p_mfem__DeltaCoefficientTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_mfem__RestrictedCoefficient, _p_mfem__RestrictedCoefficientTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_mfem__PyCoefficientBase, _p_mfem__PyCoefficientBaseTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_mfem__ExtrudeCoefficient, _p_mfem__ExtrudeCoefficientTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_PetraM_Base_extra__Scalar_PiecewiseLinear_MaterialProperty, _p_PetraM_Base_extra__Scalar_PiecewiseLinear_MaterialPropertyTo_p_mfem__Coefficient, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_mfem__Coefficient[] = {  {&_swigt__p_PetraM_Base_extra__Poly1DMaterialProperty, _p_PetraM_Base_extra__Poly1DMaterialPropertyTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_mfem__Coefficient, 0, 0, 0},  {&_swigt__p_PetraM_Base_extra__PiecewiseLinearMaterialProperty, _p_PetraM_Base_extra__PiecewiseLinearMaterialPropertyTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_mfem__ConstantCoefficient, _p_mfem__ConstantCoefficientTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_mfem__PWConstCoefficient, _p_mfem__PWConstCoefficientTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_mfem__FunctionCoefficient, _p_mfem__FunctionCoefficientTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_mfem__GridFunctionCoefficient, _p_mfem__GridFunctionCoefficientTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_mfem__TransformedCoefficient, _p_mfem__TransformedCoefficientTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_mfem__DeltaCoefficient, _p_mfem__DeltaCoefficientTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_mfem__RestrictedCoefficient, _p_mfem__RestrictedCoefficientTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_mfem__PyCoefficientBase, _p_mfem__PyCoefficientBaseTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_mfem__ExtrudeCoefficient, _p_mfem__ExtrudeCoefficientTo_p_mfem__Coefficient, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_mfem__DenseMatrix[] = {  {&_swigt__p_mfem__DenseMatrix, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_mfem__IsoparametricTransformation[] = {{&_swigt__p_mfem__IsoparametricTransformation, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_mfem__ElementTransformation[] = {  {&_swigt__p_mfem__ElementTransformation, 0, 0, 0},  {&_swigt__p_mfem__IsoparametricTransformation, _p_mfem__IsoparametricTransformationTo_p_mfem__ElementTransformation, 0, 0},{0, 0, 0, 0}};
@@ -4573,7 +5365,7 @@ static swig_cast_info _swigc__p_mfem__MatrixFunctionCoefficient[] = {{&_swigt__p
 static swig_cast_info _swigc__p_mfem__MatrixArrayCoefficient[] = {{&_swigt__p_mfem__MatrixArrayCoefficient, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_mfem__MatrixRestrictedCoefficient[] = {{&_swigt__p_mfem__MatrixRestrictedCoefficient, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_mfem__MatrixPyCoefficientBase[] = {{&_swigt__p_mfem__MatrixPyCoefficientBase, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_mfem__MatrixCoefficient[] = {  {&_swigt__p_mfem__MatrixCoefficient, 0, 0, 0},  {&_swigt__p_mfem__MatrixConstantCoefficient, _p_mfem__MatrixConstantCoefficientTo_p_mfem__MatrixCoefficient, 0, 0},  {&_swigt__p_mfem__MatrixFunctionCoefficient, _p_mfem__MatrixFunctionCoefficientTo_p_mfem__MatrixCoefficient, 0, 0},  {&_swigt__p_mfem__MatrixArrayCoefficient, _p_mfem__MatrixArrayCoefficientTo_p_mfem__MatrixCoefficient, 0, 0},  {&_swigt__p_mfem__MatrixRestrictedCoefficient, _p_mfem__MatrixRestrictedCoefficientTo_p_mfem__MatrixCoefficient, 0, 0},  {&_swigt__p_mfem__MatrixPyCoefficientBase, _p_mfem__MatrixPyCoefficientBaseTo_p_mfem__MatrixCoefficient, 0, 0},  {&_swigt__p_PetraM_Base_extra__Uniaxial_constant_MaterialProperty, _p_PetraM_Base_extra__Uniaxial_constant_MaterialPropertyTo_p_mfem__MatrixCoefficient, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_mfem__MatrixCoefficient[] = {  {&_swigt__p_PetraM_Base_extra__UniaxialConstantMaterialProperty, _p_PetraM_Base_extra__UniaxialConstantMaterialPropertyTo_p_mfem__MatrixCoefficient, 0, 0},  {&_swigt__p_mfem__MatrixCoefficient, 0, 0, 0},  {&_swigt__p_mfem__MatrixConstantCoefficient, _p_mfem__MatrixConstantCoefficientTo_p_mfem__MatrixCoefficient, 0, 0},  {&_swigt__p_mfem__MatrixFunctionCoefficient, _p_mfem__MatrixFunctionCoefficientTo_p_mfem__MatrixCoefficient, 0, 0},  {&_swigt__p_mfem__MatrixArrayCoefficient, _p_mfem__MatrixArrayCoefficientTo_p_mfem__MatrixCoefficient, 0, 0},  {&_swigt__p_mfem__MatrixRestrictedCoefficient, _p_mfem__MatrixRestrictedCoefficientTo_p_mfem__MatrixCoefficient, 0, 0},  {&_swigt__p_mfem__MatrixPyCoefficientBase, _p_mfem__MatrixPyCoefficientBaseTo_p_mfem__MatrixCoefficient, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_mfem__QuadratureFunction[] = {{&_swigt__p_mfem__QuadratureFunction, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_mfem__LinearForm[] = {{&_swigt__p_mfem__LinearForm, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_mfem__Vector[] = {  {&_swigt__p_mfem__Vector, 0, 0, 0},  {&_swigt__p_mfem__GridFunction, _p_mfem__GridFunctionTo_p_mfem__Vector, 0, 0},  {&_swigt__p_mfem__QuadratureFunction, _p_mfem__QuadratureFunctionTo_p_mfem__Vector, 0, 0},  {&_swigt__p_mfem__LinearForm, _p_mfem__LinearFormTo_p_mfem__Vector, 0, 0},{0, 0, 0, 0}};
@@ -4583,9 +5375,9 @@ static swig_cast_info _swigc__p_tet_t[] = {  {&_swigt__p_tet_t, 0, 0, 0},{0, 0, 
 static swig_cast_info _swigc__p_tri_t[] = {  {&_swigt__p_tri_t, 0, 0, 0},{0, 0, 0, 0}};
 
 static swig_cast_info *swig_cast_initial[] = {
-  _swigc__p_PetraM_Base_extra__Scalar_PiecewiseLinear_MaterialProperty,
-  _swigc__p_PetraM_Base_extra__Scalar_Poly1D_MaterialProperty,
-  _swigc__p_PetraM_Base_extra__Uniaxial_constant_MaterialProperty,
+  _swigc__p_PetraM_Base_extra__PiecewiseLinearMaterialProperty,
+  _swigc__p_PetraM_Base_extra__Poly1DMaterialProperty,
+  _swigc__p_PetraM_Base_extra__UniaxialConstantMaterialProperty,
   _swigc__p_char,
   _swigc__p_doublep,
   _swigc__p_hex_t,

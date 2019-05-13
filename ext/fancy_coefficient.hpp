@@ -1,3 +1,24 @@
+/*
+
+   FancyCoefficient
+
+   * Add class to define more complicated coefficient
+   
+
+   * We use MaterialProperty in naming instead of Coefficient.
+     When these classes are moved to main mfem, we envision
+     that MaterialProperty will be replaced to Coefficient.
+
+
+   * PiecewiseLinearMaterialProperty
+        PiecewiseLinearMaterialProperty(f, m, n)
+
+        output = interp1d(m, n, "linear")(f(x, y, z))
+    
+   * Poly1DMaterialProperty 
+   * UniaxialConstantMaterialProperty
+ */
+
 #ifndef FANCY_COEFFICIENTS_H
 #define FANCY_COEFFICIENTS_H
 
@@ -12,56 +33,83 @@ namespace PetraM_Base_extra
   /// Scalar material property dependent on 1D interpolated
   /// function
   
-  class Scalar_PiecewiseLinear_MaterialProperty : public Coefficient
+  class PiecewiseLinearMaterialProperty : public Coefficient
   {
   private:
-    GridFunction *GridF;
-    Vector       *x;
-    Vector       *y;    
+    Coefficient  *cf;
+    const Vector       *_x;
+    const Vector       *_y;    
   public:
-    Scalar_PiecewiseLinear_MaterialProperty(GridFunction *_gf, Vector *_x, Vector *_y)
-					    { GridF = _gf; x = _x, y = _y;}
-
-    void SetGridFunction(GridFunction *gf) { GridF = gf; }
-    GridFunction * GetGridFunction() const { return GridF; }
+     PiecewiseLinearMaterialProperty(Coefficient *_cf,
+				    const Vector &x,
+				    const Vector &y) :
+      cf(_cf),
+      _x(new Vector(x)),
+      _y(new Vector(y)) {}
+    PiecewiseLinearMaterialProperty(GridFunction *_gf,
+				    const Vector &x,
+				    const Vector &y,
+				    int comp=1):
+      cf(new GridFunctionCoefficient(_gf, comp)),
+      _x(new Vector(x)),
+      _y(new Vector(y)) {}
+    
     virtual double Eval(ElementTransformation &T,
 			const IntegrationPoint &ip);
     
-
+    ~PiecewiseLinearMaterialProperty() {
+         delete _x;
+	 delete _y;
+    }
   };
     
   /// Scalar material property dependent on 1D interpolated
   /// function
   
-  class Scalar_Poly1D_MaterialProperty : public Coefficient
+  class Poly1DMaterialProperty : public Coefficient
   {
   private:
-    GridFunction *GridF;
-    Vector       *Coeff;
+    Coefficient  *cf;
+    Vector       *_coeff;
+    double       max_range, min_range;
   public:
-    Scalar_Poly1D_MaterialProperty(GridFunction *_gf, Vector *_coeff)
-      { GridF = _gf; Coeff= _coeff; }	
-
-    void SetGridFunction(GridFunction *gf) { GridF = gf; }
-    GridFunction * GetGridFunction() const { return GridF; }
+    Poly1DMaterialProperty(Coefficient *_cf,
+			   const Vector &coeff,
+			   double _max_range = std::numeric_limits<double>::infinity(),
+			   double _min_range = -std::numeric_limits<double>::infinity()):
+      cf(_cf),
+      _coeff(new Vector(coeff)),      
+      max_range(_min_range),
+      min_range(_max_range) {}
+      
+    Poly1DMaterialProperty(GridFunction *_gf,
+			   const Vector &coeff,
+			   int comp=1,
+			   double _max_range = std::numeric_limits<double>::infinity(),
+			   double _min_range = -std::numeric_limits<double>::infinity()):    
+      cf(new GridFunctionCoefficient(_gf, comp)),
+      _coeff(new Vector(coeff)),      
+      max_range(_min_range),
+      min_range(_max_range) {}
+      
     virtual double Eval(ElementTransformation &T,
 			const IntegrationPoint &ip);
     
 
   };
   
-  class Uniaxial_constant_MaterialProperty: public MatrixCoefficient
+  class UniaxialConstantMaterialProperty: public MatrixCoefficient
   {
   private:
-    GridFunction *GridF_axis;
+    Coefficient  *cf;        
     DenseMatrix mat;  
     double              n_para;
     double              n_perp;    
   public:
-    Uniaxial_constant_MaterialProperty (GridFunction *_gf, const DenseMatrix &m)
-        : MatrixCoefficient(m.Height(), m.Width()), mat(m) { GridF_axis = _gf;}
-    void SetGridFunction(GridFunction *gf) { GridF_axis = gf; }
-    GridFunction * GetGridFunction() const { return GridF_axis; }
+    UniaxialConstantMaterialProperty (Coefficient *_cf, const DenseMatrix &m)
+        : MatrixCoefficient(m.Height(), m.Width()), mat(m) { cf = _cf;}
+    UniaxialConstantMaterialProperty (GridFunction *_gf, const DenseMatrix &m, int comp=1)
+      : MatrixCoefficient(m.Height(), m.Width()), mat(m) { cf = new GridFunctionCoefficient(_gf, comp);}
     virtual void Eval(DenseMatrix &K, ElementTransformation &T,
 		      const IntegrationPoint &ip);
 
