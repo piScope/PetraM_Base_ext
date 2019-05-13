@@ -80,7 +80,7 @@ build_ext:
                                       -DCMAKE_INSTALL_RPATH=${MFEM_BASE}/par/lib \
                                       -DPETRAM_PREFIX=${PREFIX};                \
         $(MAKE) VERBOSE=1
-#                                      -DCMAKE_INSTALL_RPATH_USE_LINK_PATH=
+
 install_ext:
 	cd ext/cmbuild_ser;$(MAKE) install
 	cd ext/cmbuild_par;$(MAKE) install
