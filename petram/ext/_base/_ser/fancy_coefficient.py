@@ -102,32 +102,45 @@ except __builtin__.Exception:
     weakref_proxy = lambda x: x
 
 
-import mfem._par.coefficient
-import mfem._par.array
-import mfem._par.ostream_typemap
-import mfem._par.matrix
-import mfem._par.vector
-import mfem._par.operators
-import mfem._par.intrules
-import mfem._par.sparsemat
-import mfem._par.densemat
-import mfem._par.eltrans
-import mfem._par.fe
-class Scalar_PiecewiseLinear_MaterialProperty(mfem._par.coefficient.Coefficient):
+import mfem._ser.coefficient
+import mfem._ser.array
+import mfem._ser.ostream_typemap
+import mfem._ser.matrix
+import mfem._ser.vector
+import mfem._ser.operators
+import mfem._ser.intrules
+import mfem._ser.sparsemat
+import mfem._ser.densemat
+import mfem._ser.eltrans
+import mfem._ser.fe
+import mfem._ser.gridfunc
+import mfem._ser.mesh
+import mfem._ser.ncmesh
+import mfem._ser.element
+import mfem._ser.geom
+import mfem._ser.table
+import mfem._ser.vertex
+import mfem._ser.fespace
+import mfem._ser.fe_coll
+import mfem._ser.lininteg
+import mfem._ser.handle
+import mfem._ser.bilininteg
+import mfem._ser.linearform
+class Scalar_PiecewiseLinear_MaterialProperty(mfem._ser.coefficient.Coefficient):
     """Proxy of C++ PetraM_Base_extra::Scalar_PiecewiseLinear_MaterialProperty class."""
 
     __swig_setmethods__ = {}
-    for _s in [mfem._par.coefficient.Coefficient]:
+    for _s in [mfem._ser.coefficient.Coefficient]:
         __swig_setmethods__.update(getattr(_s, '__swig_setmethods__', {}))
     __setattr__ = lambda self, name, value: _swig_setattr(self, Scalar_PiecewiseLinear_MaterialProperty, name, value)
     __swig_getmethods__ = {}
-    for _s in [mfem._par.coefficient.Coefficient]:
+    for _s in [mfem._ser.coefficient.Coefficient]:
         __swig_getmethods__.update(getattr(_s, '__swig_getmethods__', {}))
     __getattr__ = lambda self, name: _swig_getattr(self, Scalar_PiecewiseLinear_MaterialProperty, name)
     __repr__ = _swig_repr
 
     def __init__(self, _gf, _x, _y):
-        """__init__(PetraM_Base_extra::Scalar_PiecewiseLinear_MaterialProperty self, mfem::GridFunction * _gf, Vector _x, Vector _y) -> Scalar_PiecewiseLinear_MaterialProperty"""
+        """__init__(PetraM_Base_extra::Scalar_PiecewiseLinear_MaterialProperty self, GridFunction _gf, Vector _x, Vector _y) -> Scalar_PiecewiseLinear_MaterialProperty"""
         this = _fancy_coefficient.new_Scalar_PiecewiseLinear_MaterialProperty(_gf, _x, _y)
         try:
             self.this.append(this)
@@ -135,12 +148,12 @@ class Scalar_PiecewiseLinear_MaterialProperty(mfem._par.coefficient.Coefficient)
             self.this = this
 
     def SetGridFunction(self, gf):
-        """SetGridFunction(Scalar_PiecewiseLinear_MaterialProperty self, mfem::GridFunction * gf)"""
+        """SetGridFunction(Scalar_PiecewiseLinear_MaterialProperty self, GridFunction gf)"""
         return _fancy_coefficient.Scalar_PiecewiseLinear_MaterialProperty_SetGridFunction(self, gf)
 
 
     def GetGridFunction(self):
-        """GetGridFunction(Scalar_PiecewiseLinear_MaterialProperty self) -> mfem::GridFunction *"""
+        """GetGridFunction(Scalar_PiecewiseLinear_MaterialProperty self) -> GridFunction"""
         return _fancy_coefficient.Scalar_PiecewiseLinear_MaterialProperty_GetGridFunction(self)
 
 
@@ -153,21 +166,21 @@ class Scalar_PiecewiseLinear_MaterialProperty(mfem._par.coefficient.Coefficient)
 Scalar_PiecewiseLinear_MaterialProperty_swigregister = _fancy_coefficient.Scalar_PiecewiseLinear_MaterialProperty_swigregister
 Scalar_PiecewiseLinear_MaterialProperty_swigregister(Scalar_PiecewiseLinear_MaterialProperty)
 
-class Scalar_Poly1D_MaterialProperty(mfem._par.coefficient.Coefficient):
+class Scalar_Poly1D_MaterialProperty(mfem._ser.coefficient.Coefficient):
     """Proxy of C++ PetraM_Base_extra::Scalar_Poly1D_MaterialProperty class."""
 
     __swig_setmethods__ = {}
-    for _s in [mfem._par.coefficient.Coefficient]:
+    for _s in [mfem._ser.coefficient.Coefficient]:
         __swig_setmethods__.update(getattr(_s, '__swig_setmethods__', {}))
     __setattr__ = lambda self, name, value: _swig_setattr(self, Scalar_Poly1D_MaterialProperty, name, value)
     __swig_getmethods__ = {}
-    for _s in [mfem._par.coefficient.Coefficient]:
+    for _s in [mfem._ser.coefficient.Coefficient]:
         __swig_getmethods__.update(getattr(_s, '__swig_getmethods__', {}))
     __getattr__ = lambda self, name: _swig_getattr(self, Scalar_Poly1D_MaterialProperty, name)
     __repr__ = _swig_repr
 
     def __init__(self, _gf, _coeff):
-        """__init__(PetraM_Base_extra::Scalar_Poly1D_MaterialProperty self, mfem::GridFunction * _gf, Vector _coeff) -> Scalar_Poly1D_MaterialProperty"""
+        """__init__(PetraM_Base_extra::Scalar_Poly1D_MaterialProperty self, GridFunction _gf, Vector _coeff) -> Scalar_Poly1D_MaterialProperty"""
         this = _fancy_coefficient.new_Scalar_Poly1D_MaterialProperty(_gf, _coeff)
         try:
             self.this.append(this)
@@ -175,12 +188,12 @@ class Scalar_Poly1D_MaterialProperty(mfem._par.coefficient.Coefficient):
             self.this = this
 
     def SetGridFunction(self, gf):
-        """SetGridFunction(Scalar_Poly1D_MaterialProperty self, mfem::GridFunction * gf)"""
+        """SetGridFunction(Scalar_Poly1D_MaterialProperty self, GridFunction gf)"""
         return _fancy_coefficient.Scalar_Poly1D_MaterialProperty_SetGridFunction(self, gf)
 
 
     def GetGridFunction(self):
-        """GetGridFunction(Scalar_Poly1D_MaterialProperty self) -> mfem::GridFunction *"""
+        """GetGridFunction(Scalar_Poly1D_MaterialProperty self) -> GridFunction"""
         return _fancy_coefficient.Scalar_Poly1D_MaterialProperty_GetGridFunction(self)
 
 
@@ -193,21 +206,21 @@ class Scalar_Poly1D_MaterialProperty(mfem._par.coefficient.Coefficient):
 Scalar_Poly1D_MaterialProperty_swigregister = _fancy_coefficient.Scalar_Poly1D_MaterialProperty_swigregister
 Scalar_Poly1D_MaterialProperty_swigregister(Scalar_Poly1D_MaterialProperty)
 
-class Uniaxial_constant_MaterialProperty(mfem._par.coefficient.MatrixCoefficient):
+class Uniaxial_constant_MaterialProperty(mfem._ser.coefficient.MatrixCoefficient):
     """Proxy of C++ PetraM_Base_extra::Uniaxial_constant_MaterialProperty class."""
 
     __swig_setmethods__ = {}
-    for _s in [mfem._par.coefficient.MatrixCoefficient]:
+    for _s in [mfem._ser.coefficient.MatrixCoefficient]:
         __swig_setmethods__.update(getattr(_s, '__swig_setmethods__', {}))
     __setattr__ = lambda self, name, value: _swig_setattr(self, Uniaxial_constant_MaterialProperty, name, value)
     __swig_getmethods__ = {}
-    for _s in [mfem._par.coefficient.MatrixCoefficient]:
+    for _s in [mfem._ser.coefficient.MatrixCoefficient]:
         __swig_getmethods__.update(getattr(_s, '__swig_getmethods__', {}))
     __getattr__ = lambda self, name: _swig_getattr(self, Uniaxial_constant_MaterialProperty, name)
     __repr__ = _swig_repr
 
     def __init__(self, _gf, m):
-        """__init__(PetraM_Base_extra::Uniaxial_constant_MaterialProperty self, mfem::GridFunction * _gf, DenseMatrix m) -> Uniaxial_constant_MaterialProperty"""
+        """__init__(PetraM_Base_extra::Uniaxial_constant_MaterialProperty self, GridFunction _gf, DenseMatrix m) -> Uniaxial_constant_MaterialProperty"""
         this = _fancy_coefficient.new_Uniaxial_constant_MaterialProperty(_gf, m)
         try:
             self.this.append(this)
@@ -215,12 +228,12 @@ class Uniaxial_constant_MaterialProperty(mfem._par.coefficient.MatrixCoefficient
             self.this = this
 
     def SetGridFunction(self, gf):
-        """SetGridFunction(Uniaxial_constant_MaterialProperty self, mfem::GridFunction * gf)"""
+        """SetGridFunction(Uniaxial_constant_MaterialProperty self, GridFunction gf)"""
         return _fancy_coefficient.Uniaxial_constant_MaterialProperty_SetGridFunction(self, gf)
 
 
     def GetGridFunction(self):
-        """GetGridFunction(Uniaxial_constant_MaterialProperty self) -> mfem::GridFunction *"""
+        """GetGridFunction(Uniaxial_constant_MaterialProperty self) -> GridFunction"""
         return _fancy_coefficient.Uniaxial_constant_MaterialProperty_GetGridFunction(self)
 
 

@@ -82,20 +82,20 @@ install_ext:
 	cd ext/cmbuild_par;$(MAKE) install
 
 parcxx:
-	$(MAKE) -C petram/ext/mfem_extra/par cxx MFEM_PAR_INC=${MFEM_PAR_INC} \
+	$(MAKE) -C petram/ext/_base/_par cxx MFEM_PAR_INC=${MFEM_PAR_INC} \
                                                  PYMFEM_SRC=${PYMFEM_SRC}
 
 sercxx:
-	$(MAKE) -C petram/ext/mfem_extra/ser cxx MFEM_SER_INC=${MFEM_SER_INC} \
+	$(MAKE) -C petram/ext/_base/_ser cxx MFEM_SER_INC=${MFEM_SER_INC} \
                                                  PYMFEM_SRC=${PYMFEM_SRC}
 
 cxx:parcxx sercxx
 
 parso: 
-	$(MAKE) -C petram/ext/mfem_extra/par so MFEM_PAR_INC=${MFEM_PAR_INC}
+	$(MAKE) -C petram/ext/_base/_par so MFEM_PAR_INC=${MFEM_PAR_INC}
 
 serso:
-	$(MAKE) -C petram/ext/mfem_extra/ser so MFEM_SER_INC=${MFEM_SER_INC}
+	$(MAKE) -C petram/ext/_base/_ser so MFEM_SER_INC=${MFEM_SER_INC}
 
 so:parso serso
 build_so:parso serso
@@ -115,8 +115,8 @@ clean_ext:
 	rm -rf ext/cmbuild_par
 	rm -rf ext/cmbuild_ser
 clean_so:
-	$(MAKE) -C  petram/ext/mfem_extra/ser clean
-	$(MAKE) -C  petram/ext/mfem_extra/par clean
+	$(MAKE) -C  petram/ext/_base/_ser clean
+	$(MAKE) -C  petram/ext/_base/_par clean
 clean_build:
 	rm -rf build/*
 clean:clean_ext clean_so clean_build

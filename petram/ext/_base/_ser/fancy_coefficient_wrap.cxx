@@ -3001,6 +3001,9 @@ SWIG_Python_NonDynamicSetAttr(PyObject *obj, PyObject *name, PyObject *value) {
 #define SWIG_contract_assert(expr, msg) if (!(expr)) { SWIG_Error(SWIG_RuntimeError, msg); SWIG_fail; } else 
 
 
+
+  #define SWIG_exception(code, msg) do { SWIG_Error(code, msg); SWIG_fail;; } while(0) 
+
 /* -----------------------------------------------------------------------------
  * director_common.swg
  *
@@ -3452,30 +3455,41 @@ namespace Swig {
 #define SWIGTYPE_p_PetraM_Base_extra__Scalar_Poly1D_MaterialProperty swig_types[1]
 #define SWIGTYPE_p_PetraM_Base_extra__Uniaxial_constant_MaterialProperty swig_types[2]
 #define SWIGTYPE_p_char swig_types[3]
-#define SWIGTYPE_p_mfem__Coefficient swig_types[4]
-#define SWIGTYPE_p_mfem__ConstantCoefficient swig_types[5]
-#define SWIGTYPE_p_mfem__DeltaCoefficient swig_types[6]
-#define SWIGTYPE_p_mfem__DenseMatrix swig_types[7]
-#define SWIGTYPE_p_mfem__ElementTransformation swig_types[8]
-#define SWIGTYPE_p_mfem__FunctionCoefficient swig_types[9]
-#define SWIGTYPE_p_mfem__GridFunction swig_types[10]
-#define SWIGTYPE_p_mfem__GridFunctionCoefficient swig_types[11]
-#define SWIGTYPE_p_mfem__IntegrationPoint swig_types[12]
-#define SWIGTYPE_p_mfem__IntegrationRule swig_types[13]
-#define SWIGTYPE_p_mfem__IsoparametricTransformation swig_types[14]
-#define SWIGTYPE_p_mfem__MatrixArrayCoefficient swig_types[15]
-#define SWIGTYPE_p_mfem__MatrixCoefficient swig_types[16]
-#define SWIGTYPE_p_mfem__MatrixConstantCoefficient swig_types[17]
-#define SWIGTYPE_p_mfem__MatrixFunctionCoefficient swig_types[18]
-#define SWIGTYPE_p_mfem__MatrixPyCoefficientBase swig_types[19]
-#define SWIGTYPE_p_mfem__MatrixRestrictedCoefficient swig_types[20]
-#define SWIGTYPE_p_mfem__PWConstCoefficient swig_types[21]
-#define SWIGTYPE_p_mfem__PyCoefficientBase swig_types[22]
-#define SWIGTYPE_p_mfem__RestrictedCoefficient swig_types[23]
-#define SWIGTYPE_p_mfem__TransformedCoefficient swig_types[24]
-#define SWIGTYPE_p_mfem__Vector swig_types[25]
-static swig_type_info *swig_types[27];
-static swig_module_info swig_module = {swig_types, 26, 0, 0, 0, 0};
+#define SWIGTYPE_p_doublep swig_types[4]
+#define SWIGTYPE_p_hex_t swig_types[5]
+#define SWIGTYPE_p_intp swig_types[6]
+#define SWIGTYPE_p_mfem__Coefficient swig_types[7]
+#define SWIGTYPE_p_mfem__ConstantCoefficient swig_types[8]
+#define SWIGTYPE_p_mfem__DeltaCoefficient swig_types[9]
+#define SWIGTYPE_p_mfem__DenseMatrix swig_types[10]
+#define SWIGTYPE_p_mfem__ElementTransformation swig_types[11]
+#define SWIGTYPE_p_mfem__ExtrudeCoefficient swig_types[12]
+#define SWIGTYPE_p_mfem__FunctionCoefficient swig_types[13]
+#define SWIGTYPE_p_mfem__GridFunction swig_types[14]
+#define SWIGTYPE_p_mfem__GridFunctionCoefficient swig_types[15]
+#define SWIGTYPE_p_mfem__IntegrationPoint swig_types[16]
+#define SWIGTYPE_p_mfem__IntegrationRule swig_types[17]
+#define SWIGTYPE_p_mfem__IsoparametricTransformation swig_types[18]
+#define SWIGTYPE_p_mfem__L2_FECollection swig_types[19]
+#define SWIGTYPE_p_mfem__LinearForm swig_types[20]
+#define SWIGTYPE_p_mfem__MatrixArrayCoefficient swig_types[21]
+#define SWIGTYPE_p_mfem__MatrixCoefficient swig_types[22]
+#define SWIGTYPE_p_mfem__MatrixConstantCoefficient swig_types[23]
+#define SWIGTYPE_p_mfem__MatrixFunctionCoefficient swig_types[24]
+#define SWIGTYPE_p_mfem__MatrixPyCoefficientBase swig_types[25]
+#define SWIGTYPE_p_mfem__MatrixRestrictedCoefficient swig_types[26]
+#define SWIGTYPE_p_mfem__PWConstCoefficient swig_types[27]
+#define SWIGTYPE_p_mfem__PyCoefficientBase swig_types[28]
+#define SWIGTYPE_p_mfem__QuadratureFunction swig_types[29]
+#define SWIGTYPE_p_mfem__RestrictedCoefficient swig_types[30]
+#define SWIGTYPE_p_mfem__TransformedCoefficient swig_types[31]
+#define SWIGTYPE_p_mfem__Vector swig_types[32]
+#define SWIGTYPE_p_quad_t swig_types[33]
+#define SWIGTYPE_p_seg_t swig_types[34]
+#define SWIGTYPE_p_tet_t swig_types[35]
+#define SWIGTYPE_p_tri_t swig_types[36]
+static swig_type_info *swig_types[38];
+static swig_module_info swig_module = {swig_types, 37, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -3633,16 +3647,22 @@ SWIGINTERN PyObject *_wrap_new_Scalar_PiecewiseLinear_MaterialProperty(PyObject 
   arg3 = reinterpret_cast< mfem::Vector * >(argp3);
   {
     try {
-      result = (PetraM_Base_extra::Scalar_PiecewiseLinear_MaterialProperty *)new PetraM_Base_extra::Scalar_PiecewiseLinear_MaterialProperty(arg1,arg2,arg3); 
+      result = (PetraM_Base_extra::Scalar_PiecewiseLinear_MaterialProperty *)new PetraM_Base_extra::Scalar_PiecewiseLinear_MaterialProperty(arg1,arg2,arg3);
     }
-    catch (Swig::DirectorException &e) {
-      SWIG_fail; 
+#ifdef  MFEM_USE_EXCEPTIONS
+    catch (mfem::ErrorException &_e) {
+      std::string s("PyMFEM error (mfem::ErrorException): "), s2(_e.what());
+      s = s + s2;    
+      SWIG_exception(SWIG_RuntimeError, s.c_str());
+    }
+#endif
+    
+    catch (Swig::DirectorException &e){
+      SWIG_fail;
     }    
-    //catch (...){
-    //  SWIG_fail;
-    //}
-    //    catch (Swig::DirectorMethodException &e) { SWIG_fail; }
-    //    catch (std::exception &e) { SWIG_fail; }    
+    catch (...) {
+      SWIG_exception(SWIG_RuntimeError, "unknown exception");
+    }	 
   }
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_PetraM_Base_extra__Scalar_PiecewiseLinear_MaterialProperty, SWIG_POINTER_NEW |  0 );
   return resultobj;
@@ -3675,16 +3695,22 @@ SWIGINTERN PyObject *_wrap_Scalar_PiecewiseLinear_MaterialProperty_SetGridFuncti
   arg2 = reinterpret_cast< mfem::GridFunction * >(argp2);
   {
     try {
-      (arg1)->SetGridFunction(arg2); 
+      (arg1)->SetGridFunction(arg2);
     }
-    catch (Swig::DirectorException &e) {
-      SWIG_fail; 
+#ifdef  MFEM_USE_EXCEPTIONS
+    catch (mfem::ErrorException &_e) {
+      std::string s("PyMFEM error (mfem::ErrorException): "), s2(_e.what());
+      s = s + s2;    
+      SWIG_exception(SWIG_RuntimeError, s.c_str());
+    }
+#endif
+    
+    catch (Swig::DirectorException &e){
+      SWIG_fail;
     }    
-    //catch (...){
-    //  SWIG_fail;
-    //}
-    //    catch (Swig::DirectorMethodException &e) { SWIG_fail; }
-    //    catch (std::exception &e) { SWIG_fail; }    
+    catch (...) {
+      SWIG_exception(SWIG_RuntimeError, "unknown exception");
+    }	 
   }
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -3709,16 +3735,22 @@ SWIGINTERN PyObject *_wrap_Scalar_PiecewiseLinear_MaterialProperty_GetGridFuncti
   arg1 = reinterpret_cast< PetraM_Base_extra::Scalar_PiecewiseLinear_MaterialProperty * >(argp1);
   {
     try {
-      result = (mfem::GridFunction *)((PetraM_Base_extra::Scalar_PiecewiseLinear_MaterialProperty const *)arg1)->GetGridFunction(); 
+      result = (mfem::GridFunction *)((PetraM_Base_extra::Scalar_PiecewiseLinear_MaterialProperty const *)arg1)->GetGridFunction();
     }
-    catch (Swig::DirectorException &e) {
-      SWIG_fail; 
+#ifdef  MFEM_USE_EXCEPTIONS
+    catch (mfem::ErrorException &_e) {
+      std::string s("PyMFEM error (mfem::ErrorException): "), s2(_e.what());
+      s = s + s2;    
+      SWIG_exception(SWIG_RuntimeError, s.c_str());
+    }
+#endif
+    
+    catch (Swig::DirectorException &e){
+      SWIG_fail;
     }    
-    //catch (...){
-    //  SWIG_fail;
-    //}
-    //    catch (Swig::DirectorMethodException &e) { SWIG_fail; }
-    //    catch (std::exception &e) { SWIG_fail; }    
+    catch (...) {
+      SWIG_exception(SWIG_RuntimeError, "unknown exception");
+    }	 
   }
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_mfem__GridFunction, 0 |  0 );
   return resultobj;
@@ -3767,16 +3799,22 @@ SWIGINTERN PyObject *_wrap_Scalar_PiecewiseLinear_MaterialProperty_Eval(PyObject
   arg3 = reinterpret_cast< mfem::IntegrationPoint * >(argp3);
   {
     try {
-      result = (double)(arg1)->Eval(*arg2,(mfem::IntegrationPoint const &)*arg3); 
+      result = (double)(arg1)->Eval(*arg2,(mfem::IntegrationPoint const &)*arg3);
     }
-    catch (Swig::DirectorException &e) {
-      SWIG_fail; 
+#ifdef  MFEM_USE_EXCEPTIONS
+    catch (mfem::ErrorException &_e) {
+      std::string s("PyMFEM error (mfem::ErrorException): "), s2(_e.what());
+      s = s + s2;    
+      SWIG_exception(SWIG_RuntimeError, s.c_str());
+    }
+#endif
+    
+    catch (Swig::DirectorException &e){
+      SWIG_fail;
     }    
-    //catch (...){
-    //  SWIG_fail;
-    //}
-    //    catch (Swig::DirectorMethodException &e) { SWIG_fail; }
-    //    catch (std::exception &e) { SWIG_fail; }    
+    catch (...) {
+      SWIG_exception(SWIG_RuntimeError, "unknown exception");
+    }	 
   }
   resultobj = SWIG_From_double(static_cast< double >(result));
   return resultobj;
@@ -3800,16 +3838,22 @@ SWIGINTERN PyObject *_wrap_delete_Scalar_PiecewiseLinear_MaterialProperty(PyObje
   arg1 = reinterpret_cast< PetraM_Base_extra::Scalar_PiecewiseLinear_MaterialProperty * >(argp1);
   {
     try {
-      delete arg1; 
+      delete arg1;
     }
-    catch (Swig::DirectorException &e) {
-      SWIG_fail; 
+#ifdef  MFEM_USE_EXCEPTIONS
+    catch (mfem::ErrorException &_e) {
+      std::string s("PyMFEM error (mfem::ErrorException): "), s2(_e.what());
+      s = s + s2;    
+      SWIG_exception(SWIG_RuntimeError, s.c_str());
+    }
+#endif
+    
+    catch (Swig::DirectorException &e){
+      SWIG_fail;
     }    
-    //catch (...){
-    //  SWIG_fail;
-    //}
-    //    catch (Swig::DirectorMethodException &e) { SWIG_fail; }
-    //    catch (std::exception &e) { SWIG_fail; }    
+    catch (...) {
+      SWIG_exception(SWIG_RuntimeError, "unknown exception");
+    }	 
   }
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -3850,16 +3894,22 @@ SWIGINTERN PyObject *_wrap_new_Scalar_Poly1D_MaterialProperty(PyObject *SWIGUNUS
   arg2 = reinterpret_cast< mfem::Vector * >(argp2);
   {
     try {
-      result = (PetraM_Base_extra::Scalar_Poly1D_MaterialProperty *)new PetraM_Base_extra::Scalar_Poly1D_MaterialProperty(arg1,arg2); 
+      result = (PetraM_Base_extra::Scalar_Poly1D_MaterialProperty *)new PetraM_Base_extra::Scalar_Poly1D_MaterialProperty(arg1,arg2);
     }
-    catch (Swig::DirectorException &e) {
-      SWIG_fail; 
+#ifdef  MFEM_USE_EXCEPTIONS
+    catch (mfem::ErrorException &_e) {
+      std::string s("PyMFEM error (mfem::ErrorException): "), s2(_e.what());
+      s = s + s2;    
+      SWIG_exception(SWIG_RuntimeError, s.c_str());
+    }
+#endif
+    
+    catch (Swig::DirectorException &e){
+      SWIG_fail;
     }    
-    //catch (...){
-    //  SWIG_fail;
-    //}
-    //    catch (Swig::DirectorMethodException &e) { SWIG_fail; }
-    //    catch (std::exception &e) { SWIG_fail; }    
+    catch (...) {
+      SWIG_exception(SWIG_RuntimeError, "unknown exception");
+    }	 
   }
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_PetraM_Base_extra__Scalar_Poly1D_MaterialProperty, SWIG_POINTER_NEW |  0 );
   return resultobj;
@@ -3892,16 +3942,22 @@ SWIGINTERN PyObject *_wrap_Scalar_Poly1D_MaterialProperty_SetGridFunction(PyObje
   arg2 = reinterpret_cast< mfem::GridFunction * >(argp2);
   {
     try {
-      (arg1)->SetGridFunction(arg2); 
+      (arg1)->SetGridFunction(arg2);
     }
-    catch (Swig::DirectorException &e) {
-      SWIG_fail; 
+#ifdef  MFEM_USE_EXCEPTIONS
+    catch (mfem::ErrorException &_e) {
+      std::string s("PyMFEM error (mfem::ErrorException): "), s2(_e.what());
+      s = s + s2;    
+      SWIG_exception(SWIG_RuntimeError, s.c_str());
+    }
+#endif
+    
+    catch (Swig::DirectorException &e){
+      SWIG_fail;
     }    
-    //catch (...){
-    //  SWIG_fail;
-    //}
-    //    catch (Swig::DirectorMethodException &e) { SWIG_fail; }
-    //    catch (std::exception &e) { SWIG_fail; }    
+    catch (...) {
+      SWIG_exception(SWIG_RuntimeError, "unknown exception");
+    }	 
   }
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -3926,16 +3982,22 @@ SWIGINTERN PyObject *_wrap_Scalar_Poly1D_MaterialProperty_GetGridFunction(PyObje
   arg1 = reinterpret_cast< PetraM_Base_extra::Scalar_Poly1D_MaterialProperty * >(argp1);
   {
     try {
-      result = (mfem::GridFunction *)((PetraM_Base_extra::Scalar_Poly1D_MaterialProperty const *)arg1)->GetGridFunction(); 
+      result = (mfem::GridFunction *)((PetraM_Base_extra::Scalar_Poly1D_MaterialProperty const *)arg1)->GetGridFunction();
     }
-    catch (Swig::DirectorException &e) {
-      SWIG_fail; 
+#ifdef  MFEM_USE_EXCEPTIONS
+    catch (mfem::ErrorException &_e) {
+      std::string s("PyMFEM error (mfem::ErrorException): "), s2(_e.what());
+      s = s + s2;    
+      SWIG_exception(SWIG_RuntimeError, s.c_str());
+    }
+#endif
+    
+    catch (Swig::DirectorException &e){
+      SWIG_fail;
     }    
-    //catch (...){
-    //  SWIG_fail;
-    //}
-    //    catch (Swig::DirectorMethodException &e) { SWIG_fail; }
-    //    catch (std::exception &e) { SWIG_fail; }    
+    catch (...) {
+      SWIG_exception(SWIG_RuntimeError, "unknown exception");
+    }	 
   }
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_mfem__GridFunction, 0 |  0 );
   return resultobj;
@@ -3984,16 +4046,22 @@ SWIGINTERN PyObject *_wrap_Scalar_Poly1D_MaterialProperty_Eval(PyObject *SWIGUNU
   arg3 = reinterpret_cast< mfem::IntegrationPoint * >(argp3);
   {
     try {
-      result = (double)(arg1)->Eval(*arg2,(mfem::IntegrationPoint const &)*arg3); 
+      result = (double)(arg1)->Eval(*arg2,(mfem::IntegrationPoint const &)*arg3);
     }
-    catch (Swig::DirectorException &e) {
-      SWIG_fail; 
+#ifdef  MFEM_USE_EXCEPTIONS
+    catch (mfem::ErrorException &_e) {
+      std::string s("PyMFEM error (mfem::ErrorException): "), s2(_e.what());
+      s = s + s2;    
+      SWIG_exception(SWIG_RuntimeError, s.c_str());
+    }
+#endif
+    
+    catch (Swig::DirectorException &e){
+      SWIG_fail;
     }    
-    //catch (...){
-    //  SWIG_fail;
-    //}
-    //    catch (Swig::DirectorMethodException &e) { SWIG_fail; }
-    //    catch (std::exception &e) { SWIG_fail; }    
+    catch (...) {
+      SWIG_exception(SWIG_RuntimeError, "unknown exception");
+    }	 
   }
   resultobj = SWIG_From_double(static_cast< double >(result));
   return resultobj;
@@ -4017,16 +4085,22 @@ SWIGINTERN PyObject *_wrap_delete_Scalar_Poly1D_MaterialProperty(PyObject *SWIGU
   arg1 = reinterpret_cast< PetraM_Base_extra::Scalar_Poly1D_MaterialProperty * >(argp1);
   {
     try {
-      delete arg1; 
+      delete arg1;
     }
-    catch (Swig::DirectorException &e) {
-      SWIG_fail; 
+#ifdef  MFEM_USE_EXCEPTIONS
+    catch (mfem::ErrorException &_e) {
+      std::string s("PyMFEM error (mfem::ErrorException): "), s2(_e.what());
+      s = s + s2;    
+      SWIG_exception(SWIG_RuntimeError, s.c_str());
+    }
+#endif
+    
+    catch (Swig::DirectorException &e){
+      SWIG_fail;
     }    
-    //catch (...){
-    //  SWIG_fail;
-    //}
-    //    catch (Swig::DirectorMethodException &e) { SWIG_fail; }
-    //    catch (std::exception &e) { SWIG_fail; }    
+    catch (...) {
+      SWIG_exception(SWIG_RuntimeError, "unknown exception");
+    }	 
   }
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -4070,16 +4144,22 @@ SWIGINTERN PyObject *_wrap_new_Uniaxial_constant_MaterialProperty(PyObject *SWIG
   arg2 = reinterpret_cast< mfem::DenseMatrix * >(argp2);
   {
     try {
-      result = (PetraM_Base_extra::Uniaxial_constant_MaterialProperty *)new PetraM_Base_extra::Uniaxial_constant_MaterialProperty(arg1,(mfem::DenseMatrix const &)*arg2); 
+      result = (PetraM_Base_extra::Uniaxial_constant_MaterialProperty *)new PetraM_Base_extra::Uniaxial_constant_MaterialProperty(arg1,(mfem::DenseMatrix const &)*arg2);
     }
-    catch (Swig::DirectorException &e) {
-      SWIG_fail; 
+#ifdef  MFEM_USE_EXCEPTIONS
+    catch (mfem::ErrorException &_e) {
+      std::string s("PyMFEM error (mfem::ErrorException): "), s2(_e.what());
+      s = s + s2;    
+      SWIG_exception(SWIG_RuntimeError, s.c_str());
+    }
+#endif
+    
+    catch (Swig::DirectorException &e){
+      SWIG_fail;
     }    
-    //catch (...){
-    //  SWIG_fail;
-    //}
-    //    catch (Swig::DirectorMethodException &e) { SWIG_fail; }
-    //    catch (std::exception &e) { SWIG_fail; }    
+    catch (...) {
+      SWIG_exception(SWIG_RuntimeError, "unknown exception");
+    }	 
   }
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_PetraM_Base_extra__Uniaxial_constant_MaterialProperty, SWIG_POINTER_NEW |  0 );
   return resultobj;
@@ -4112,16 +4192,22 @@ SWIGINTERN PyObject *_wrap_Uniaxial_constant_MaterialProperty_SetGridFunction(Py
   arg2 = reinterpret_cast< mfem::GridFunction * >(argp2);
   {
     try {
-      (arg1)->SetGridFunction(arg2); 
+      (arg1)->SetGridFunction(arg2);
     }
-    catch (Swig::DirectorException &e) {
-      SWIG_fail; 
+#ifdef  MFEM_USE_EXCEPTIONS
+    catch (mfem::ErrorException &_e) {
+      std::string s("PyMFEM error (mfem::ErrorException): "), s2(_e.what());
+      s = s + s2;    
+      SWIG_exception(SWIG_RuntimeError, s.c_str());
+    }
+#endif
+    
+    catch (Swig::DirectorException &e){
+      SWIG_fail;
     }    
-    //catch (...){
-    //  SWIG_fail;
-    //}
-    //    catch (Swig::DirectorMethodException &e) { SWIG_fail; }
-    //    catch (std::exception &e) { SWIG_fail; }    
+    catch (...) {
+      SWIG_exception(SWIG_RuntimeError, "unknown exception");
+    }	 
   }
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -4146,16 +4232,22 @@ SWIGINTERN PyObject *_wrap_Uniaxial_constant_MaterialProperty_GetGridFunction(Py
   arg1 = reinterpret_cast< PetraM_Base_extra::Uniaxial_constant_MaterialProperty * >(argp1);
   {
     try {
-      result = (mfem::GridFunction *)((PetraM_Base_extra::Uniaxial_constant_MaterialProperty const *)arg1)->GetGridFunction(); 
+      result = (mfem::GridFunction *)((PetraM_Base_extra::Uniaxial_constant_MaterialProperty const *)arg1)->GetGridFunction();
     }
-    catch (Swig::DirectorException &e) {
-      SWIG_fail; 
+#ifdef  MFEM_USE_EXCEPTIONS
+    catch (mfem::ErrorException &_e) {
+      std::string s("PyMFEM error (mfem::ErrorException): "), s2(_e.what());
+      s = s + s2;    
+      SWIG_exception(SWIG_RuntimeError, s.c_str());
+    }
+#endif
+    
+    catch (Swig::DirectorException &e){
+      SWIG_fail;
     }    
-    //catch (...){
-    //  SWIG_fail;
-    //}
-    //    catch (Swig::DirectorMethodException &e) { SWIG_fail; }
-    //    catch (std::exception &e) { SWIG_fail; }    
+    catch (...) {
+      SWIG_exception(SWIG_RuntimeError, "unknown exception");
+    }	 
   }
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_mfem__GridFunction, 0 |  0 );
   return resultobj;
@@ -4215,16 +4307,22 @@ SWIGINTERN PyObject *_wrap_Uniaxial_constant_MaterialProperty_Eval(PyObject *SWI
   arg4 = reinterpret_cast< mfem::IntegrationPoint * >(argp4);
   {
     try {
-      (arg1)->Eval(*arg2,*arg3,(mfem::IntegrationPoint const &)*arg4); 
+      (arg1)->Eval(*arg2,*arg3,(mfem::IntegrationPoint const &)*arg4);
     }
-    catch (Swig::DirectorException &e) {
-      SWIG_fail; 
+#ifdef  MFEM_USE_EXCEPTIONS
+    catch (mfem::ErrorException &_e) {
+      std::string s("PyMFEM error (mfem::ErrorException): "), s2(_e.what());
+      s = s + s2;    
+      SWIG_exception(SWIG_RuntimeError, s.c_str());
+    }
+#endif
+    
+    catch (Swig::DirectorException &e){
+      SWIG_fail;
     }    
-    //catch (...){
-    //  SWIG_fail;
-    //}
-    //    catch (Swig::DirectorMethodException &e) { SWIG_fail; }
-    //    catch (std::exception &e) { SWIG_fail; }    
+    catch (...) {
+      SWIG_exception(SWIG_RuntimeError, "unknown exception");
+    }	 
   }
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -4248,16 +4346,22 @@ SWIGINTERN PyObject *_wrap_delete_Uniaxial_constant_MaterialProperty(PyObject *S
   arg1 = reinterpret_cast< PetraM_Base_extra::Uniaxial_constant_MaterialProperty * >(argp1);
   {
     try {
-      delete arg1; 
+      delete arg1;
     }
-    catch (Swig::DirectorException &e) {
-      SWIG_fail; 
+#ifdef  MFEM_USE_EXCEPTIONS
+    catch (mfem::ErrorException &_e) {
+      std::string s("PyMFEM error (mfem::ErrorException): "), s2(_e.what());
+      s = s + s2;    
+      SWIG_exception(SWIG_RuntimeError, s.c_str());
+    }
+#endif
+    
+    catch (Swig::DirectorException &e){
+      SWIG_fail;
     }    
-    //catch (...){
-    //  SWIG_fail;
-    //}
-    //    catch (Swig::DirectorMethodException &e) { SWIG_fail; }
-    //    catch (std::exception &e) { SWIG_fail; }    
+    catch (...) {
+      SWIG_exception(SWIG_RuntimeError, "unknown exception");
+    }	 
   }
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -4275,21 +4379,21 @@ SWIGINTERN PyObject *Uniaxial_constant_MaterialProperty_swigregister(PyObject *S
 
 static PyMethodDef SwigMethods[] = {
 	 { (char *)"SWIG_PyInstanceMethod_New", (PyCFunction)SWIG_PyInstanceMethod_New, METH_O, NULL},
-	 { (char *)"new_Scalar_PiecewiseLinear_MaterialProperty", _wrap_new_Scalar_PiecewiseLinear_MaterialProperty, METH_VARARGS, (char *)"new_Scalar_PiecewiseLinear_MaterialProperty(mfem::GridFunction * _gf, Vector _x, Vector _y) -> Scalar_PiecewiseLinear_MaterialProperty"},
-	 { (char *)"Scalar_PiecewiseLinear_MaterialProperty_SetGridFunction", _wrap_Scalar_PiecewiseLinear_MaterialProperty_SetGridFunction, METH_VARARGS, (char *)"Scalar_PiecewiseLinear_MaterialProperty_SetGridFunction(Scalar_PiecewiseLinear_MaterialProperty self, mfem::GridFunction * gf)"},
-	 { (char *)"Scalar_PiecewiseLinear_MaterialProperty_GetGridFunction", _wrap_Scalar_PiecewiseLinear_MaterialProperty_GetGridFunction, METH_VARARGS, (char *)"Scalar_PiecewiseLinear_MaterialProperty_GetGridFunction(Scalar_PiecewiseLinear_MaterialProperty self) -> mfem::GridFunction *"},
+	 { (char *)"new_Scalar_PiecewiseLinear_MaterialProperty", _wrap_new_Scalar_PiecewiseLinear_MaterialProperty, METH_VARARGS, (char *)"new_Scalar_PiecewiseLinear_MaterialProperty(GridFunction _gf, Vector _x, Vector _y) -> Scalar_PiecewiseLinear_MaterialProperty"},
+	 { (char *)"Scalar_PiecewiseLinear_MaterialProperty_SetGridFunction", _wrap_Scalar_PiecewiseLinear_MaterialProperty_SetGridFunction, METH_VARARGS, (char *)"Scalar_PiecewiseLinear_MaterialProperty_SetGridFunction(Scalar_PiecewiseLinear_MaterialProperty self, GridFunction gf)"},
+	 { (char *)"Scalar_PiecewiseLinear_MaterialProperty_GetGridFunction", _wrap_Scalar_PiecewiseLinear_MaterialProperty_GetGridFunction, METH_VARARGS, (char *)"Scalar_PiecewiseLinear_MaterialProperty_GetGridFunction(Scalar_PiecewiseLinear_MaterialProperty self) -> GridFunction"},
 	 { (char *)"Scalar_PiecewiseLinear_MaterialProperty_Eval", _wrap_Scalar_PiecewiseLinear_MaterialProperty_Eval, METH_VARARGS, (char *)"Scalar_PiecewiseLinear_MaterialProperty_Eval(Scalar_PiecewiseLinear_MaterialProperty self, ElementTransformation T, IntegrationPoint ip) -> double"},
 	 { (char *)"delete_Scalar_PiecewiseLinear_MaterialProperty", _wrap_delete_Scalar_PiecewiseLinear_MaterialProperty, METH_VARARGS, (char *)"delete_Scalar_PiecewiseLinear_MaterialProperty(Scalar_PiecewiseLinear_MaterialProperty self)"},
 	 { (char *)"Scalar_PiecewiseLinear_MaterialProperty_swigregister", Scalar_PiecewiseLinear_MaterialProperty_swigregister, METH_VARARGS, NULL},
-	 { (char *)"new_Scalar_Poly1D_MaterialProperty", _wrap_new_Scalar_Poly1D_MaterialProperty, METH_VARARGS, (char *)"new_Scalar_Poly1D_MaterialProperty(mfem::GridFunction * _gf, Vector _coeff) -> Scalar_Poly1D_MaterialProperty"},
-	 { (char *)"Scalar_Poly1D_MaterialProperty_SetGridFunction", _wrap_Scalar_Poly1D_MaterialProperty_SetGridFunction, METH_VARARGS, (char *)"Scalar_Poly1D_MaterialProperty_SetGridFunction(Scalar_Poly1D_MaterialProperty self, mfem::GridFunction * gf)"},
-	 { (char *)"Scalar_Poly1D_MaterialProperty_GetGridFunction", _wrap_Scalar_Poly1D_MaterialProperty_GetGridFunction, METH_VARARGS, (char *)"Scalar_Poly1D_MaterialProperty_GetGridFunction(Scalar_Poly1D_MaterialProperty self) -> mfem::GridFunction *"},
+	 { (char *)"new_Scalar_Poly1D_MaterialProperty", _wrap_new_Scalar_Poly1D_MaterialProperty, METH_VARARGS, (char *)"new_Scalar_Poly1D_MaterialProperty(GridFunction _gf, Vector _coeff) -> Scalar_Poly1D_MaterialProperty"},
+	 { (char *)"Scalar_Poly1D_MaterialProperty_SetGridFunction", _wrap_Scalar_Poly1D_MaterialProperty_SetGridFunction, METH_VARARGS, (char *)"Scalar_Poly1D_MaterialProperty_SetGridFunction(Scalar_Poly1D_MaterialProperty self, GridFunction gf)"},
+	 { (char *)"Scalar_Poly1D_MaterialProperty_GetGridFunction", _wrap_Scalar_Poly1D_MaterialProperty_GetGridFunction, METH_VARARGS, (char *)"Scalar_Poly1D_MaterialProperty_GetGridFunction(Scalar_Poly1D_MaterialProperty self) -> GridFunction"},
 	 { (char *)"Scalar_Poly1D_MaterialProperty_Eval", _wrap_Scalar_Poly1D_MaterialProperty_Eval, METH_VARARGS, (char *)"Scalar_Poly1D_MaterialProperty_Eval(Scalar_Poly1D_MaterialProperty self, ElementTransformation T, IntegrationPoint ip) -> double"},
 	 { (char *)"delete_Scalar_Poly1D_MaterialProperty", _wrap_delete_Scalar_Poly1D_MaterialProperty, METH_VARARGS, (char *)"delete_Scalar_Poly1D_MaterialProperty(Scalar_Poly1D_MaterialProperty self)"},
 	 { (char *)"Scalar_Poly1D_MaterialProperty_swigregister", Scalar_Poly1D_MaterialProperty_swigregister, METH_VARARGS, NULL},
-	 { (char *)"new_Uniaxial_constant_MaterialProperty", _wrap_new_Uniaxial_constant_MaterialProperty, METH_VARARGS, (char *)"new_Uniaxial_constant_MaterialProperty(mfem::GridFunction * _gf, DenseMatrix m) -> Uniaxial_constant_MaterialProperty"},
-	 { (char *)"Uniaxial_constant_MaterialProperty_SetGridFunction", _wrap_Uniaxial_constant_MaterialProperty_SetGridFunction, METH_VARARGS, (char *)"Uniaxial_constant_MaterialProperty_SetGridFunction(Uniaxial_constant_MaterialProperty self, mfem::GridFunction * gf)"},
-	 { (char *)"Uniaxial_constant_MaterialProperty_GetGridFunction", _wrap_Uniaxial_constant_MaterialProperty_GetGridFunction, METH_VARARGS, (char *)"Uniaxial_constant_MaterialProperty_GetGridFunction(Uniaxial_constant_MaterialProperty self) -> mfem::GridFunction *"},
+	 { (char *)"new_Uniaxial_constant_MaterialProperty", _wrap_new_Uniaxial_constant_MaterialProperty, METH_VARARGS, (char *)"new_Uniaxial_constant_MaterialProperty(GridFunction _gf, DenseMatrix m) -> Uniaxial_constant_MaterialProperty"},
+	 { (char *)"Uniaxial_constant_MaterialProperty_SetGridFunction", _wrap_Uniaxial_constant_MaterialProperty_SetGridFunction, METH_VARARGS, (char *)"Uniaxial_constant_MaterialProperty_SetGridFunction(Uniaxial_constant_MaterialProperty self, GridFunction gf)"},
+	 { (char *)"Uniaxial_constant_MaterialProperty_GetGridFunction", _wrap_Uniaxial_constant_MaterialProperty_GetGridFunction, METH_VARARGS, (char *)"Uniaxial_constant_MaterialProperty_GetGridFunction(Uniaxial_constant_MaterialProperty self) -> GridFunction"},
 	 { (char *)"Uniaxial_constant_MaterialProperty_Eval", _wrap_Uniaxial_constant_MaterialProperty_Eval, METH_VARARGS, (char *)"Uniaxial_constant_MaterialProperty_Eval(Uniaxial_constant_MaterialProperty self, DenseMatrix K, ElementTransformation T, IntegrationPoint ip)"},
 	 { (char *)"delete_Uniaxial_constant_MaterialProperty", _wrap_delete_Uniaxial_constant_MaterialProperty, METH_VARARGS, (char *)"delete_Uniaxial_constant_MaterialProperty(Uniaxial_constant_MaterialProperty self)"},
 	 { (char *)"Uniaxial_constant_MaterialProperty_swigregister", Uniaxial_constant_MaterialProperty_swigregister, METH_VARARGS, NULL},
@@ -4299,6 +4403,15 @@ static PyMethodDef SwigMethods[] = {
 
 /* -------- TYPE CONVERSION AND EQUIVALENCE RULES (BEGIN) -------- */
 
+static void *_p_mfem__GridFunctionTo_p_mfem__Vector(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((mfem::Vector *)  ((mfem::GridFunction *) x));
+}
+static void *_p_mfem__QuadratureFunctionTo_p_mfem__Vector(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((mfem::Vector *)  ((mfem::QuadratureFunction *) x));
+}
+static void *_p_mfem__LinearFormTo_p_mfem__Vector(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((mfem::Vector *)  ((mfem::LinearForm *) x));
+}
 static void *_p_mfem__IsoparametricTransformationTo_p_mfem__ElementTransformation(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((mfem::ElementTransformation *)  ((mfem::IsoparametricTransformation *) x));
 }
@@ -4347,6 +4460,9 @@ static void *_p_mfem__RestrictedCoefficientTo_p_mfem__Coefficient(void *x, int *
 static void *_p_mfem__PyCoefficientBaseTo_p_mfem__Coefficient(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((mfem::Coefficient *) (mfem::FunctionCoefficient *) ((mfem::PyCoefficientBase *) x));
 }
+static void *_p_mfem__ExtrudeCoefficientTo_p_mfem__Coefficient(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((mfem::Coefficient *)  ((mfem::ExtrudeCoefficient *) x));
+}
 static void *_p_PetraM_Base_extra__Scalar_PiecewiseLinear_MaterialPropertyTo_p_mfem__Coefficient(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((mfem::Coefficient *)  ((PetraM_Base_extra::Scalar_PiecewiseLinear_MaterialProperty *) x));
 }
@@ -4354,6 +4470,9 @@ static swig_type_info _swigt__p_PetraM_Base_extra__Scalar_PiecewiseLinear_Materi
 static swig_type_info _swigt__p_PetraM_Base_extra__Scalar_Poly1D_MaterialProperty = {"_p_PetraM_Base_extra__Scalar_Poly1D_MaterialProperty", "PetraM_Base_extra::Scalar_Poly1D_MaterialProperty *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_PetraM_Base_extra__Uniaxial_constant_MaterialProperty = {"_p_PetraM_Base_extra__Uniaxial_constant_MaterialProperty", "PetraM_Base_extra::Uniaxial_constant_MaterialProperty *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_char = {"_p_char", "char *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_doublep = {"_p_doublep", "doublep *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_hex_t = {"_p_hex_t", "hex_t *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_intp = {"_p_intp", "intp *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_mfem__Coefficient = {"_p_mfem__Coefficient", "mfem::Coefficient *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_mfem__ConstantCoefficient = {"_p_mfem__ConstantCoefficient", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_mfem__PWConstCoefficient = {"_p_mfem__PWConstCoefficient", 0, 0, 0, 0, 0};
@@ -4363,12 +4482,14 @@ static swig_type_info _swigt__p_mfem__TransformedCoefficient = {"_p_mfem__Transf
 static swig_type_info _swigt__p_mfem__DeltaCoefficient = {"_p_mfem__DeltaCoefficient", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_mfem__RestrictedCoefficient = {"_p_mfem__RestrictedCoefficient", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_mfem__PyCoefficientBase = {"_p_mfem__PyCoefficientBase", 0, 0, 0, 0, 0};
+static swig_type_info _swigt__p_mfem__ExtrudeCoefficient = {"_p_mfem__ExtrudeCoefficient", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_mfem__DenseMatrix = {"_p_mfem__DenseMatrix", "mfem::DenseMatrix *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_mfem__ElementTransformation = {"_p_mfem__ElementTransformation", "mfem::ElementTransformation *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_mfem__IsoparametricTransformation = {"_p_mfem__IsoparametricTransformation", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_mfem__GridFunction = {"_p_mfem__GridFunction", "mfem::GridFunction *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_mfem__IntegrationPoint = {"_p_mfem__IntegrationPoint", "mfem::IntegrationPoint *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_mfem__IntegrationRule = {"_p_mfem__IntegrationRule", "mfem::IntegrationRule *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_mfem__L2_FECollection = {"_p_mfem__L2_FECollection", "mfem::L2_FECollection *|mfem::DG_FECollection *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_mfem__MatrixCoefficient = {"_p_mfem__MatrixCoefficient", "mfem::MatrixCoefficient *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_mfem__MatrixConstantCoefficient = {"_p_mfem__MatrixConstantCoefficient", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_mfem__MatrixFunctionCoefficient = {"_p_mfem__MatrixFunctionCoefficient", 0, 0, 0, 0, 0};
@@ -4376,23 +4497,35 @@ static swig_type_info _swigt__p_mfem__MatrixArrayCoefficient = {"_p_mfem__Matrix
 static swig_type_info _swigt__p_mfem__MatrixRestrictedCoefficient = {"_p_mfem__MatrixRestrictedCoefficient", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_mfem__MatrixPyCoefficientBase = {"_p_mfem__MatrixPyCoefficientBase", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_mfem__Vector = {"_p_mfem__Vector", "mfem::Vector *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_mfem__QuadratureFunction = {"_p_mfem__QuadratureFunction", 0, 0, 0, 0, 0};
+static swig_type_info _swigt__p_mfem__LinearForm = {"_p_mfem__LinearForm", 0, 0, 0, 0, 0};
+static swig_type_info _swigt__p_quad_t = {"_p_quad_t", "quad_t *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_seg_t = {"_p_seg_t", "seg_t *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_tet_t = {"_p_tet_t", "tet_t *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_tri_t = {"_p_tri_t", "tri_t *", 0, 0, (void*)0, 0};
 
 static swig_type_info *swig_type_initial[] = {
   &_swigt__p_PetraM_Base_extra__Scalar_PiecewiseLinear_MaterialProperty,
   &_swigt__p_PetraM_Base_extra__Scalar_Poly1D_MaterialProperty,
   &_swigt__p_PetraM_Base_extra__Uniaxial_constant_MaterialProperty,
   &_swigt__p_char,
+  &_swigt__p_doublep,
+  &_swigt__p_hex_t,
+  &_swigt__p_intp,
   &_swigt__p_mfem__Coefficient,
   &_swigt__p_mfem__ConstantCoefficient,
   &_swigt__p_mfem__DeltaCoefficient,
   &_swigt__p_mfem__DenseMatrix,
   &_swigt__p_mfem__ElementTransformation,
+  &_swigt__p_mfem__ExtrudeCoefficient,
   &_swigt__p_mfem__FunctionCoefficient,
   &_swigt__p_mfem__GridFunction,
   &_swigt__p_mfem__GridFunctionCoefficient,
   &_swigt__p_mfem__IntegrationPoint,
   &_swigt__p_mfem__IntegrationRule,
   &_swigt__p_mfem__IsoparametricTransformation,
+  &_swigt__p_mfem__L2_FECollection,
+  &_swigt__p_mfem__LinearForm,
   &_swigt__p_mfem__MatrixArrayCoefficient,
   &_swigt__p_mfem__MatrixCoefficient,
   &_swigt__p_mfem__MatrixConstantCoefficient,
@@ -4401,15 +4534,23 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_mfem__MatrixRestrictedCoefficient,
   &_swigt__p_mfem__PWConstCoefficient,
   &_swigt__p_mfem__PyCoefficientBase,
+  &_swigt__p_mfem__QuadratureFunction,
   &_swigt__p_mfem__RestrictedCoefficient,
   &_swigt__p_mfem__TransformedCoefficient,
   &_swigt__p_mfem__Vector,
+  &_swigt__p_quad_t,
+  &_swigt__p_seg_t,
+  &_swigt__p_tet_t,
+  &_swigt__p_tri_t,
 };
 
 static swig_cast_info _swigc__p_PetraM_Base_extra__Scalar_PiecewiseLinear_MaterialProperty[] = {  {&_swigt__p_PetraM_Base_extra__Scalar_PiecewiseLinear_MaterialProperty, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_PetraM_Base_extra__Scalar_Poly1D_MaterialProperty[] = {  {&_swigt__p_PetraM_Base_extra__Scalar_Poly1D_MaterialProperty, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_PetraM_Base_extra__Uniaxial_constant_MaterialProperty[] = {  {&_swigt__p_PetraM_Base_extra__Uniaxial_constant_MaterialProperty, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_char[] = {  {&_swigt__p_char, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_doublep[] = {  {&_swigt__p_doublep, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_hex_t[] = {  {&_swigt__p_hex_t, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_intp[] = {  {&_swigt__p_intp, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_mfem__ConstantCoefficient[] = {{&_swigt__p_mfem__ConstantCoefficient, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_mfem__PWConstCoefficient[] = {{&_swigt__p_mfem__PWConstCoefficient, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_mfem__FunctionCoefficient[] = {{&_swigt__p_mfem__FunctionCoefficient, 0, 0, 0},{0, 0, 0, 0}};
@@ -4418,37 +4559,51 @@ static swig_cast_info _swigc__p_mfem__TransformedCoefficient[] = {{&_swigt__p_mf
 static swig_cast_info _swigc__p_mfem__DeltaCoefficient[] = {{&_swigt__p_mfem__DeltaCoefficient, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_mfem__RestrictedCoefficient[] = {{&_swigt__p_mfem__RestrictedCoefficient, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_mfem__PyCoefficientBase[] = {{&_swigt__p_mfem__PyCoefficientBase, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_mfem__Coefficient[] = {  {&_swigt__p_mfem__Coefficient, 0, 0, 0},  {&_swigt__p_PetraM_Base_extra__Scalar_Poly1D_MaterialProperty, _p_PetraM_Base_extra__Scalar_Poly1D_MaterialPropertyTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_mfem__ConstantCoefficient, _p_mfem__ConstantCoefficientTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_mfem__PWConstCoefficient, _p_mfem__PWConstCoefficientTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_mfem__FunctionCoefficient, _p_mfem__FunctionCoefficientTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_mfem__GridFunctionCoefficient, _p_mfem__GridFunctionCoefficientTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_mfem__TransformedCoefficient, _p_mfem__TransformedCoefficientTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_mfem__DeltaCoefficient, _p_mfem__DeltaCoefficientTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_mfem__RestrictedCoefficient, _p_mfem__RestrictedCoefficientTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_mfem__PyCoefficientBase, _p_mfem__PyCoefficientBaseTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_PetraM_Base_extra__Scalar_PiecewiseLinear_MaterialProperty, _p_PetraM_Base_extra__Scalar_PiecewiseLinear_MaterialPropertyTo_p_mfem__Coefficient, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_mfem__ExtrudeCoefficient[] = {{&_swigt__p_mfem__ExtrudeCoefficient, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_mfem__Coefficient[] = {  {&_swigt__p_mfem__Coefficient, 0, 0, 0},  {&_swigt__p_PetraM_Base_extra__Scalar_Poly1D_MaterialProperty, _p_PetraM_Base_extra__Scalar_Poly1D_MaterialPropertyTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_mfem__ConstantCoefficient, _p_mfem__ConstantCoefficientTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_mfem__PWConstCoefficient, _p_mfem__PWConstCoefficientTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_mfem__FunctionCoefficient, _p_mfem__FunctionCoefficientTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_mfem__GridFunctionCoefficient, _p_mfem__GridFunctionCoefficientTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_mfem__TransformedCoefficient, _p_mfem__TransformedCoefficientTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_mfem__DeltaCoefficient, _p_mfem__DeltaCoefficientTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_mfem__RestrictedCoefficient, _p_mfem__RestrictedCoefficientTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_mfem__PyCoefficientBase, _p_mfem__PyCoefficientBaseTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_mfem__ExtrudeCoefficient, _p_mfem__ExtrudeCoefficientTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_PetraM_Base_extra__Scalar_PiecewiseLinear_MaterialProperty, _p_PetraM_Base_extra__Scalar_PiecewiseLinear_MaterialPropertyTo_p_mfem__Coefficient, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_mfem__DenseMatrix[] = {  {&_swigt__p_mfem__DenseMatrix, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_mfem__IsoparametricTransformation[] = {{&_swigt__p_mfem__IsoparametricTransformation, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_mfem__ElementTransformation[] = {  {&_swigt__p_mfem__ElementTransformation, 0, 0, 0},  {&_swigt__p_mfem__IsoparametricTransformation, _p_mfem__IsoparametricTransformationTo_p_mfem__ElementTransformation, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_mfem__GridFunction[] = {  {&_swigt__p_mfem__GridFunction, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_mfem__IntegrationPoint[] = {  {&_swigt__p_mfem__IntegrationPoint, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_mfem__IntegrationRule[] = {  {&_swigt__p_mfem__IntegrationRule, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_mfem__L2_FECollection[] = {  {&_swigt__p_mfem__L2_FECollection, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_mfem__MatrixConstantCoefficient[] = {{&_swigt__p_mfem__MatrixConstantCoefficient, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_mfem__MatrixFunctionCoefficient[] = {{&_swigt__p_mfem__MatrixFunctionCoefficient, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_mfem__MatrixArrayCoefficient[] = {{&_swigt__p_mfem__MatrixArrayCoefficient, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_mfem__MatrixRestrictedCoefficient[] = {{&_swigt__p_mfem__MatrixRestrictedCoefficient, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_mfem__MatrixPyCoefficientBase[] = {{&_swigt__p_mfem__MatrixPyCoefficientBase, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_mfem__MatrixCoefficient[] = {  {&_swigt__p_mfem__MatrixCoefficient, 0, 0, 0},  {&_swigt__p_mfem__MatrixConstantCoefficient, _p_mfem__MatrixConstantCoefficientTo_p_mfem__MatrixCoefficient, 0, 0},  {&_swigt__p_mfem__MatrixFunctionCoefficient, _p_mfem__MatrixFunctionCoefficientTo_p_mfem__MatrixCoefficient, 0, 0},  {&_swigt__p_mfem__MatrixArrayCoefficient, _p_mfem__MatrixArrayCoefficientTo_p_mfem__MatrixCoefficient, 0, 0},  {&_swigt__p_mfem__MatrixRestrictedCoefficient, _p_mfem__MatrixRestrictedCoefficientTo_p_mfem__MatrixCoefficient, 0, 0},  {&_swigt__p_mfem__MatrixPyCoefficientBase, _p_mfem__MatrixPyCoefficientBaseTo_p_mfem__MatrixCoefficient, 0, 0},  {&_swigt__p_PetraM_Base_extra__Uniaxial_constant_MaterialProperty, _p_PetraM_Base_extra__Uniaxial_constant_MaterialPropertyTo_p_mfem__MatrixCoefficient, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_mfem__Vector[] = {  {&_swigt__p_mfem__Vector, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_mfem__QuadratureFunction[] = {{&_swigt__p_mfem__QuadratureFunction, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_mfem__LinearForm[] = {{&_swigt__p_mfem__LinearForm, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_mfem__Vector[] = {  {&_swigt__p_mfem__Vector, 0, 0, 0},  {&_swigt__p_mfem__GridFunction, _p_mfem__GridFunctionTo_p_mfem__Vector, 0, 0},  {&_swigt__p_mfem__QuadratureFunction, _p_mfem__QuadratureFunctionTo_p_mfem__Vector, 0, 0},  {&_swigt__p_mfem__LinearForm, _p_mfem__LinearFormTo_p_mfem__Vector, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_quad_t[] = {  {&_swigt__p_quad_t, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_seg_t[] = {  {&_swigt__p_seg_t, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_tet_t[] = {  {&_swigt__p_tet_t, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_tri_t[] = {  {&_swigt__p_tri_t, 0, 0, 0},{0, 0, 0, 0}};
 
 static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_PetraM_Base_extra__Scalar_PiecewiseLinear_MaterialProperty,
   _swigc__p_PetraM_Base_extra__Scalar_Poly1D_MaterialProperty,
   _swigc__p_PetraM_Base_extra__Uniaxial_constant_MaterialProperty,
   _swigc__p_char,
+  _swigc__p_doublep,
+  _swigc__p_hex_t,
+  _swigc__p_intp,
   _swigc__p_mfem__Coefficient,
   _swigc__p_mfem__ConstantCoefficient,
   _swigc__p_mfem__DeltaCoefficient,
   _swigc__p_mfem__DenseMatrix,
   _swigc__p_mfem__ElementTransformation,
+  _swigc__p_mfem__ExtrudeCoefficient,
   _swigc__p_mfem__FunctionCoefficient,
   _swigc__p_mfem__GridFunction,
   _swigc__p_mfem__GridFunctionCoefficient,
   _swigc__p_mfem__IntegrationPoint,
   _swigc__p_mfem__IntegrationRule,
   _swigc__p_mfem__IsoparametricTransformation,
+  _swigc__p_mfem__L2_FECollection,
+  _swigc__p_mfem__LinearForm,
   _swigc__p_mfem__MatrixArrayCoefficient,
   _swigc__p_mfem__MatrixCoefficient,
   _swigc__p_mfem__MatrixConstantCoefficient,
@@ -4457,9 +4612,14 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_mfem__MatrixRestrictedCoefficient,
   _swigc__p_mfem__PWConstCoefficient,
   _swigc__p_mfem__PyCoefficientBase,
+  _swigc__p_mfem__QuadratureFunction,
   _swigc__p_mfem__RestrictedCoefficient,
   _swigc__p_mfem__TransformedCoefficient,
   _swigc__p_mfem__Vector,
+  _swigc__p_quad_t,
+  _swigc__p_seg_t,
+  _swigc__p_tet_t,
+  _swigc__p_tri_t,
 };
 
 

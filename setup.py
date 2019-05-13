@@ -40,6 +40,6 @@ setup(
     packages=find_packages(),
     install_requires=[],
     extras_require={},
-    package_data={'petram.ext.mfem_extra.par':['*.so'], 'petram.ext.mfem_extra.ser':['*.so']},
+    package_data={'petram.ext._base._par':['*.so'], 'petram.ext._base._ser':['*.so']},
     entry_points={},
 )

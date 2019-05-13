@@ -1,4 +1,4 @@
-%module fancy_coefficient
+%module(package="petram.ext._base._ser") fancy_coefficient
 %{
 #include "mfem.hpp"
 #include "numpy/arrayobject.h"
@@ -11,6 +11,14 @@ import_array();
 %}
 %include "exception.i"
 %import "coefficient.i"
+%import "gridfunc.i"
 
+ /*
+%inline %{
+  class derived : public mfem::coefficient {
+public:
+   int bar();
+};
+ */ 
 %include "../../../../ext/fancy_coefficient.hpp"
 

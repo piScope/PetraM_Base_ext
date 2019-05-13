@@ -57,7 +57,7 @@ for kk, name in enumerate(modules):
 
    ext_modules.append(Extension(proxy_names[name],
                         sources=sources[name],
-                        extra_compile_args = ['-DSWIG_TYPE_TABLE=PyMFEM_EXT'],   
+                        extra_compile_args = ['-DSWIG_TYPE_TABLE=PyMFEM'],   
                         include_dirs = include_dirs,
                         library_dirs = library_dirs,
                         libraries = libraries ))

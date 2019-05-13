@@ -6,8 +6,8 @@
 #*
 .#*
 *~
-Makefile.local
-setup_local.py
+ext/cmbuild_par
+ext/cmbuild_ser
 build
 dist
 test/*
