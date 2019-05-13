@@ -133,125 +133,111 @@ import mfem._par.pmesh
 import mfem._par.pncmesh
 import mfem._par.communication
 import mfem._par.sets
-class Scalar_PiecewiseLinear_MaterialProperty(mfem._par.coefficient.Coefficient):
-    """Proxy of C++ PetraM_Base_extra::Scalar_PiecewiseLinear_MaterialProperty class."""
+class PiecewiseLinearMaterialProperty(mfem._par.coefficient.Coefficient):
+    """Proxy of C++ PetraM_Base_extra::PiecewiseLinearMaterialProperty class."""
 
     __swig_setmethods__ = {}
     for _s in [mfem._par.coefficient.Coefficient]:
         __swig_setmethods__.update(getattr(_s, '__swig_setmethods__', {}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, Scalar_PiecewiseLinear_MaterialProperty, name, value)
+    __setattr__ = lambda self, name, value: _swig_setattr(self, PiecewiseLinearMaterialProperty, name, value)
     __swig_getmethods__ = {}
     for _s in [mfem._par.coefficient.Coefficient]:
         __swig_getmethods__.update(getattr(_s, '__swig_getmethods__', {}))
-    __getattr__ = lambda self, name: _swig_getattr(self, Scalar_PiecewiseLinear_MaterialProperty, name)
+    __getattr__ = lambda self, name: _swig_getattr(self, PiecewiseLinearMaterialProperty, name)
     __repr__ = _swig_repr
 
-    def __init__(self, _gf, _x, _y):
-        """__init__(PetraM_Base_extra::Scalar_PiecewiseLinear_MaterialProperty self, GridFunction _gf, Vector _x, Vector _y) -> Scalar_PiecewiseLinear_MaterialProperty"""
-        this = _fancy_coefficient.new_Scalar_PiecewiseLinear_MaterialProperty(_gf, _x, _y)
+    def __init__(self, *args):
+        """
+        __init__(PetraM_Base_extra::PiecewiseLinearMaterialProperty self, Coefficient _cf, Vector x, Vector y) -> PiecewiseLinearMaterialProperty
+        __init__(PetraM_Base_extra::PiecewiseLinearMaterialProperty self, GridFunction _gf, Vector x, Vector y, int comp=1) -> PiecewiseLinearMaterialProperty
+        __init__(PetraM_Base_extra::PiecewiseLinearMaterialProperty self, GridFunction _gf, Vector x, Vector y) -> PiecewiseLinearMaterialProperty
+        """
+        this = _fancy_coefficient.new_PiecewiseLinearMaterialProperty(*args)
         try:
             self.this.append(this)
         except __builtin__.Exception:
             self.this = this
 
-    def SetGridFunction(self, gf):
-        """SetGridFunction(Scalar_PiecewiseLinear_MaterialProperty self, GridFunction gf)"""
-        return _fancy_coefficient.Scalar_PiecewiseLinear_MaterialProperty_SetGridFunction(self, gf)
-
-
-    def GetGridFunction(self):
-        """GetGridFunction(Scalar_PiecewiseLinear_MaterialProperty self) -> GridFunction"""
-        return _fancy_coefficient.Scalar_PiecewiseLinear_MaterialProperty_GetGridFunction(self)
-
-
     def Eval(self, T, ip):
-        """Eval(Scalar_PiecewiseLinear_MaterialProperty self, ElementTransformation T, IntegrationPoint ip) -> double"""
-        return _fancy_coefficient.Scalar_PiecewiseLinear_MaterialProperty_Eval(self, T, ip)
+        """Eval(PiecewiseLinearMaterialProperty self, ElementTransformation T, IntegrationPoint ip) -> double"""
+        return _fancy_coefficient.PiecewiseLinearMaterialProperty_Eval(self, T, ip)
 
-    __swig_destroy__ = _fancy_coefficient.delete_Scalar_PiecewiseLinear_MaterialProperty
+    __swig_destroy__ = _fancy_coefficient.delete_PiecewiseLinearMaterialProperty
     __del__ = lambda self: None
-Scalar_PiecewiseLinear_MaterialProperty_swigregister = _fancy_coefficient.Scalar_PiecewiseLinear_MaterialProperty_swigregister
-Scalar_PiecewiseLinear_MaterialProperty_swigregister(Scalar_PiecewiseLinear_MaterialProperty)
+PiecewiseLinearMaterialProperty_swigregister = _fancy_coefficient.PiecewiseLinearMaterialProperty_swigregister
+PiecewiseLinearMaterialProperty_swigregister(PiecewiseLinearMaterialProperty)
 
-class Scalar_Poly1D_MaterialProperty(mfem._par.coefficient.Coefficient):
-    """Proxy of C++ PetraM_Base_extra::Scalar_Poly1D_MaterialProperty class."""
+class Poly1DMaterialProperty(mfem._par.coefficient.Coefficient):
+    """Proxy of C++ PetraM_Base_extra::Poly1DMaterialProperty class."""
 
     __swig_setmethods__ = {}
     for _s in [mfem._par.coefficient.Coefficient]:
         __swig_setmethods__.update(getattr(_s, '__swig_setmethods__', {}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, Scalar_Poly1D_MaterialProperty, name, value)
+    __setattr__ = lambda self, name, value: _swig_setattr(self, Poly1DMaterialProperty, name, value)
     __swig_getmethods__ = {}
     for _s in [mfem._par.coefficient.Coefficient]:
         __swig_getmethods__.update(getattr(_s, '__swig_getmethods__', {}))
-    __getattr__ = lambda self, name: _swig_getattr(self, Scalar_Poly1D_MaterialProperty, name)
+    __getattr__ = lambda self, name: _swig_getattr(self, Poly1DMaterialProperty, name)
     __repr__ = _swig_repr
 
-    def __init__(self, _gf, _coeff):
-        """__init__(PetraM_Base_extra::Scalar_Poly1D_MaterialProperty self, GridFunction _gf, Vector _coeff) -> Scalar_Poly1D_MaterialProperty"""
-        this = _fancy_coefficient.new_Scalar_Poly1D_MaterialProperty(_gf, _coeff)
+    def __init__(self, *args):
+        """
+        __init__(PetraM_Base_extra::Poly1DMaterialProperty self, Coefficient _cf, Vector coeff, double _max_range, double _min_range) -> Poly1DMaterialProperty
+        __init__(PetraM_Base_extra::Poly1DMaterialProperty self, Coefficient _cf, Vector coeff, double _max_range) -> Poly1DMaterialProperty
+        __init__(PetraM_Base_extra::Poly1DMaterialProperty self, Coefficient _cf, Vector coeff) -> Poly1DMaterialProperty
+        __init__(PetraM_Base_extra::Poly1DMaterialProperty self, GridFunction _gf, Vector coeff, int comp=1, double _max_range, double _min_range) -> Poly1DMaterialProperty
+        __init__(PetraM_Base_extra::Poly1DMaterialProperty self, GridFunction _gf, Vector coeff, int comp=1, double _max_range) -> Poly1DMaterialProperty
+        __init__(PetraM_Base_extra::Poly1DMaterialProperty self, GridFunction _gf, Vector coeff, int comp=1) -> Poly1DMaterialProperty
+        __init__(PetraM_Base_extra::Poly1DMaterialProperty self, GridFunction _gf, Vector coeff) -> Poly1DMaterialProperty
+        """
+        this = _fancy_coefficient.new_Poly1DMaterialProperty(*args)
         try:
             self.this.append(this)
         except __builtin__.Exception:
             self.this = this
 
-    def SetGridFunction(self, gf):
-        """SetGridFunction(Scalar_Poly1D_MaterialProperty self, GridFunction gf)"""
-        return _fancy_coefficient.Scalar_Poly1D_MaterialProperty_SetGridFunction(self, gf)
-
-
-    def GetGridFunction(self):
-        """GetGridFunction(Scalar_Poly1D_MaterialProperty self) -> GridFunction"""
-        return _fancy_coefficient.Scalar_Poly1D_MaterialProperty_GetGridFunction(self)
-
-
     def Eval(self, T, ip):
-        """Eval(Scalar_Poly1D_MaterialProperty self, ElementTransformation T, IntegrationPoint ip) -> double"""
-        return _fancy_coefficient.Scalar_Poly1D_MaterialProperty_Eval(self, T, ip)
+        """Eval(Poly1DMaterialProperty self, ElementTransformation T, IntegrationPoint ip) -> double"""
+        return _fancy_coefficient.Poly1DMaterialProperty_Eval(self, T, ip)
 
-    __swig_destroy__ = _fancy_coefficient.delete_Scalar_Poly1D_MaterialProperty
+    __swig_destroy__ = _fancy_coefficient.delete_Poly1DMaterialProperty
     __del__ = lambda self: None
-Scalar_Poly1D_MaterialProperty_swigregister = _fancy_coefficient.Scalar_Poly1D_MaterialProperty_swigregister
-Scalar_Poly1D_MaterialProperty_swigregister(Scalar_Poly1D_MaterialProperty)
+Poly1DMaterialProperty_swigregister = _fancy_coefficient.Poly1DMaterialProperty_swigregister
+Poly1DMaterialProperty_swigregister(Poly1DMaterialProperty)
 
-class Uniaxial_constant_MaterialProperty(mfem._par.coefficient.MatrixCoefficient):
-    """Proxy of C++ PetraM_Base_extra::Uniaxial_constant_MaterialProperty class."""
+class UniaxialConstantMaterialProperty(mfem._par.coefficient.MatrixCoefficient):
+    """Proxy of C++ PetraM_Base_extra::UniaxialConstantMaterialProperty class."""
 
     __swig_setmethods__ = {}
     for _s in [mfem._par.coefficient.MatrixCoefficient]:
         __swig_setmethods__.update(getattr(_s, '__swig_setmethods__', {}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, Uniaxial_constant_MaterialProperty, name, value)
+    __setattr__ = lambda self, name, value: _swig_setattr(self, UniaxialConstantMaterialProperty, name, value)
     __swig_getmethods__ = {}
     for _s in [mfem._par.coefficient.MatrixCoefficient]:
         __swig_getmethods__.update(getattr(_s, '__swig_getmethods__', {}))
-    __getattr__ = lambda self, name: _swig_getattr(self, Uniaxial_constant_MaterialProperty, name)
+    __getattr__ = lambda self, name: _swig_getattr(self, UniaxialConstantMaterialProperty, name)
     __repr__ = _swig_repr
 
-    def __init__(self, _gf, m):
-        """__init__(PetraM_Base_extra::Uniaxial_constant_MaterialProperty self, GridFunction _gf, DenseMatrix m) -> Uniaxial_constant_MaterialProperty"""
-        this = _fancy_coefficient.new_Uniaxial_constant_MaterialProperty(_gf, m)
+    def __init__(self, *args):
+        """
+        __init__(PetraM_Base_extra::UniaxialConstantMaterialProperty self, Coefficient _cf, DenseMatrix m) -> UniaxialConstantMaterialProperty
+        __init__(PetraM_Base_extra::UniaxialConstantMaterialProperty self, GridFunction _gf, DenseMatrix m, int comp=1) -> UniaxialConstantMaterialProperty
+        __init__(PetraM_Base_extra::UniaxialConstantMaterialProperty self, GridFunction _gf, DenseMatrix m) -> UniaxialConstantMaterialProperty
+        """
+        this = _fancy_coefficient.new_UniaxialConstantMaterialProperty(*args)
         try:
             self.this.append(this)
         except __builtin__.Exception:
             self.this = this
-
-    def SetGridFunction(self, gf):
-        """SetGridFunction(Uniaxial_constant_MaterialProperty self, GridFunction gf)"""
-        return _fancy_coefficient.Uniaxial_constant_MaterialProperty_SetGridFunction(self, gf)
-
-
-    def GetGridFunction(self):
-        """GetGridFunction(Uniaxial_constant_MaterialProperty self) -> GridFunction"""
-        return _fancy_coefficient.Uniaxial_constant_MaterialProperty_GetGridFunction(self)
-
 
     def Eval(self, K, T, ip):
-        """Eval(Uniaxial_constant_MaterialProperty self, DenseMatrix K, ElementTransformation T, IntegrationPoint ip)"""
-        return _fancy_coefficient.Uniaxial_constant_MaterialProperty_Eval(self, K, T, ip)
+        """Eval(UniaxialConstantMaterialProperty self, DenseMatrix K, ElementTransformation T, IntegrationPoint ip)"""
+        return _fancy_coefficient.UniaxialConstantMaterialProperty_Eval(self, K, T, ip)
 
-    __swig_destroy__ = _fancy_coefficient.delete_Uniaxial_constant_MaterialProperty
+    __swig_destroy__ = _fancy_coefficient.delete_UniaxialConstantMaterialProperty
     __del__ = lambda self: None
-Uniaxial_constant_MaterialProperty_swigregister = _fancy_coefficient.Uniaxial_constant_MaterialProperty_swigregister
-Uniaxial_constant_MaterialProperty_swigregister(Uniaxial_constant_MaterialProperty)
+UniaxialConstantMaterialProperty_swigregister = _fancy_coefficient.UniaxialConstantMaterialProperty_swigregister
+UniaxialConstantMaterialProperty_swigregister(UniaxialConstantMaterialProperty)
 
 # This file is compatible with both classic and new-style classes.
 

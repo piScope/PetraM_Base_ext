@@ -13,12 +13,5 @@ import_array();
 %import "coefficient.i"
 %import "gridfunc.i"
 
- /*
-%inline %{
-  class derived : public mfem::coefficient {
-public:
-   int bar();
-};
- */ 
 %include "../../../../ext/fancy_coefficient.hpp"
 
