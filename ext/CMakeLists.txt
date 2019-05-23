@@ -7,6 +7,7 @@ find_package(MPI  REQUIRED)
 set(FPIC " -fPIC ")
 set(LINK_FLAGS ${FPIC})
 set(DEFAULT_INC ${PETRAM_PREFIX}/include)
+
 #
 #  USE C++11
 #
@@ -33,7 +34,7 @@ set( CMP_FLAG ${SHARED_SC_COMPILE_FLAGS})
 #
 add_library(PetraM_Base_ext SHARED fancy_coefficient.cpp)
 
-if (USE_MFEM_PARALLEL)
+if (MFEM_USE_PARALLEL)
     target_include_directories(PetraM_Base_ext PRIVATE ${DEFAULT_INC}  ${MFEM_INC_DIR} ${HYPRE_INC_DIR} ${METIS_INC_DIR})
 else()
     target_include_directories(PetraM_Base_ext PRIVATE ${DEFAULT_INC} ${MFEM_INC_DIR})

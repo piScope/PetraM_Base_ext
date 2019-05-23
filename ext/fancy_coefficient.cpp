@@ -19,10 +19,18 @@ double PiecewiseLinearMaterialProperty::Eval(ElementTransformation &T,
   int size = _x -> Size();
 
   if (x[0] > cfv) {
-    mfem_error("PiecewiseLinearMaterialProperty::out of range  \n");
+    if (range_check == 1){
+      mfem_error("PiecewiseLinearMaterialProperty::out of range  \n");
+    } else {
+      return y[0];
+    }
   }
   if (x[size-1] < cfv) {
-    mfem_error("PiecewiseLinearMaterialProperty::out of range  \n");
+    if (range_check == 1){    
+      mfem_error("PiecewiseLinearMaterialProperty::out of range  \n");
+    } else {
+      return y[size - 1];
+    }
   }
   
   for (int i = 0; i < size; i++) {

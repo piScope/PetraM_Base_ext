@@ -3942,6 +3942,53 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_PiecewiseLinearMaterialProperty_SetRangeCheck(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  PetraM_Base_extra::PiecewiseLinearMaterialProperty *arg1 = (PetraM_Base_extra::PiecewiseLinearMaterialProperty *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:PiecewiseLinearMaterialProperty_SetRangeCheck",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_PetraM_Base_extra__PiecewiseLinearMaterialProperty, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PiecewiseLinearMaterialProperty_SetRangeCheck" "', argument " "1"" of type '" "PetraM_Base_extra::PiecewiseLinearMaterialProperty *""'"); 
+  }
+  arg1 = reinterpret_cast< PetraM_Base_extra::PiecewiseLinearMaterialProperty * >(argp1);
+  {
+    if ((PyArray_PyIntAsInt(obj1) == -1) && PyErr_Occurred()) {
+      SWIG_exception_fail(SWIG_TypeError, "Input must be integer");
+    };  
+    arg2 = PyArray_PyIntAsInt(obj1);
+  }
+  {
+    try {
+      (arg1)->SetRangeCheck(arg2);
+    }
+#ifdef  MFEM_USE_EXCEPTIONS
+    catch (mfem::ErrorException &_e) {
+      std::string s("PyMFEM error (mfem::ErrorException): "), s2(_e.what());
+      s = s + s2;    
+      SWIG_exception(SWIG_RuntimeError, s.c_str());
+    }
+#endif
+    
+    catch (Swig::DirectorException &e){
+      SWIG_fail;
+    }    
+    catch (...) {
+      SWIG_exception(SWIG_RuntimeError, "unknown exception");
+    }	 
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_PiecewiseLinearMaterialProperty_Eval(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   PetraM_Base_extra::PiecewiseLinearMaterialProperty *arg1 = (PetraM_Base_extra::PiecewiseLinearMaterialProperty *) 0 ;
@@ -5166,6 +5213,7 @@ static PyMethodDef SwigMethods[] = {
 		"PiecewiseLinearMaterialProperty(GridFunction _gf, Vector x, Vector y, int comp=1)\n"
 		"new_PiecewiseLinearMaterialProperty(GridFunction _gf, Vector x, Vector y) -> PiecewiseLinearMaterialProperty\n"
 		""},
+	 { (char *)"PiecewiseLinearMaterialProperty_SetRangeCheck", _wrap_PiecewiseLinearMaterialProperty_SetRangeCheck, METH_VARARGS, (char *)"PiecewiseLinearMaterialProperty_SetRangeCheck(PiecewiseLinearMaterialProperty self, int f)"},
 	 { (char *)"PiecewiseLinearMaterialProperty_Eval", _wrap_PiecewiseLinearMaterialProperty_Eval, METH_VARARGS, (char *)"PiecewiseLinearMaterialProperty_Eval(PiecewiseLinearMaterialProperty self, ElementTransformation T, IntegrationPoint ip) -> double"},
 	 { (char *)"delete_PiecewiseLinearMaterialProperty", _wrap_delete_PiecewiseLinearMaterialProperty, METH_VARARGS, (char *)"delete_PiecewiseLinearMaterialProperty(PiecewiseLinearMaterialProperty self)"},
 	 { (char *)"PiecewiseLinearMaterialProperty_swigregister", PiecewiseLinearMaterialProperty_swigregister, METH_VARARGS, NULL},

@@ -158,6 +158,11 @@ class PiecewiseLinearMaterialProperty(mfem._par.coefficient.Coefficient):
         except __builtin__.Exception:
             self.this = this
 
+    def SetRangeCheck(self, f):
+        """SetRangeCheck(PiecewiseLinearMaterialProperty self, int f)"""
+        return _fancy_coefficient.PiecewiseLinearMaterialProperty_SetRangeCheck(self, f)
+
+
     def Eval(self, T, ip):
         """Eval(PiecewiseLinearMaterialProperty self, ElementTransformation T, IntegrationPoint ip) -> double"""
         return _fancy_coefficient.PiecewiseLinearMaterialProperty_Eval(self, T, ip)

@@ -38,11 +38,12 @@ namespace PetraM_Base_extra
   private:
     Coefficient  *cf;
     const Vector       *_x;
-    const Vector       *_y;    
+    const Vector       *_y;
+    int          range_check=1;
   public:
      PiecewiseLinearMaterialProperty(Coefficient *_cf,
-				    const Vector &x,
-				    const Vector &y) :
+				     const Vector &x,
+				     const Vector &y ) :
       cf(_cf),
       _x(new Vector(x)),
       _y(new Vector(y)) {}
@@ -53,7 +54,8 @@ namespace PetraM_Base_extra
       cf(new GridFunctionCoefficient(_gf, comp)),
       _x(new Vector(x)),
       _y(new Vector(y)) {}
-    
+
+    void SetRangeCheck(int f){range_check=f;}
     virtual double Eval(ElementTransformation &T,
 			const IntegrationPoint &ip);
     
