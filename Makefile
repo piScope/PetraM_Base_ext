@@ -27,7 +27,7 @@ PREFIX ?= /usr/local/lib
 PETRAM ?= ${PetraM}
 
 # MFEM lib/include directory
-MFEM_BASE ?= ${PREFIX}/mfem-git
+MFEM_BASE ?= ${PREFIX}/mfem
 MFEM_SER_INC = ${MFEM_BASE}/ser/include
 MFEM_PAR_INC = ${MFEM_BASE}/par/include
 
