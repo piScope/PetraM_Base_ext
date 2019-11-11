@@ -40,7 +40,7 @@ HYPRE_INC_DIR ?= ${PREFIX}/include
 METIS_INC_DIR ?= ${PREFIX}/include
 
 # the location of mpi4py.i (asking Python for the location usually works)
-MPI4PYINCDIR = $(shell $(PYTHON) -c "import mpi4py;print mpi4py.get_include()")
+MPI4PYINCDIR = $(shell $(PYTHON) -c "import mpi4py;print(mpi4py.get_include())")
 
 UNAME := $(shell uname)
 SUBDIRS = ext
