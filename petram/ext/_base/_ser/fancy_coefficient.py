@@ -155,5 +155,41 @@ class UniaxialConstantMaterialProperty(mfem._ser.coefficient.MatrixCoefficient):
 # Register UniaxialConstantMaterialProperty in _fancy_coefficient:
 _fancy_coefficient.UniaxialConstantMaterialProperty_swigregister(UniaxialConstantMaterialProperty)
 
+class ComplexInverseMatrixCoefficient(mfem._ser.coefficient.MatrixCoefficient):
+    r"""Proxy of C++ PetraM_Base_extra::ComplexInverseMatrixCoefficient class."""
+
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
+    __repr__ = _swig_repr
+
+    def __init__(self, ReA, ImA, return_real):
+        r"""__init__(ComplexInverseMatrixCoefficient self, MatrixCoefficient ReA, MatrixCoefficient ImA, int const return_real) -> ComplexInverseMatrixCoefficient"""
+        _fancy_coefficient.ComplexInverseMatrixCoefficient_swiginit(self, _fancy_coefficient.new_ComplexInverseMatrixCoefficient(ReA, ImA, return_real))
+
+    def Eval(self, M, T, ip):
+        r"""Eval(ComplexInverseMatrixCoefficient self, DenseMatrix M, ElementTransformation T, IntegrationPoint ip)"""
+        return _fancy_coefficient.ComplexInverseMatrixCoefficient_Eval(self, M, T, ip)
+    __swig_destroy__ = _fancy_coefficient.delete_ComplexInverseMatrixCoefficient
+
+# Register ComplexInverseMatrixCoefficient in _fancy_coefficient:
+_fancy_coefficient.ComplexInverseMatrixCoefficient_swigregister(ComplexInverseMatrixCoefficient)
+
+class MatrixSliceCoefficient(mfem._ser.coefficient.MatrixCoefficient):
+    r"""Proxy of C++ PetraM_Base_extra::MatrixSliceCoefficient class."""
+
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
+    __repr__ = _swig_repr
+
+    def __init__(self, A, rindex, cindex):
+        r"""__init__(MatrixSliceCoefficient self, MatrixCoefficient A, intArray rindex, intArray cindex) -> MatrixSliceCoefficient"""
+        _fancy_coefficient.MatrixSliceCoefficient_swiginit(self, _fancy_coefficient.new_MatrixSliceCoefficient(A, rindex, cindex))
+
+    def Eval(self, M, T, ip):
+        r"""Eval(MatrixSliceCoefficient self, DenseMatrix M, ElementTransformation T, IntegrationPoint ip)"""
+        return _fancy_coefficient.MatrixSliceCoefficient_Eval(self, M, T, ip)
+    __swig_destroy__ = _fancy_coefficient.delete_MatrixSliceCoefficient
+
+# Register MatrixSliceCoefficient in _fancy_coefficient:
+_fancy_coefficient.MatrixSliceCoefficient_swigregister(MatrixSliceCoefficient)
+
 
 

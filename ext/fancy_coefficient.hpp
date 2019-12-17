@@ -118,6 +118,35 @@ namespace PetraM_Base_extra
     
 
   };
+
+  class ComplexInverseMatrixCoefficient : public MatrixCoefficient
+  {
+  private:
+    MatrixCoefficient * _ReA;
+    MatrixCoefficient * _ImA;
+    mutable DenseMatrix Mbig;  
+    mutable DenseMatrix Ms;    
+    const int _real;
+  public:
+    ComplexInverseMatrixCoefficient(MatrixCoefficient &ReA, MatrixCoefficient &ImA,
+				    const int return_real);
+    virtual void Eval(DenseMatrix &M, ElementTransformation &T,
+		      const IntegrationPoint &ip);
+    
+  };
+    
+  class MatrixSliceCoefficient : public MatrixCoefficient
+  {
+  private:
+    MatrixCoefficient * _A;
+    mutable DenseMatrix Mtmp;      
+    const Array<int> _rindex, _cindex;
+  public:
+    MatrixSliceCoefficient(MatrixCoefficient &A, Array<int> rindex, Array<int> cindex);
+    virtual void Eval(DenseMatrix &M, ElementTransformation &T,
+		      const IntegrationPoint &ip);
+    
+  };
   
 } /* end of namespace */
 
