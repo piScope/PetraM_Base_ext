@@ -3071,59 +3071,60 @@ namespace Swig {
 #define SWIGTYPE_p_PetraM_Base_extra__Poly1DMaterialProperty swig_types[6]
 #define SWIGTYPE_p_PetraM_Base_extra__UniaxialConstantMaterialProperty swig_types[7]
 #define SWIGTYPE_p_PyMFEM__wFILE swig_types[8]
-#define SWIGTYPE_p_char swig_types[9]
-#define SWIGTYPE_p_hex_t swig_types[10]
-#define SWIGTYPE_p_int swig_types[11]
-#define SWIGTYPE_p_mfem__ArrayT_int_t swig_types[12]
-#define SWIGTYPE_p_mfem__Coefficient swig_types[13]
-#define SWIGTYPE_p_mfem__ConstantCoefficient swig_types[14]
-#define SWIGTYPE_p_mfem__DeltaCoefficient swig_types[15]
-#define SWIGTYPE_p_mfem__DenseMatrix swig_types[16]
-#define SWIGTYPE_p_mfem__DeterminantCoefficient swig_types[17]
-#define SWIGTYPE_p_mfem__DivergenceGridFunctionCoefficient swig_types[18]
-#define SWIGTYPE_p_mfem__ElementTransformation swig_types[19]
-#define SWIGTYPE_p_mfem__ExtrudeCoefficient swig_types[20]
-#define SWIGTYPE_p_mfem__FunctionCoefficient swig_types[21]
-#define SWIGTYPE_p_mfem__GridFunction swig_types[22]
-#define SWIGTYPE_p_mfem__GridFunctionCoefficient swig_types[23]
-#define SWIGTYPE_p_mfem__HypreParVector swig_types[24]
-#define SWIGTYPE_p_mfem__IdentityMatrixCoefficient swig_types[25]
-#define SWIGTYPE_p_mfem__InnerProductCoefficient swig_types[26]
-#define SWIGTYPE_p_mfem__IntegrationPoint swig_types[27]
-#define SWIGTYPE_p_mfem__IntegrationRule swig_types[28]
-#define SWIGTYPE_p_mfem__InverseMatrixCoefficient swig_types[29]
-#define SWIGTYPE_p_mfem__IsoparametricTransformation swig_types[30]
-#define SWIGTYPE_p_mfem__L2_FECollection swig_types[31]
-#define SWIGTYPE_p_mfem__LinearForm swig_types[32]
-#define SWIGTYPE_p_mfem__MatrixArrayCoefficient swig_types[33]
-#define SWIGTYPE_p_mfem__MatrixCoefficient swig_types[34]
-#define SWIGTYPE_p_mfem__MatrixConstantCoefficient swig_types[35]
-#define SWIGTYPE_p_mfem__MatrixFunctionCoefficient swig_types[36]
-#define SWIGTYPE_p_mfem__MatrixPyCoefficientBase swig_types[37]
-#define SWIGTYPE_p_mfem__MatrixRestrictedCoefficient swig_types[38]
-#define SWIGTYPE_p_mfem__MatrixSumCoefficient swig_types[39]
-#define SWIGTYPE_p_mfem__OperatorHandle swig_types[40]
-#define SWIGTYPE_p_mfem__OuterProductCoefficient swig_types[41]
-#define SWIGTYPE_p_mfem__PWConstCoefficient swig_types[42]
-#define SWIGTYPE_p_mfem__ParGridFunction swig_types[43]
-#define SWIGTYPE_p_mfem__PowerCoefficient swig_types[44]
-#define SWIGTYPE_p_mfem__ProductCoefficient swig_types[45]
-#define SWIGTYPE_p_mfem__PyCoefficientBase swig_types[46]
-#define SWIGTYPE_p_mfem__QuadratureFunction swig_types[47]
-#define SWIGTYPE_p_mfem__RestrictedCoefficient swig_types[48]
-#define SWIGTYPE_p_mfem__ScalarMatrixProductCoefficient swig_types[49]
-#define SWIGTYPE_p_mfem__SumCoefficient swig_types[50]
-#define SWIGTYPE_p_mfem__TransformedCoefficient swig_types[51]
-#define SWIGTYPE_p_mfem__TransposeMatrixCoefficient swig_types[52]
-#define SWIGTYPE_p_mfem__Vector swig_types[53]
-#define SWIGTYPE_p_mfem__VectorRotProductCoefficient swig_types[54]
-#define SWIGTYPE_p_pri_t swig_types[55]
-#define SWIGTYPE_p_quad_t swig_types[56]
-#define SWIGTYPE_p_seg_t swig_types[57]
-#define SWIGTYPE_p_tet_t swig_types[58]
-#define SWIGTYPE_p_tri_t swig_types[59]
-static swig_type_info *swig_types[61];
-static swig_module_info swig_module = {swig_types, 60, 0, 0, 0, 0};
+#define SWIGTYPE_p_RefCoord swig_types[9]
+#define SWIGTYPE_p_char swig_types[10]
+#define SWIGTYPE_p_hex_t swig_types[11]
+#define SWIGTYPE_p_int swig_types[12]
+#define SWIGTYPE_p_mfem__ArrayT_int_t swig_types[13]
+#define SWIGTYPE_p_mfem__Coefficient swig_types[14]
+#define SWIGTYPE_p_mfem__ConstantCoefficient swig_types[15]
+#define SWIGTYPE_p_mfem__DeltaCoefficient swig_types[16]
+#define SWIGTYPE_p_mfem__DenseMatrix swig_types[17]
+#define SWIGTYPE_p_mfem__DeterminantCoefficient swig_types[18]
+#define SWIGTYPE_p_mfem__DivergenceGridFunctionCoefficient swig_types[19]
+#define SWIGTYPE_p_mfem__ElementTransformation swig_types[20]
+#define SWIGTYPE_p_mfem__ExtrudeCoefficient swig_types[21]
+#define SWIGTYPE_p_mfem__FunctionCoefficient swig_types[22]
+#define SWIGTYPE_p_mfem__GridFunction swig_types[23]
+#define SWIGTYPE_p_mfem__GridFunctionCoefficient swig_types[24]
+#define SWIGTYPE_p_mfem__HypreParVector swig_types[25]
+#define SWIGTYPE_p_mfem__IdentityMatrixCoefficient swig_types[26]
+#define SWIGTYPE_p_mfem__InnerProductCoefficient swig_types[27]
+#define SWIGTYPE_p_mfem__IntegrationPoint swig_types[28]
+#define SWIGTYPE_p_mfem__IntegrationRule swig_types[29]
+#define SWIGTYPE_p_mfem__InverseMatrixCoefficient swig_types[30]
+#define SWIGTYPE_p_mfem__IsoparametricTransformation swig_types[31]
+#define SWIGTYPE_p_mfem__L2_FECollection swig_types[32]
+#define SWIGTYPE_p_mfem__LinearForm swig_types[33]
+#define SWIGTYPE_p_mfem__MatrixArrayCoefficient swig_types[34]
+#define SWIGTYPE_p_mfem__MatrixCoefficient swig_types[35]
+#define SWIGTYPE_p_mfem__MatrixConstantCoefficient swig_types[36]
+#define SWIGTYPE_p_mfem__MatrixFunctionCoefficient swig_types[37]
+#define SWIGTYPE_p_mfem__MatrixPyCoefficientBase swig_types[38]
+#define SWIGTYPE_p_mfem__MatrixRestrictedCoefficient swig_types[39]
+#define SWIGTYPE_p_mfem__MatrixSumCoefficient swig_types[40]
+#define SWIGTYPE_p_mfem__OperatorHandle swig_types[41]
+#define SWIGTYPE_p_mfem__OuterProductCoefficient swig_types[42]
+#define SWIGTYPE_p_mfem__PWConstCoefficient swig_types[43]
+#define SWIGTYPE_p_mfem__ParGridFunction swig_types[44]
+#define SWIGTYPE_p_mfem__PowerCoefficient swig_types[45]
+#define SWIGTYPE_p_mfem__ProductCoefficient swig_types[46]
+#define SWIGTYPE_p_mfem__PyCoefficientBase swig_types[47]
+#define SWIGTYPE_p_mfem__QuadratureFunction swig_types[48]
+#define SWIGTYPE_p_mfem__RestrictedCoefficient swig_types[49]
+#define SWIGTYPE_p_mfem__ScalarMatrixProductCoefficient swig_types[50]
+#define SWIGTYPE_p_mfem__SumCoefficient swig_types[51]
+#define SWIGTYPE_p_mfem__TransformedCoefficient swig_types[52]
+#define SWIGTYPE_p_mfem__TransposeMatrixCoefficient swig_types[53]
+#define SWIGTYPE_p_mfem__Vector swig_types[54]
+#define SWIGTYPE_p_mfem__VectorRotProductCoefficient swig_types[55]
+#define SWIGTYPE_p_pri_t swig_types[56]
+#define SWIGTYPE_p_quad_t swig_types[57]
+#define SWIGTYPE_p_seg_t swig_types[58]
+#define SWIGTYPE_p_tet_t swig_types[59]
+#define SWIGTYPE_p_tri_t swig_types[60]
+static swig_type_info *swig_types[62];
+static swig_module_info swig_module = {swig_types, 61, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -4924,24 +4925,6 @@ static PyMethodDef SwigMethods_proxydocs[] = {
 
 /* -------- TYPE CONVERSION AND EQUIVALENCE RULES (BEGIN) -------- */
 
-static void *_p_mfem__HypreParVectorTo_p_mfem__Vector(void *x, int *SWIGUNUSEDPARM(newmemory)) {
-    return (void *)((mfem::Vector *)  ((mfem::HypreParVector *) x));
-}
-static void *_p_mfem__GridFunctionTo_p_mfem__Vector(void *x, int *SWIGUNUSEDPARM(newmemory)) {
-    return (void *)((mfem::Vector *)  ((mfem::GridFunction *) x));
-}
-static void *_p_mfem__QuadratureFunctionTo_p_mfem__Vector(void *x, int *SWIGUNUSEDPARM(newmemory)) {
-    return (void *)((mfem::Vector *)  ((mfem::QuadratureFunction *) x));
-}
-static void *_p_mfem__ParGridFunctionTo_p_mfem__Vector(void *x, int *SWIGUNUSEDPARM(newmemory)) {
-    return (void *)((mfem::Vector *) (mfem::GridFunction *) ((mfem::ParGridFunction *) x));
-}
-static void *_p_mfem__LinearFormTo_p_mfem__Vector(void *x, int *SWIGUNUSEDPARM(newmemory)) {
-    return (void *)((mfem::Vector *)  ((mfem::LinearForm *) x));
-}
-static void *_p_mfem__IsoparametricTransformationTo_p_mfem__ElementTransformation(void *x, int *SWIGUNUSEDPARM(newmemory)) {
-    return (void *)((mfem::ElementTransformation *)  ((mfem::IsoparametricTransformation *) x));
-}
 static void *_p_mfem__MatrixPyCoefficientBaseTo_p_mfem__MatrixCoefficient(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((mfem::MatrixCoefficient *) (mfem::MatrixFunctionCoefficient *) ((mfem::MatrixPyCoefficientBase *) x));
 }
@@ -5038,8 +5021,26 @@ static void *_p_PetraM_Base_extra__PiecewiseLinearMaterialPropertyTo_p_mfem__Coe
 static void *_p_PetraM_Base_extra__Poly1DMaterialPropertyTo_p_mfem__Coefficient(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((mfem::Coefficient *)  ((PetraM_Base_extra::Poly1DMaterialProperty *) x));
 }
+static void *_p_mfem__IsoparametricTransformationTo_p_mfem__ElementTransformation(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((mfem::ElementTransformation *)  ((mfem::IsoparametricTransformation *) x));
+}
 static void *_p_mfem__ParGridFunctionTo_p_mfem__GridFunction(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((mfem::GridFunction *)  ((mfem::ParGridFunction *) x));
+}
+static void *_p_mfem__HypreParVectorTo_p_mfem__Vector(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((mfem::Vector *)  ((mfem::HypreParVector *) x));
+}
+static void *_p_mfem__GridFunctionTo_p_mfem__Vector(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((mfem::Vector *)  ((mfem::GridFunction *) x));
+}
+static void *_p_mfem__QuadratureFunctionTo_p_mfem__Vector(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((mfem::Vector *)  ((mfem::QuadratureFunction *) x));
+}
+static void *_p_mfem__ParGridFunctionTo_p_mfem__Vector(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((mfem::Vector *) (mfem::GridFunction *) ((mfem::ParGridFunction *) x));
+}
+static void *_p_mfem__LinearFormTo_p_mfem__Vector(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((mfem::Vector *)  ((mfem::LinearForm *) x));
 }
 static swig_type_info _swigt__p_CommGroup = {"_p_CommGroup", "CommGroup *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_GroupId = {"_p_GroupId", "GroupId *", 0, 0, (void*)0, 0};
@@ -5050,6 +5051,7 @@ static swig_type_info _swigt__p_PetraM_Base_extra__PiecewiseLinearMaterialProper
 static swig_type_info _swigt__p_PetraM_Base_extra__Poly1DMaterialProperty = {"_p_PetraM_Base_extra__Poly1DMaterialProperty", "PetraM_Base_extra::Poly1DMaterialProperty *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_PetraM_Base_extra__UniaxialConstantMaterialProperty = {"_p_PetraM_Base_extra__UniaxialConstantMaterialProperty", "PetraM_Base_extra::UniaxialConstantMaterialProperty *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_PyMFEM__wFILE = {"_p_PyMFEM__wFILE", "PyMFEM::wFILE *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_RefCoord = {"_p_RefCoord", "RefCoord *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_char = {"_p_char", "char *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_hex_t = {"_p_hex_t", "hex_t *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_int = {"_p_int", "int *|HYPRE_Int *", 0, 0, (void*)0, 0};
@@ -5112,6 +5114,7 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_PetraM_Base_extra__Poly1DMaterialProperty,
   &_swigt__p_PetraM_Base_extra__UniaxialConstantMaterialProperty,
   &_swigt__p_PyMFEM__wFILE,
+  &_swigt__p_RefCoord,
   &_swigt__p_char,
   &_swigt__p_hex_t,
   &_swigt__p_int,
@@ -5174,6 +5177,7 @@ static swig_cast_info _swigc__p_PetraM_Base_extra__PiecewiseLinearMaterialProper
 static swig_cast_info _swigc__p_PetraM_Base_extra__Poly1DMaterialProperty[] = {  {&_swigt__p_PetraM_Base_extra__Poly1DMaterialProperty, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_PetraM_Base_extra__UniaxialConstantMaterialProperty[] = {  {&_swigt__p_PetraM_Base_extra__UniaxialConstantMaterialProperty, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_PyMFEM__wFILE[] = {  {&_swigt__p_PyMFEM__wFILE, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_RefCoord[] = {  {&_swigt__p_RefCoord, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_char[] = {  {&_swigt__p_char, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_hex_t[] = {  {&_swigt__p_hex_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_int[] = {  {&_swigt__p_int, 0, 0, 0},{0, 0, 0, 0}};
@@ -5236,6 +5240,7 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_PetraM_Base_extra__Poly1DMaterialProperty,
   _swigc__p_PetraM_Base_extra__UniaxialConstantMaterialProperty,
   _swigc__p_PyMFEM__wFILE,
+  _swigc__p_RefCoord,
   _swigc__p_char,
   _swigc__p_hex_t,
   _swigc__p_int,

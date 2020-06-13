@@ -79,6 +79,7 @@ import mfem._par.gridfunc
 import mfem._par.fespace
 import mfem._par.mesh
 import mfem._par.ncmesh
+import mfem._par.vtk
 import mfem._par.element
 import mfem._par.table
 import mfem._par.hash
@@ -87,6 +88,7 @@ import mfem._par.fe_coll
 import mfem._par.lininteg
 import mfem._par.handle
 import mfem._par.hypre
+import mfem._par.restriction
 import mfem._par.bilininteg
 import mfem._par.linearform
 import mfem._par.pgridfunc
