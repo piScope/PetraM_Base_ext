@@ -64,6 +64,7 @@ class _SwigNonDynamicMeta(type):
 import weakref
 
 import mfem._par.coefficient
+import mfem._par.globals
 import mfem._par.array
 import mfem._par.mem_manager
 import mfem._par.matrix
@@ -78,6 +79,7 @@ import mfem._par.geom
 import mfem._par.gridfunc
 import mfem._par.fespace
 import mfem._par.mesh
+import mfem._par.sort_pairs
 import mfem._par.ncmesh
 import mfem._par.vtk
 import mfem._par.element
@@ -91,6 +93,7 @@ import mfem._par.hypre
 import mfem._par.restriction
 import mfem._par.bilininteg
 import mfem._par.linearform
+import mfem._par.nonlininteg
 import mfem._par.pgridfunc
 import mfem._par.pfespace
 import mfem._par.pmesh

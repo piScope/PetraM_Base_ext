@@ -17,7 +17,7 @@ with open(path.join(here, 'README')) as f:
     
 setup(
     name='PetraM_Base_ext',
-    version='1.0',
+    version='1.1',
     description='PetraM_Base_ext',
     long_description=long_description,
     url='https://github.com/piScope/PetraM_Base_ext',
@@ -33,7 +33,7 @@ setup(
         'Intended Audience :: Developers',
         'Topic :: Scientific/Engineering :: Physics'
         'License :: OSI Approved :: GNU Lesser General Public License v2 or later (LGPLv2+)',
-        'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3.6',
     ],
 
     keywords='MFEM physics',

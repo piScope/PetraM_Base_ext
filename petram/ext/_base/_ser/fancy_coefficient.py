@@ -64,6 +64,7 @@ class _SwigNonDynamicMeta(type):
 import weakref
 
 import mfem._ser.coefficient
+import mfem._ser.globals
 import mfem._ser.array
 import mfem._ser.mem_manager
 import mfem._ser.matrix
@@ -77,6 +78,7 @@ import mfem._ser.fe
 import mfem._ser.geom
 import mfem._ser.gridfunc
 import mfem._ser.mesh
+import mfem._ser.sort_pairs
 import mfem._ser.ncmesh
 import mfem._ser.element
 import mfem._ser.table
@@ -90,6 +92,7 @@ import mfem._ser.handle
 import mfem._ser.restriction
 import mfem._ser.bilininteg
 import mfem._ser.linearform
+import mfem._ser.nonlininteg
 class PiecewiseLinearMaterialProperty(mfem._ser.coefficient.Coefficient):
     r"""Proxy of C++ PetraM_Base_extra::PiecewiseLinearMaterialProperty class."""
 
