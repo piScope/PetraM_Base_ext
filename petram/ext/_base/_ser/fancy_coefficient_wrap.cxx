@@ -3073,18 +3073,18 @@ namespace Swig {
 #define SWIGTYPE_p_PyMFEM__wFILE swig_types[5]
 #define SWIGTYPE_p_RefCoord swig_types[6]
 #define SWIGTYPE_p_char swig_types[7]
-#define SWIGTYPE_p_doublep swig_types[8]
-#define SWIGTYPE_p_hex_t swig_types[9]
-#define SWIGTYPE_p_intp swig_types[10]
-#define SWIGTYPE_p_mfem__ArrayT_int_t swig_types[11]
-#define SWIGTYPE_p_mfem__Coefficient swig_types[12]
-#define SWIGTYPE_p_mfem__ConstantCoefficient swig_types[13]
-#define SWIGTYPE_p_mfem__DeltaCoefficient swig_types[14]
-#define SWIGTYPE_p_mfem__DenseMatrix swig_types[15]
-#define SWIGTYPE_p_mfem__DeterminantCoefficient swig_types[16]
-#define SWIGTYPE_p_mfem__DivergenceGridFunctionCoefficient swig_types[17]
-#define SWIGTYPE_p_mfem__ElementTransformation swig_types[18]
-#define SWIGTYPE_p_mfem__ExtrudeCoefficient swig_types[19]
+#define SWIGTYPE_p_hex_t swig_types[8]
+#define SWIGTYPE_p_mfem__ArrayT_int_t swig_types[9]
+#define SWIGTYPE_p_mfem__Coefficient swig_types[10]
+#define SWIGTYPE_p_mfem__ConstantCoefficient swig_types[11]
+#define SWIGTYPE_p_mfem__CrossCrossCoefficient swig_types[12]
+#define SWIGTYPE_p_mfem__DeltaCoefficient swig_types[13]
+#define SWIGTYPE_p_mfem__DenseMatrix swig_types[14]
+#define SWIGTYPE_p_mfem__DeterminantCoefficient swig_types[15]
+#define SWIGTYPE_p_mfem__DivergenceGridFunctionCoefficient swig_types[16]
+#define SWIGTYPE_p_mfem__ElementTransformation swig_types[17]
+#define SWIGTYPE_p_mfem__ExtrudeCoefficient swig_types[18]
+#define SWIGTYPE_p_mfem__FaceElementTransformations swig_types[19]
 #define SWIGTYPE_p_mfem__FunctionCoefficient swig_types[20]
 #define SWIGTYPE_p_mfem__GridFunction swig_types[21]
 #define SWIGTYPE_p_mfem__GridFunctionCoefficient swig_types[22]
@@ -3103,27 +3103,30 @@ namespace Swig {
 #define SWIGTYPE_p_mfem__MatrixPyCoefficientBase swig_types[35]
 #define SWIGTYPE_p_mfem__MatrixRestrictedCoefficient swig_types[36]
 #define SWIGTYPE_p_mfem__MatrixSumCoefficient swig_types[37]
-#define SWIGTYPE_p_mfem__OperatorHandle swig_types[38]
-#define SWIGTYPE_p_mfem__OuterProductCoefficient swig_types[39]
-#define SWIGTYPE_p_mfem__PWConstCoefficient swig_types[40]
-#define SWIGTYPE_p_mfem__PowerCoefficient swig_types[41]
-#define SWIGTYPE_p_mfem__ProductCoefficient swig_types[42]
-#define SWIGTYPE_p_mfem__PyCoefficientBase swig_types[43]
-#define SWIGTYPE_p_mfem__QuadratureFunction swig_types[44]
-#define SWIGTYPE_p_mfem__RestrictedCoefficient swig_types[45]
-#define SWIGTYPE_p_mfem__ScalarMatrixProductCoefficient swig_types[46]
-#define SWIGTYPE_p_mfem__SumCoefficient swig_types[47]
-#define SWIGTYPE_p_mfem__TransformedCoefficient swig_types[48]
-#define SWIGTYPE_p_mfem__TransposeMatrixCoefficient swig_types[49]
-#define SWIGTYPE_p_mfem__Vector swig_types[50]
-#define SWIGTYPE_p_mfem__VectorRotProductCoefficient swig_types[51]
-#define SWIGTYPE_p_pri_t swig_types[52]
-#define SWIGTYPE_p_quad_t swig_types[53]
-#define SWIGTYPE_p_seg_t swig_types[54]
-#define SWIGTYPE_p_tet_t swig_types[55]
-#define SWIGTYPE_p_tri_t swig_types[56]
-static swig_type_info *swig_types[58];
-static swig_module_info swig_module = {swig_types, 57, 0, 0, 0, 0};
+#define SWIGTYPE_p_mfem__MatrixVectorProductCoefficient swig_types[38]
+#define SWIGTYPE_p_mfem__OperatorHandle swig_types[39]
+#define SWIGTYPE_p_mfem__OuterProductCoefficient swig_types[40]
+#define SWIGTYPE_p_mfem__PWConstCoefficient swig_types[41]
+#define SWIGTYPE_p_mfem__PowerCoefficient swig_types[42]
+#define SWIGTYPE_p_mfem__ProductCoefficient swig_types[43]
+#define SWIGTYPE_p_mfem__PyCoefficientBase swig_types[44]
+#define SWIGTYPE_p_mfem__QuadratureFunction swig_types[45]
+#define SWIGTYPE_p_mfem__QuadratureFunctionCoefficient swig_types[46]
+#define SWIGTYPE_p_mfem__RatioCoefficient swig_types[47]
+#define SWIGTYPE_p_mfem__RestrictedCoefficient swig_types[48]
+#define SWIGTYPE_p_mfem__ScalarMatrixProductCoefficient swig_types[49]
+#define SWIGTYPE_p_mfem__SumCoefficient swig_types[50]
+#define SWIGTYPE_p_mfem__TransformedCoefficient swig_types[51]
+#define SWIGTYPE_p_mfem__TransposeMatrixCoefficient swig_types[52]
+#define SWIGTYPE_p_mfem__Vector swig_types[53]
+#define SWIGTYPE_p_mfem__VectorRotProductCoefficient swig_types[54]
+#define SWIGTYPE_p_pri_t swig_types[55]
+#define SWIGTYPE_p_quad_t swig_types[56]
+#define SWIGTYPE_p_seg_t swig_types[57]
+#define SWIGTYPE_p_tet_t swig_types[58]
+#define SWIGTYPE_p_tri_t swig_types[59]
+static swig_type_info *swig_types[61];
+static swig_module_info swig_module = {swig_types, 60, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -5240,14 +5243,17 @@ static void *_p_mfem__LinearFormTo_p_mfem__Vector(void *x, int *SWIGUNUSEDPARM(n
 static void *_p_mfem__IsoparametricTransformationTo_p_mfem__ElementTransformation(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((mfem::ElementTransformation *)  ((mfem::IsoparametricTransformation *) x));
 }
+static void *_p_mfem__FaceElementTransformationsTo_p_mfem__ElementTransformation(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((mfem::ElementTransformation *) (mfem::IsoparametricTransformation *) ((mfem::FaceElementTransformations *) x));
+}
 static void *_p_mfem__MatrixPyCoefficientBaseTo_p_mfem__MatrixCoefficient(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((mfem::MatrixCoefficient *) (mfem::MatrixFunctionCoefficient *) ((mfem::MatrixPyCoefficientBase *) x));
 }
-static void *_p_PetraM_Base_extra__MatrixSliceCoefficientTo_p_mfem__MatrixCoefficient(void *x, int *SWIGUNUSEDPARM(newmemory)) {
-    return (void *)((mfem::MatrixCoefficient *)  ((PetraM_Base_extra::MatrixSliceCoefficient *) x));
-}
 static void *_p_PetraM_Base_extra__ComplexInverseMatrixCoefficientTo_p_mfem__MatrixCoefficient(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((mfem::MatrixCoefficient *)  ((PetraM_Base_extra::ComplexInverseMatrixCoefficient *) x));
+}
+static void *_p_mfem__CrossCrossCoefficientTo_p_mfem__MatrixCoefficient(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((mfem::MatrixCoefficient *)  ((mfem::CrossCrossCoefficient *) x));
 }
 static void *_p_mfem__OuterProductCoefficientTo_p_mfem__MatrixCoefficient(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((mfem::MatrixCoefficient *)  ((mfem::OuterProductCoefficient *) x));
@@ -5279,14 +5285,14 @@ static void *_p_mfem__MatrixFunctionCoefficientTo_p_mfem__MatrixCoefficient(void
 static void *_p_mfem__MatrixConstantCoefficientTo_p_mfem__MatrixCoefficient(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((mfem::MatrixCoefficient *)  ((mfem::MatrixConstantCoefficient *) x));
 }
+static void *_p_PetraM_Base_extra__MatrixSliceCoefficientTo_p_mfem__MatrixCoefficient(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((mfem::MatrixCoefficient *)  ((PetraM_Base_extra::MatrixSliceCoefficient *) x));
+}
 static void *_p_PetraM_Base_extra__UniaxialConstantMaterialPropertyTo_p_mfem__MatrixCoefficient(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((mfem::MatrixCoefficient *)  ((PetraM_Base_extra::UniaxialConstantMaterialProperty *) x));
 }
 static void *_p_mfem__PyCoefficientBaseTo_p_mfem__Coefficient(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((mfem::Coefficient *) (mfem::FunctionCoefficient *) ((mfem::PyCoefficientBase *) x));
-}
-static void *_p_mfem__DeterminantCoefficientTo_p_mfem__Coefficient(void *x, int *SWIGUNUSEDPARM(newmemory)) {
-    return (void *)((mfem::Coefficient *)  ((mfem::DeterminantCoefficient *) x));
 }
 static void *_p_mfem__VectorRotProductCoefficientTo_p_mfem__Coefficient(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((mfem::Coefficient *)  ((mfem::VectorRotProductCoefficient *) x));
@@ -5296,6 +5302,9 @@ static void *_p_mfem__InnerProductCoefficientTo_p_mfem__Coefficient(void *x, int
 }
 static void *_p_mfem__PowerCoefficientTo_p_mfem__Coefficient(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((mfem::Coefficient *)  ((mfem::PowerCoefficient *) x));
+}
+static void *_p_mfem__RatioCoefficientTo_p_mfem__Coefficient(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((mfem::Coefficient *)  ((mfem::RatioCoefficient *) x));
 }
 static void *_p_mfem__ProductCoefficientTo_p_mfem__Coefficient(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((mfem::Coefficient *)  ((mfem::ProductCoefficient *) x));
@@ -5327,6 +5336,12 @@ static void *_p_mfem__PWConstCoefficientTo_p_mfem__Coefficient(void *x, int *SWI
 static void *_p_mfem__ConstantCoefficientTo_p_mfem__Coefficient(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((mfem::Coefficient *)  ((mfem::ConstantCoefficient *) x));
 }
+static void *_p_mfem__DeterminantCoefficientTo_p_mfem__Coefficient(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((mfem::Coefficient *)  ((mfem::DeterminantCoefficient *) x));
+}
+static void *_p_mfem__QuadratureFunctionCoefficientTo_p_mfem__Coefficient(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((mfem::Coefficient *)  ((mfem::QuadratureFunctionCoefficient *) x));
+}
 static void *_p_mfem__ExtrudeCoefficientTo_p_mfem__Coefficient(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((mfem::Coefficient *)  ((mfem::ExtrudeCoefficient *) x));
 }
@@ -5344,16 +5359,14 @@ static swig_type_info _swigt__p_PetraM_Base_extra__UniaxialConstantMaterialPrope
 static swig_type_info _swigt__p_PyMFEM__wFILE = {"_p_PyMFEM__wFILE", "PyMFEM::wFILE *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_RefCoord = {"_p_RefCoord", "RefCoord *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_char = {"_p_char", "char *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_doublep = {"_p_doublep", "doublep *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_hex_t = {"_p_hex_t", "hex_t *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_intp = {"_p_intp", "intp *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_mfem__ArrayT_int_t = {"_p_mfem__ArrayT_int_t", "mfem::Array< int > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_mfem__Coefficient = {"_p_mfem__Coefficient", "mfem::Coefficient *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_mfem__PyCoefficientBase = {"_p_mfem__PyCoefficientBase", 0, 0, 0, 0, 0};
-static swig_type_info _swigt__p_mfem__DeterminantCoefficient = {"_p_mfem__DeterminantCoefficient", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_mfem__VectorRotProductCoefficient = {"_p_mfem__VectorRotProductCoefficient", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_mfem__InnerProductCoefficient = {"_p_mfem__InnerProductCoefficient", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_mfem__PowerCoefficient = {"_p_mfem__PowerCoefficient", 0, 0, 0, 0, 0};
+static swig_type_info _swigt__p_mfem__RatioCoefficient = {"_p_mfem__RatioCoefficient", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_mfem__ProductCoefficient = {"_p_mfem__ProductCoefficient", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_mfem__SumCoefficient = {"_p_mfem__SumCoefficient", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_mfem__DivergenceGridFunctionCoefficient = {"_p_mfem__DivergenceGridFunctionCoefficient", 0, 0, 0, 0, 0};
@@ -5364,16 +5377,20 @@ static swig_type_info _swigt__p_mfem__GridFunctionCoefficient = {"_p_mfem__GridF
 static swig_type_info _swigt__p_mfem__FunctionCoefficient = {"_p_mfem__FunctionCoefficient", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_mfem__PWConstCoefficient = {"_p_mfem__PWConstCoefficient", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_mfem__ConstantCoefficient = {"_p_mfem__ConstantCoefficient", 0, 0, 0, 0, 0};
+static swig_type_info _swigt__p_mfem__DeterminantCoefficient = {"_p_mfem__DeterminantCoefficient", 0, 0, 0, 0, 0};
+static swig_type_info _swigt__p_mfem__QuadratureFunctionCoefficient = {"_p_mfem__QuadratureFunctionCoefficient", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_mfem__ExtrudeCoefficient = {"_p_mfem__ExtrudeCoefficient", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_mfem__DenseMatrix = {"_p_mfem__DenseMatrix", "mfem::DenseMatrix *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_mfem__ElementTransformation = {"_p_mfem__ElementTransformation", "mfem::ElementTransformation *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_mfem__IsoparametricTransformation = {"_p_mfem__IsoparametricTransformation", 0, 0, 0, 0, 0};
+static swig_type_info _swigt__p_mfem__FaceElementTransformations = {"_p_mfem__FaceElementTransformations", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_mfem__GridFunction = {"_p_mfem__GridFunction", "mfem::GridFunction *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_mfem__IntegrationPoint = {"_p_mfem__IntegrationPoint", "mfem::IntegrationPoint *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_mfem__IntegrationRule = {"_p_mfem__IntegrationRule", "mfem::IntegrationRule *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_mfem__L2_FECollection = {"_p_mfem__L2_FECollection", "mfem::L2_FECollection *|mfem::DG_FECollection *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_mfem__MatrixCoefficient = {"_p_mfem__MatrixCoefficient", "mfem::MatrixCoefficient *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_mfem__MatrixPyCoefficientBase = {"_p_mfem__MatrixPyCoefficientBase", 0, 0, 0, 0, 0};
+static swig_type_info _swigt__p_mfem__CrossCrossCoefficient = {"_p_mfem__CrossCrossCoefficient", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_mfem__OuterProductCoefficient = {"_p_mfem__OuterProductCoefficient", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_mfem__InverseMatrixCoefficient = {"_p_mfem__InverseMatrixCoefficient", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_mfem__TransposeMatrixCoefficient = {"_p_mfem__TransposeMatrixCoefficient", 0, 0, 0, 0, 0};
@@ -5384,6 +5401,7 @@ static swig_type_info _swigt__p_mfem__MatrixRestrictedCoefficient = {"_p_mfem__M
 static swig_type_info _swigt__p_mfem__MatrixArrayCoefficient = {"_p_mfem__MatrixArrayCoefficient", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_mfem__MatrixFunctionCoefficient = {"_p_mfem__MatrixFunctionCoefficient", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_mfem__MatrixConstantCoefficient = {"_p_mfem__MatrixConstantCoefficient", 0, 0, 0, 0, 0};
+static swig_type_info _swigt__p_mfem__MatrixVectorProductCoefficient = {"_p_mfem__MatrixVectorProductCoefficient", "mfem::MatrixVectorProductCoefficient *|mfem::MatVecCoefficient *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_mfem__OperatorHandle = {"_p_mfem__OperatorHandle", "mfem::OperatorPtr *|mfem::OperatorHandle *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_mfem__Vector = {"_p_mfem__Vector", "mfem::Vector *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_mfem__QuadratureFunction = {"_p_mfem__QuadratureFunction", 0, 0, 0, 0, 0};
@@ -5403,18 +5421,18 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_PyMFEM__wFILE,
   &_swigt__p_RefCoord,
   &_swigt__p_char,
-  &_swigt__p_doublep,
   &_swigt__p_hex_t,
-  &_swigt__p_intp,
   &_swigt__p_mfem__ArrayT_int_t,
   &_swigt__p_mfem__Coefficient,
   &_swigt__p_mfem__ConstantCoefficient,
+  &_swigt__p_mfem__CrossCrossCoefficient,
   &_swigt__p_mfem__DeltaCoefficient,
   &_swigt__p_mfem__DenseMatrix,
   &_swigt__p_mfem__DeterminantCoefficient,
   &_swigt__p_mfem__DivergenceGridFunctionCoefficient,
   &_swigt__p_mfem__ElementTransformation,
   &_swigt__p_mfem__ExtrudeCoefficient,
+  &_swigt__p_mfem__FaceElementTransformations,
   &_swigt__p_mfem__FunctionCoefficient,
   &_swigt__p_mfem__GridFunction,
   &_swigt__p_mfem__GridFunctionCoefficient,
@@ -5433,6 +5451,7 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_mfem__MatrixPyCoefficientBase,
   &_swigt__p_mfem__MatrixRestrictedCoefficient,
   &_swigt__p_mfem__MatrixSumCoefficient,
+  &_swigt__p_mfem__MatrixVectorProductCoefficient,
   &_swigt__p_mfem__OperatorHandle,
   &_swigt__p_mfem__OuterProductCoefficient,
   &_swigt__p_mfem__PWConstCoefficient,
@@ -5440,6 +5459,8 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_mfem__ProductCoefficient,
   &_swigt__p_mfem__PyCoefficientBase,
   &_swigt__p_mfem__QuadratureFunction,
+  &_swigt__p_mfem__QuadratureFunctionCoefficient,
+  &_swigt__p_mfem__RatioCoefficient,
   &_swigt__p_mfem__RestrictedCoefficient,
   &_swigt__p_mfem__ScalarMatrixProductCoefficient,
   &_swigt__p_mfem__SumCoefficient,
@@ -5462,15 +5483,13 @@ static swig_cast_info _swigc__p_PetraM_Base_extra__UniaxialConstantMaterialPrope
 static swig_cast_info _swigc__p_PyMFEM__wFILE[] = {  {&_swigt__p_PyMFEM__wFILE, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_RefCoord[] = {  {&_swigt__p_RefCoord, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_char[] = {  {&_swigt__p_char, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_doublep[] = {  {&_swigt__p_doublep, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_hex_t[] = {  {&_swigt__p_hex_t, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_intp[] = {  {&_swigt__p_intp, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_mfem__ArrayT_int_t[] = {  {&_swigt__p_mfem__ArrayT_int_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_mfem__PyCoefficientBase[] = {{&_swigt__p_mfem__PyCoefficientBase, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_mfem__DeterminantCoefficient[] = {{&_swigt__p_mfem__DeterminantCoefficient, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_mfem__VectorRotProductCoefficient[] = {{&_swigt__p_mfem__VectorRotProductCoefficient, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_mfem__InnerProductCoefficient[] = {{&_swigt__p_mfem__InnerProductCoefficient, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_mfem__PowerCoefficient[] = {{&_swigt__p_mfem__PowerCoefficient, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_mfem__RatioCoefficient[] = {{&_swigt__p_mfem__RatioCoefficient, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_mfem__ProductCoefficient[] = {{&_swigt__p_mfem__ProductCoefficient, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_mfem__SumCoefficient[] = {{&_swigt__p_mfem__SumCoefficient, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_mfem__DivergenceGridFunctionCoefficient[] = {{&_swigt__p_mfem__DivergenceGridFunctionCoefficient, 0, 0, 0},{0, 0, 0, 0}};
@@ -5481,16 +5500,20 @@ static swig_cast_info _swigc__p_mfem__GridFunctionCoefficient[] = {{&_swigt__p_m
 static swig_cast_info _swigc__p_mfem__FunctionCoefficient[] = {{&_swigt__p_mfem__FunctionCoefficient, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_mfem__PWConstCoefficient[] = {{&_swigt__p_mfem__PWConstCoefficient, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_mfem__ConstantCoefficient[] = {{&_swigt__p_mfem__ConstantCoefficient, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_mfem__DeterminantCoefficient[] = {{&_swigt__p_mfem__DeterminantCoefficient, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_mfem__QuadratureFunctionCoefficient[] = {{&_swigt__p_mfem__QuadratureFunctionCoefficient, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_mfem__ExtrudeCoefficient[] = {{&_swigt__p_mfem__ExtrudeCoefficient, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_mfem__Coefficient[] = {  {&_swigt__p_mfem__PyCoefficientBase, _p_mfem__PyCoefficientBaseTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_mfem__DeterminantCoefficient, _p_mfem__DeterminantCoefficientTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_mfem__VectorRotProductCoefficient, _p_mfem__VectorRotProductCoefficientTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_mfem__InnerProductCoefficient, _p_mfem__InnerProductCoefficientTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_mfem__PowerCoefficient, _p_mfem__PowerCoefficientTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_mfem__ProductCoefficient, _p_mfem__ProductCoefficientTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_mfem__SumCoefficient, _p_mfem__SumCoefficientTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_mfem__DivergenceGridFunctionCoefficient, _p_mfem__DivergenceGridFunctionCoefficientTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_mfem__RestrictedCoefficient, _p_mfem__RestrictedCoefficientTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_mfem__DeltaCoefficient, _p_mfem__DeltaCoefficientTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_mfem__TransformedCoefficient, _p_mfem__TransformedCoefficientTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_mfem__GridFunctionCoefficient, _p_mfem__GridFunctionCoefficientTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_mfem__FunctionCoefficient, _p_mfem__FunctionCoefficientTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_mfem__Coefficient, 0, 0, 0},  {&_swigt__p_mfem__PWConstCoefficient, _p_mfem__PWConstCoefficientTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_mfem__ConstantCoefficient, _p_mfem__ConstantCoefficientTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_mfem__ExtrudeCoefficient, _p_mfem__ExtrudeCoefficientTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_PetraM_Base_extra__Poly1DMaterialProperty, _p_PetraM_Base_extra__Poly1DMaterialPropertyTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_PetraM_Base_extra__PiecewiseLinearMaterialProperty, _p_PetraM_Base_extra__PiecewiseLinearMaterialPropertyTo_p_mfem__Coefficient, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_mfem__Coefficient[] = {  {&_swigt__p_mfem__PyCoefficientBase, _p_mfem__PyCoefficientBaseTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_mfem__VectorRotProductCoefficient, _p_mfem__VectorRotProductCoefficientTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_mfem__InnerProductCoefficient, _p_mfem__InnerProductCoefficientTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_mfem__PowerCoefficient, _p_mfem__PowerCoefficientTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_mfem__RatioCoefficient, _p_mfem__RatioCoefficientTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_mfem__ProductCoefficient, _p_mfem__ProductCoefficientTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_mfem__SumCoefficient, _p_mfem__SumCoefficientTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_mfem__DivergenceGridFunctionCoefficient, _p_mfem__DivergenceGridFunctionCoefficientTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_mfem__RestrictedCoefficient, _p_mfem__RestrictedCoefficientTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_mfem__DeltaCoefficient, _p_mfem__DeltaCoefficientTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_mfem__TransformedCoefficient, _p_mfem__TransformedCoefficientTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_mfem__GridFunctionCoefficient, _p_mfem__GridFunctionCoefficientTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_mfem__FunctionCoefficient, _p_mfem__FunctionCoefficientTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_mfem__Coefficient, 0, 0, 0},  {&_swigt__p_mfem__PWConstCoefficient, _p_mfem__PWConstCoefficientTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_mfem__ConstantCoefficient, _p_mfem__ConstantCoefficientTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_mfem__DeterminantCoefficient, _p_mfem__DeterminantCoefficientTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_mfem__QuadratureFunctionCoefficient, _p_mfem__QuadratureFunctionCoefficientTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_mfem__ExtrudeCoefficient, _p_mfem__ExtrudeCoefficientTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_PetraM_Base_extra__Poly1DMaterialProperty, _p_PetraM_Base_extra__Poly1DMaterialPropertyTo_p_mfem__Coefficient, 0, 0},  {&_swigt__p_PetraM_Base_extra__PiecewiseLinearMaterialProperty, _p_PetraM_Base_extra__PiecewiseLinearMaterialPropertyTo_p_mfem__Coefficient, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_mfem__DenseMatrix[] = {  {&_swigt__p_mfem__DenseMatrix, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_mfem__IsoparametricTransformation[] = {{&_swigt__p_mfem__IsoparametricTransformation, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_mfem__ElementTransformation[] = {  {&_swigt__p_mfem__ElementTransformation, 0, 0, 0},  {&_swigt__p_mfem__IsoparametricTransformation, _p_mfem__IsoparametricTransformationTo_p_mfem__ElementTransformation, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_mfem__FaceElementTransformations[] = {{&_swigt__p_mfem__FaceElementTransformations, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_mfem__ElementTransformation[] = {  {&_swigt__p_mfem__ElementTransformation, 0, 0, 0},  {&_swigt__p_mfem__IsoparametricTransformation, _p_mfem__IsoparametricTransformationTo_p_mfem__ElementTransformation, 0, 0},  {&_swigt__p_mfem__FaceElementTransformations, _p_mfem__FaceElementTransformationsTo_p_mfem__ElementTransformation, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_mfem__GridFunction[] = {  {&_swigt__p_mfem__GridFunction, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_mfem__IntegrationPoint[] = {  {&_swigt__p_mfem__IntegrationPoint, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_mfem__IntegrationRule[] = {  {&_swigt__p_mfem__IntegrationRule, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_mfem__L2_FECollection[] = {  {&_swigt__p_mfem__L2_FECollection, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_mfem__MatrixPyCoefficientBase[] = {{&_swigt__p_mfem__MatrixPyCoefficientBase, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_mfem__CrossCrossCoefficient[] = {{&_swigt__p_mfem__CrossCrossCoefficient, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_mfem__OuterProductCoefficient[] = {{&_swigt__p_mfem__OuterProductCoefficient, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_mfem__InverseMatrixCoefficient[] = {{&_swigt__p_mfem__InverseMatrixCoefficient, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_mfem__TransposeMatrixCoefficient[] = {{&_swigt__p_mfem__TransposeMatrixCoefficient, 0, 0, 0},{0, 0, 0, 0}};
@@ -5501,7 +5524,8 @@ static swig_cast_info _swigc__p_mfem__MatrixRestrictedCoefficient[] = {{&_swigt_
 static swig_cast_info _swigc__p_mfem__MatrixArrayCoefficient[] = {{&_swigt__p_mfem__MatrixArrayCoefficient, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_mfem__MatrixFunctionCoefficient[] = {{&_swigt__p_mfem__MatrixFunctionCoefficient, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_mfem__MatrixConstantCoefficient[] = {{&_swigt__p_mfem__MatrixConstantCoefficient, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_mfem__MatrixCoefficient[] = {  {&_swigt__p_mfem__MatrixPyCoefficientBase, _p_mfem__MatrixPyCoefficientBaseTo_p_mfem__MatrixCoefficient, 0, 0},  {&_swigt__p_PetraM_Base_extra__MatrixSliceCoefficient, _p_PetraM_Base_extra__MatrixSliceCoefficientTo_p_mfem__MatrixCoefficient, 0, 0},  {&_swigt__p_mfem__OuterProductCoefficient, _p_mfem__OuterProductCoefficientTo_p_mfem__MatrixCoefficient, 0, 0},  {&_swigt__p_mfem__InverseMatrixCoefficient, _p_mfem__InverseMatrixCoefficientTo_p_mfem__MatrixCoefficient, 0, 0},  {&_swigt__p_mfem__TransposeMatrixCoefficient, _p_mfem__TransposeMatrixCoefficientTo_p_mfem__MatrixCoefficient, 0, 0},  {&_swigt__p_mfem__ScalarMatrixProductCoefficient, _p_mfem__ScalarMatrixProductCoefficientTo_p_mfem__MatrixCoefficient, 0, 0},  {&_swigt__p_mfem__MatrixSumCoefficient, _p_mfem__MatrixSumCoefficientTo_p_mfem__MatrixCoefficient, 0, 0},  {&_swigt__p_mfem__IdentityMatrixCoefficient, _p_mfem__IdentityMatrixCoefficientTo_p_mfem__MatrixCoefficient, 0, 0},  {&_swigt__p_mfem__MatrixRestrictedCoefficient, _p_mfem__MatrixRestrictedCoefficientTo_p_mfem__MatrixCoefficient, 0, 0},  {&_swigt__p_mfem__MatrixArrayCoefficient, _p_mfem__MatrixArrayCoefficientTo_p_mfem__MatrixCoefficient, 0, 0},  {&_swigt__p_mfem__MatrixFunctionCoefficient, _p_mfem__MatrixFunctionCoefficientTo_p_mfem__MatrixCoefficient, 0, 0},  {&_swigt__p_mfem__MatrixConstantCoefficient, _p_mfem__MatrixConstantCoefficientTo_p_mfem__MatrixCoefficient, 0, 0},  {&_swigt__p_mfem__MatrixCoefficient, 0, 0, 0},  {&_swigt__p_PetraM_Base_extra__UniaxialConstantMaterialProperty, _p_PetraM_Base_extra__UniaxialConstantMaterialPropertyTo_p_mfem__MatrixCoefficient, 0, 0},  {&_swigt__p_PetraM_Base_extra__ComplexInverseMatrixCoefficient, _p_PetraM_Base_extra__ComplexInverseMatrixCoefficientTo_p_mfem__MatrixCoefficient, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_mfem__MatrixCoefficient[] = {  {&_swigt__p_mfem__MatrixPyCoefficientBase, _p_mfem__MatrixPyCoefficientBaseTo_p_mfem__MatrixCoefficient, 0, 0},  {&_swigt__p_PetraM_Base_extra__MatrixSliceCoefficient, _p_PetraM_Base_extra__MatrixSliceCoefficientTo_p_mfem__MatrixCoefficient, 0, 0},  {&_swigt__p_mfem__CrossCrossCoefficient, _p_mfem__CrossCrossCoefficientTo_p_mfem__MatrixCoefficient, 0, 0},  {&_swigt__p_mfem__OuterProductCoefficient, _p_mfem__OuterProductCoefficientTo_p_mfem__MatrixCoefficient, 0, 0},  {&_swigt__p_mfem__InverseMatrixCoefficient, _p_mfem__InverseMatrixCoefficientTo_p_mfem__MatrixCoefficient, 0, 0},  {&_swigt__p_mfem__TransposeMatrixCoefficient, _p_mfem__TransposeMatrixCoefficientTo_p_mfem__MatrixCoefficient, 0, 0},  {&_swigt__p_mfem__ScalarMatrixProductCoefficient, _p_mfem__ScalarMatrixProductCoefficientTo_p_mfem__MatrixCoefficient, 0, 0},  {&_swigt__p_mfem__MatrixSumCoefficient, _p_mfem__MatrixSumCoefficientTo_p_mfem__MatrixCoefficient, 0, 0},  {&_swigt__p_mfem__IdentityMatrixCoefficient, _p_mfem__IdentityMatrixCoefficientTo_p_mfem__MatrixCoefficient, 0, 0},  {&_swigt__p_mfem__MatrixRestrictedCoefficient, _p_mfem__MatrixRestrictedCoefficientTo_p_mfem__MatrixCoefficient, 0, 0},  {&_swigt__p_mfem__MatrixArrayCoefficient, _p_mfem__MatrixArrayCoefficientTo_p_mfem__MatrixCoefficient, 0, 0},  {&_swigt__p_mfem__MatrixFunctionCoefficient, _p_mfem__MatrixFunctionCoefficientTo_p_mfem__MatrixCoefficient, 0, 0},  {&_swigt__p_mfem__MatrixConstantCoefficient, _p_mfem__MatrixConstantCoefficientTo_p_mfem__MatrixCoefficient, 0, 0},  {&_swigt__p_mfem__MatrixCoefficient, 0, 0, 0},  {&_swigt__p_PetraM_Base_extra__UniaxialConstantMaterialProperty, _p_PetraM_Base_extra__UniaxialConstantMaterialPropertyTo_p_mfem__MatrixCoefficient, 0, 0},  {&_swigt__p_PetraM_Base_extra__ComplexInverseMatrixCoefficient, _p_PetraM_Base_extra__ComplexInverseMatrixCoefficientTo_p_mfem__MatrixCoefficient, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_mfem__MatrixVectorProductCoefficient[] = {  {&_swigt__p_mfem__MatrixVectorProductCoefficient, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_mfem__OperatorHandle[] = {  {&_swigt__p_mfem__OperatorHandle, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_mfem__QuadratureFunction[] = {{&_swigt__p_mfem__QuadratureFunction, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_mfem__LinearForm[] = {{&_swigt__p_mfem__LinearForm, 0, 0, 0},{0, 0, 0, 0}};
@@ -5521,18 +5545,18 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_PyMFEM__wFILE,
   _swigc__p_RefCoord,
   _swigc__p_char,
-  _swigc__p_doublep,
   _swigc__p_hex_t,
-  _swigc__p_intp,
   _swigc__p_mfem__ArrayT_int_t,
   _swigc__p_mfem__Coefficient,
   _swigc__p_mfem__ConstantCoefficient,
+  _swigc__p_mfem__CrossCrossCoefficient,
   _swigc__p_mfem__DeltaCoefficient,
   _swigc__p_mfem__DenseMatrix,
   _swigc__p_mfem__DeterminantCoefficient,
   _swigc__p_mfem__DivergenceGridFunctionCoefficient,
   _swigc__p_mfem__ElementTransformation,
   _swigc__p_mfem__ExtrudeCoefficient,
+  _swigc__p_mfem__FaceElementTransformations,
   _swigc__p_mfem__FunctionCoefficient,
   _swigc__p_mfem__GridFunction,
   _swigc__p_mfem__GridFunctionCoefficient,
@@ -5551,6 +5575,7 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_mfem__MatrixPyCoefficientBase,
   _swigc__p_mfem__MatrixRestrictedCoefficient,
   _swigc__p_mfem__MatrixSumCoefficient,
+  _swigc__p_mfem__MatrixVectorProductCoefficient,
   _swigc__p_mfem__OperatorHandle,
   _swigc__p_mfem__OuterProductCoefficient,
   _swigc__p_mfem__PWConstCoefficient,
@@ -5558,6 +5583,8 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_mfem__ProductCoefficient,
   _swigc__p_mfem__PyCoefficientBase,
   _swigc__p_mfem__QuadratureFunction,
+  _swigc__p_mfem__QuadratureFunctionCoefficient,
+  _swigc__p_mfem__RatioCoefficient,
   _swigc__p_mfem__RestrictedCoefficient,
   _swigc__p_mfem__ScalarMatrixProductCoefficient,
   _swigc__p_mfem__SumCoefficient,
