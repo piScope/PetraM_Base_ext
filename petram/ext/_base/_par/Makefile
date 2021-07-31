@@ -15,7 +15,7 @@ so:
 
 %_wrap.cxx: %.i
 	echo "Processing" $<
-	$(SWIG) $(SWIGFLAG) -I$(PYMFEM_SRC)/mfem/_par -I$(MFEM_PAR_INC)/mfem -I$(MPI4PYINCDIR)  $<
+	$(SWIG) $(SWIGFLAG) -I${PREFIX}/include -I$(PYMFEM_SRC)/mfem/_par -I$(MFEM_PAR_INC)/mfem -I$(MPI4PYINCDIR)  $<
 
 clean:
 	rm -f *.cxx

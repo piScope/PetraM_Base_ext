@@ -14,7 +14,7 @@ so:
 	CFLAGS=${CXXFLAGS} LDFLAGS=${LDFLAGS} $(PYTHON) setup.py build_ext --inplace
 
 %_wrap.cxx: %.i
-	$(SWIG) $(SWIGFLAG) -I$(PYMFEM_SRC)/mfem/_ser  -I$(MFEM_SER_INC)/mfem  $<
+	$(SWIG) $(SWIGFLAG) -I${PREFIX}/include -I$(PYMFEM_SRC)/mfem/_ser  -I$(MFEM_SER_INC)/mfem  $<
 
 clean:
 	rm -f *.cxx

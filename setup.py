@@ -17,7 +17,7 @@ with open(path.join(here, 'README')) as f:
     
 setup(
     name='PetraM_Base_ext',
-    version='1.1',
+    version='1.2',
     description='PetraM_Base_ext',
     long_description=long_description,
     url='https://github.com/piScope/PetraM_Base_ext',
