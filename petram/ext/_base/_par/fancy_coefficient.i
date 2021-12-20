@@ -2,7 +2,7 @@
 %{
 #include "mfem.hpp"
 #include "numpy/arrayobject.h"
-#include "pycoefficient.hpp"
+#include "../common/pycoefficient.hpp"  
 #include "../../../../ext/fancy_coefficient.hpp"
 %}
 
